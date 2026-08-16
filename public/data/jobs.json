@@ -1,7 +1,204 @@
 {
-  "lastScan": "2026-08-16T01:53:41.600Z",
-  "scanCount": 7,
+  "lastScan": "2026-08-16T02:08:08.958Z",
+  "scanCount": 8,
   "jobs": [
+    {
+      "id": "4395474367",
+      "title": "Senior High-Speed IO Validation Engineer",
+      "company": "NVIDIA",
+      "location": "Santa Clara, CA",
+      "workplaceType": "Remote",
+      "isTop100": true,
+      "isPittsburgh": false,
+      "matchScore": 25,
+      "scoreConfidence": "high",
+      "scoreBreakdown": {
+        "role": 20,
+        "seniority": 18,
+        "tech": 7,
+        "domain": 0
+      },
+      "matchedSkills": [
+        "Python / Pytest"
+      ],
+      "companyApplyUrl": "https://www.google.com/search?q=NVIDIA%20careers%20Senior%20High-Speed%20IO%20Validation%20Engineer%20apply",
+      "atsProvider": "google-jobs-search",
+      "applySource": "google-fallback",
+      "applyConfidence": 0.6,
+      "url": "https://www.linkedin.com/jobs/view/senior-high-speed-io-validation-engineer-at-nvidia-4395474367",
+      "datePosted": "2026-08-15",
+      "listDate": "8 hours ago",
+      "firstSeen": "2026-08-16T02:08:08.952Z",
+      "lastSeen": "2026-08-16T02:08:08.952Z"
+    },
+    {
+      "id": "4444345454",
+      "title": "SoC/Validation Engineer",
+      "company": "Qualcomm",
+      "location": "San Diego, CA",
+      "workplaceType": "Remote",
+      "isTop100": true,
+      "isPittsburgh": false,
+      "matchScore": 39,
+      "scoreConfidence": "high",
+      "scoreBreakdown": {
+        "role": 20,
+        "seniority": 14,
+        "tech": 5,
+        "domain": 0
+      },
+      "matchedSkills": [
+        "REST / GraphQL API"
+      ],
+      "companyApplyUrl": "https://www.google.com/search?q=Qualcomm%20careers%20SoC%2FValidation%20Engineer%20apply",
+      "atsProvider": "google-jobs-search",
+      "applySource": "google-fallback",
+      "applyConfidence": 0.6,
+      "url": "https://www.linkedin.com/jobs/view/soc-validation-engineer-at-qualcomm-4444345454",
+      "datePosted": "2026-08-15",
+      "listDate": "15 hours ago",
+      "firstSeen": "2026-08-16T02:08:08.952Z",
+      "lastSeen": "2026-08-16T02:08:08.952Z"
+    },
+    {
+      "id": "4441885963",
+      "title": "Silicon Validation Engineer, Infra Silicon",
+      "company": "Meta",
+      "location": "Sunnyvale, CA",
+      "workplaceType": "Remote",
+      "isTop100": true,
+      "isPittsburgh": false,
+      "matchScore": 25,
+      "scoreConfidence": "high",
+      "scoreBreakdown": {
+        "role": 20,
+        "seniority": 20,
+        "tech": 0,
+        "domain": 0
+      },
+      "matchedSkills": [],
+      "companyApplyUrl": "https://www.metacareers.com/jobs",
+      "atsProvider": "corporate-portal",
+      "applySource": "company-career-portal",
+      "applyConfidence": 0.88,
+      "url": "https://www.linkedin.com/jobs/view/silicon-validation-engineer-infra-silicon-at-meta-4441885963",
+      "datePosted": "2026-08-15",
+      "listDate": "13 hours ago",
+      "firstSeen": "2026-08-16T02:08:08.952Z",
+      "lastSeen": "2026-08-16T02:08:08.952Z"
+    },
+    {
+      "id": "4340386901",
+      "title": "Computer System Validation Engineer",
+      "company": "Avid Bioservices",
+      "location": "Tustin, CA",
+      "workplaceType": "Remote",
+      "isTop100": false,
+      "isPittsburgh": false,
+      "matchScore": 38,
+      "scoreConfidence": "high",
+      "scoreBreakdown": {
+        "role": 20,
+        "seniority": 14,
+        "tech": 0,
+        "domain": 4
+      },
+      "matchedSkills": [
+        "Validation / CSV"
+      ],
+      "companyApplyUrl": "https://www.google.com/search?q=Avid%20Bioservices%20careers%20Computer%20System%20Validation%20Engineer%20apply",
+      "atsProvider": "google-jobs-search",
+      "applySource": "google-fallback",
+      "applyConfidence": 0.6,
+      "url": "https://www.linkedin.com/jobs/view/computer-system-validation-engineer-at-avid-bioservices-4340386901",
+      "datePosted": "2026-08-15",
+      "listDate": "9 hours ago",
+      "firstSeen": "2026-08-16T02:08:08.952Z",
+      "lastSeen": "2026-08-16T02:08:08.952Z"
+    },
+    {
+      "id": "4441876202",
+      "title": "AI Validation and Test Engineer",
+      "company": "AMD",
+      "location": "Secaucus, NJ",
+      "workplaceType": "Remote",
+      "isTop100": true,
+      "isPittsburgh": false,
+      "matchScore": 25,
+      "scoreConfidence": "high",
+      "scoreBreakdown": {
+        "role": 18,
+        "seniority": 20,
+        "tech": 0,
+        "domain": 0
+      },
+      "matchedSkills": [],
+      "companyApplyUrl": "https://www.google.com/search?q=AMD%20careers%20AI%20Validation%20and%20Test%20Engineer%20apply",
+      "atsProvider": "google-jobs-search",
+      "applySource": "google-fallback",
+      "applyConfidence": 0.6,
+      "url": "https://www.linkedin.com/jobs/view/ai-validation-and-test-engineer-at-amd-4441876202",
+      "datePosted": "2026-08-15",
+      "listDate": "16 hours ago",
+      "firstSeen": "2026-08-16T02:08:08.952Z",
+      "lastSeen": "2026-08-16T02:08:08.952Z"
+    },
+    {
+      "id": "4407302204",
+      "title": "Sr. Software Validation and HIL Engineer, Power Electronics",
+      "company": "Rivian",
+      "location": "Torrance, CA",
+      "workplaceType": "Remote",
+      "isTop100": false,
+      "isPittsburgh": false,
+      "matchScore": 42,
+      "scoreConfidence": "low",
+      "scoreBreakdown": {
+        "role": 20,
+        "seniority": 18,
+        "tech": 0,
+        "domain": 4
+      },
+      "matchedSkills": [
+        "Validation / CSV"
+      ],
+      "companyApplyUrl": "https://www.google.com/search?q=Rivian%20careers%20Sr.%20Software%20Validation%20and%20HIL%20Engineer%2C%20Power%20Electronics%20apply",
+      "atsProvider": "google-jobs-search",
+      "applySource": "google-fallback",
+      "applyConfidence": 0.6,
+      "url": "https://www.linkedin.com/jobs/view/sr-software-validation-and-hil-engineer-power-electronics-at-rivian-4407302204",
+      "datePosted": "2026-08-15",
+      "listDate": "15 hours ago",
+      "firstSeen": "2026-08-16T02:08:08.952Z",
+      "lastSeen": "2026-08-16T02:08:08.952Z"
+    },
+    {
+      "id": "4441891064",
+      "title": "Quality Assurance Tester",
+      "company": "MANTECH",
+      "location": "Montgomery, AL",
+      "workplaceType": "Remote",
+      "isTop100": false,
+      "isPittsburgh": false,
+      "matchScore": 32,
+      "scoreConfidence": "low",
+      "scoreBreakdown": {
+        "role": 18,
+        "seniority": 14,
+        "tech": 0,
+        "domain": 0
+      },
+      "matchedSkills": [],
+      "companyApplyUrl": "https://www.google.com/search?q=MANTECH%20careers%20Quality%20Assurance%20Tester%20apply",
+      "atsProvider": "google-jobs-search",
+      "applySource": "google-fallback",
+      "applyConfidence": 0.6,
+      "url": "https://www.linkedin.com/jobs/view/quality-assurance-tester-at-mantech-4441891064",
+      "datePosted": "2026-08-15",
+      "listDate": "13 hours ago",
+      "firstSeen": "2026-08-16T02:08:08.952Z",
+      "lastSeen": "2026-08-16T02:08:08.952Z"
+    },
     {
       "id": "4435280573",
       "title": "Senior Software Development Engineer in Test, Confidential Computing - SDET",
@@ -10,12 +207,12 @@
       "workplaceType": "Remote",
       "isTop100": true,
       "isPittsburgh": false,
-      "matchScore": 61,
-      "scoreConfidence": "medium",
+      "matchScore": 43,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 25,
         "seniority": 18,
-        "tech": 18,
+        "tech": 0,
         "domain": 0
       },
       "matchedSkills": [],
@@ -37,12 +234,12 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 63,
-      "scoreConfidence": "medium",
+      "matchScore": 45,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 25,
         "seniority": 20,
-        "tech": 18,
+        "tech": 0,
         "domain": 0
       },
       "matchedSkills": [],
@@ -64,8 +261,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 32,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 14,
@@ -81,7 +278,7 @@
       "datePosted": "2026-08-15",
       "listDate": "8 hours ago",
       "firstSeen": "2026-08-16T01:52:35.515Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4413370298",
@@ -91,8 +288,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 26,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 12,
         "seniority": 14,
@@ -108,7 +305,7 @@
       "datePosted": "2026-08-15",
       "listDate": "14 hours ago",
       "firstSeen": "2026-08-16T01:52:35.515Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4417401708",
@@ -118,8 +315,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 36,
+      "scoreConfidence": "high",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 18,
@@ -135,7 +332,7 @@
       "datePosted": "2026-08-15",
       "listDate": "12 hours ago",
       "firstSeen": "2026-08-16T01:52:35.515Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4441833345",
@@ -145,8 +342,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 32,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 14,
@@ -160,9 +357,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/quality-engineer-at-jobot-4441833345",
       "datePosted": "2026-08-15",
-      "listDate": "16 hours ago",
+      "listDate": "17 hours ago",
       "firstSeen": "2026-08-16T01:52:35.515Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4427068816",
@@ -172,8 +369,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 36,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 18,
@@ -189,7 +386,7 @@
       "datePosted": "2026-08-15",
       "listDate": "10 hours ago",
       "firstSeen": "2026-08-16T01:52:35.515Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4444342427",
@@ -199,8 +396,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 32,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 14,
@@ -214,9 +411,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/quality-engineer-at-socomec-group-4444342427",
       "datePosted": "2026-08-15",
-      "listDate": "13 hours ago",
+      "listDate": "14 hours ago",
       "firstSeen": "2026-08-16T01:52:35.515Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4454853549",
@@ -226,8 +423,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 36,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 18,
@@ -243,7 +440,7 @@
       "datePosted": "2026-08-15",
       "listDate": "21 hours ago",
       "firstSeen": "2026-08-16T01:52:35.515Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4436446098",
@@ -253,8 +450,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 30,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 12,
         "seniority": 18,
@@ -270,7 +467,7 @@
       "datePosted": "2026-08-15",
       "listDate": "16 hours ago",
       "firstSeen": "2026-08-16T01:52:35.515Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4436409441",
@@ -280,8 +477,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 32,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 12,
         "seniority": 20,
@@ -297,7 +494,7 @@
       "datePosted": "2026-08-15",
       "listDate": "8 hours ago",
       "firstSeen": "2026-08-16T01:52:35.515Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4444660375",
@@ -307,8 +504,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 26,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 12,
         "seniority": 14,
@@ -324,7 +521,7 @@
       "datePosted": "2026-08-15",
       "listDate": "8 hours ago",
       "firstSeen": "2026-08-16T01:52:35.515Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4454867212",
@@ -334,8 +531,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 38,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 20,
@@ -351,7 +548,7 @@
       "datePosted": "2026-08-15",
       "listDate": "21 hours ago",
       "firstSeen": "2026-08-16T01:52:35.515Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4455154028",
@@ -361,8 +558,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 32,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 12,
         "seniority": 20,
@@ -378,7 +575,7 @@
       "datePosted": "2026-08-15",
       "listDate": "6 hours ago",
       "firstSeen": "2026-08-16T01:52:35.515Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4416733152",
@@ -388,8 +585,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 26,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 12,
         "seniority": 14,
@@ -403,9 +600,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/quality-manager-at-epic-4416733152",
       "datePosted": "2026-08-15",
-      "listDate": "6 hours ago",
+      "listDate": "7 hours ago",
       "firstSeen": "2026-08-16T01:52:35.515Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4454850926",
@@ -415,8 +612,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 32,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 14,
@@ -432,7 +629,7 @@
       "datePosted": "2026-08-15",
       "listDate": "22 hours ago",
       "firstSeen": "2026-08-16T01:52:35.515Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4441845648",
@@ -442,8 +639,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 32,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 12,
         "seniority": 20,
@@ -459,7 +656,7 @@
       "datePosted": "2026-08-15",
       "listDate": "9 hours ago",
       "firstSeen": "2026-08-16T01:52:35.515Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4451296480",
@@ -469,8 +666,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 36,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 18,
@@ -496,8 +693,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 32,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 14,
@@ -523,12 +720,12 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 56,
-      "scoreConfidence": "medium",
+      "matchScore": 38,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 20,
         "seniority": 18,
-        "tech": 18,
+        "tech": 0,
         "domain": 0
       },
       "matchedSkills": [],
@@ -540,7 +737,7 @@
       "datePosted": "2026-08-15",
       "listDate": "22 hours ago",
       "firstSeen": "2026-08-16T01:52:35.515Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4444612713",
@@ -550,12 +747,12 @@
       "workplaceType": "Remote",
       "isTop100": true,
       "isPittsburgh": false,
-      "matchScore": 54,
-      "scoreConfidence": "medium",
+      "matchScore": 36,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 22,
         "seniority": 14,
-        "tech": 18,
+        "tech": 0,
         "domain": 0
       },
       "matchedSkills": [],
@@ -567,7 +764,7 @@
       "datePosted": "2026-08-15",
       "listDate": "14 hours ago",
       "firstSeen": "2026-08-16T01:52:35.515Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4445247481",
@@ -577,8 +774,8 @@
       "workplaceType": "Remote",
       "isTop100": true,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 30,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 12,
         "seniority": 18,
@@ -604,8 +801,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 26,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 12,
         "seniority": 14,
@@ -631,8 +828,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 32,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 14,
@@ -658,8 +855,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 26,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 12,
         "seniority": 14,
@@ -685,8 +882,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 38,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 20,
@@ -712,15 +909,20 @@
       "workplaceType": "Pittsburgh Area",
       "isTop100": true,
       "isPittsburgh": true,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 67,
+      "scoreConfidence": "high",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 20,
-        "tech": 0,
-        "domain": 0
+        "tech": 26,
+        "domain": 3
       },
-      "matchedSkills": [],
+      "matchedSkills": [
+        "Python / Pytest",
+        "CI/CD Jenkins",
+        "REST / GraphQL API",
+        "SQL / Database"
+      ],
       "companyApplyUrl": "https://careers.pnc.com/",
       "atsProvider": "workday",
       "applySource": "company-career-portal",
@@ -729,7 +931,7 @@
       "datePosted": "2026-08-15",
       "listDate": "11 hours ago",
       "firstSeen": "2026-08-15T23:57:43.156Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4454838818",
@@ -740,7 +942,7 @@
       "isTop100": true,
       "isPittsburgh": true,
       "matchScore": 40,
-      "scoreConfidence": "medium",
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 18,
@@ -768,8 +970,8 @@
       "workplaceType": "Pittsburgh Area",
       "isTop100": false,
       "isPittsburgh": true,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 32,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 14,
@@ -795,12 +997,12 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 61,
-      "scoreConfidence": "medium",
+      "matchScore": 43,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 25,
         "seniority": 18,
-        "tech": 18,
+        "tech": 0,
         "domain": 0
       },
       "matchedSkills": [],
@@ -812,7 +1014,7 @@
       "datePosted": "2026-08-15",
       "listDate": "12 hours ago",
       "firstSeen": "2026-08-15T23:57:43.155Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4454807737",
@@ -822,12 +1024,12 @@
       "workplaceType": "Remote",
       "isTop100": true,
       "isPittsburgh": false,
-      "matchScore": 58,
-      "scoreConfidence": "medium",
+      "matchScore": 40,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 22,
         "seniority": 18,
-        "tech": 18,
+        "tech": 0,
         "domain": 0
       },
       "matchedSkills": [],
@@ -849,8 +1051,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 32,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 14,
@@ -876,8 +1078,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 36,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 18,
@@ -893,7 +1095,7 @@
       "datePosted": "2026-08-15",
       "listDate": "14 hours ago",
       "firstSeen": "2026-08-15T23:57:43.155Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4431981443",
@@ -903,8 +1105,8 @@
       "workplaceType": "Remote",
       "isTop100": true,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 26,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 12,
         "seniority": 14,
@@ -930,8 +1132,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 36,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 18,
@@ -957,8 +1159,8 @@
       "workplaceType": "Remote",
       "isTop100": true,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 26,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 12,
         "seniority": 14,
@@ -984,12 +1186,12 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 52,
-      "scoreConfidence": "medium",
+      "matchScore": 34,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 20,
         "seniority": 14,
-        "tech": 18,
+        "tech": 0,
         "domain": 0
       },
       "matchedSkills": [],
@@ -1011,8 +1213,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 32,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 14,
@@ -1028,7 +1230,7 @@
       "datePosted": "2026-08-15",
       "listDate": "11 hours ago",
       "firstSeen": "2026-08-15T23:57:43.154Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4407047258",
@@ -1038,8 +1240,8 @@
       "workplaceType": "Remote",
       "isTop100": true,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 38,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 20,
@@ -1065,8 +1267,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 26,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 12,
         "seniority": 14,
@@ -1080,9 +1282,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/qa-engineer-ai-products-at-mdcalc-4415943544",
       "datePosted": "2026-08-15",
-      "listDate": "12 hours ago",
+      "listDate": "14 hours ago",
       "firstSeen": "2026-08-15T23:57:43.154Z",
-      "lastSeen": "2026-08-16T01:50:57.649Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4454881034",
@@ -1092,8 +1294,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 26,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 12,
         "seniority": 14,
@@ -1119,8 +1321,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 36,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 18,
@@ -1136,7 +1338,7 @@
       "datePosted": "2026-08-15",
       "listDate": "12 hours ago",
       "firstSeen": "2026-08-15T23:57:43.154Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4407640775",
@@ -1146,8 +1348,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": true,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 26,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 12,
         "seniority": 14,
@@ -1173,8 +1375,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 38,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 20,
@@ -1188,9 +1390,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/principal-software-engineer-quality-assurance-at-o-reilly-auto-parts-4398958028",
       "datePosted": "2026-08-15",
-      "listDate": "13 hours ago",
+      "listDate": "15 hours ago",
       "firstSeen": "2026-08-15T23:57:43.153Z",
-      "lastSeen": "2026-08-16T01:50:57.650Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4454898469",
@@ -1200,8 +1402,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 30,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 12,
@@ -1217,7 +1419,7 @@
       "datePosted": "2026-08-15",
       "listDate": "16 hours ago",
       "firstSeen": "2026-08-15T23:57:43.153Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4427581589",
@@ -1227,8 +1429,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 36,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 18,
@@ -1254,8 +1456,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 32,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 14,
@@ -1281,8 +1483,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 32,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 12,
         "seniority": 20,
@@ -1308,8 +1510,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 30,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 12,
         "seniority": 18,
@@ -1335,8 +1537,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 38,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 20,
@@ -1352,7 +1554,7 @@
       "datePosted": "2026-08-15",
       "listDate": "11 hours ago",
       "firstSeen": "2026-08-15T23:57:43.152Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4448474708",
@@ -1362,8 +1564,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 38,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 20,
@@ -1389,12 +1591,12 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 58,
-      "scoreConfidence": "medium",
+      "matchScore": 40,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 20,
         "seniority": 20,
-        "tech": 18,
+        "tech": 0,
         "domain": 0
       },
       "matchedSkills": [],
@@ -1404,9 +1606,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/test-automation-lead-at-bae-systems-inc-4424830272",
       "datePosted": "2026-08-15",
-      "listDate": "6 hours ago",
+      "listDate": "8 hours ago",
       "firstSeen": "2026-08-15T23:57:43.152Z",
-      "lastSeen": "2026-08-16T01:50:57.652Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4445307984",
@@ -1416,8 +1618,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 38,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 20,
@@ -1433,7 +1635,7 @@
       "datePosted": "2026-08-15",
       "listDate": "16 hours ago",
       "firstSeen": "2026-08-15T23:57:43.152Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4451271891",
@@ -1443,8 +1645,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 32,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 14,
@@ -1470,11 +1672,11 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 38,
+      "scoreConfidence": "high",
       "scoreBreakdown": {
         "role": 18,
-        "seniority": 18,
+        "seniority": 20,
         "tech": 0,
         "domain": 0
       },
@@ -1487,7 +1689,7 @@
       "datePosted": "2026-08-15",
       "listDate": "20 hours ago",
       "firstSeen": "2026-08-15T23:57:43.151Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4451746434",
@@ -1497,8 +1699,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 36,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 18,
@@ -1524,8 +1726,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 25,
+      "scoreConfidence": "high",
       "scoreBreakdown": {
         "role": 12,
         "seniority": 20,
@@ -1539,9 +1741,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/staff-software-qa-engineer-at-smart-wires-inc-4454835628",
       "datePosted": "2026-08-15",
-      "listDate": "23 hours ago",
+      "listDate": "1 day ago",
       "firstSeen": "2026-08-15T23:57:43.151Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4453936185",
@@ -1551,8 +1753,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 38,
+      "scoreConfidence": "high",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 20,
@@ -1568,7 +1770,7 @@
       "datePosted": "2026-08-15",
       "listDate": "8 hours ago",
       "firstSeen": "2026-08-15T23:57:43.151Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4442902140",
@@ -1578,11 +1780,11 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 38,
+      "scoreConfidence": "high",
       "scoreBreakdown": {
         "role": 18,
-        "seniority": 14,
+        "seniority": 20,
         "tech": 0,
         "domain": 0
       },
@@ -1595,7 +1797,7 @@
       "datePosted": "2026-08-15",
       "listDate": "5 hours ago",
       "firstSeen": "2026-08-15T23:57:43.151Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4453949213",
@@ -1605,8 +1807,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 32,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 12,
         "seniority": 20,
@@ -1622,7 +1824,7 @@
       "datePosted": "2026-08-15",
       "listDate": "6 hours ago",
       "firstSeen": "2026-08-15T23:57:43.151Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4435277359",
@@ -1632,8 +1834,8 @@
       "workplaceType": "Remote",
       "isTop100": true,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 32,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 12,
         "seniority": 20,
@@ -1659,12 +1861,12 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": true,
-      "matchScore": 60,
-      "scoreConfidence": "medium",
+      "matchScore": 42,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 22,
         "seniority": 20,
-        "tech": 18,
+        "tech": 0,
         "domain": 0
       },
       "matchedSkills": [],
@@ -1686,8 +1888,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 36,
+      "scoreConfidence": "high",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 18,
@@ -1703,7 +1905,7 @@
       "datePosted": "2026-08-15",
       "listDate": "8 hours ago",
       "firstSeen": "2026-08-15T23:57:43.150Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4427921108",
@@ -1713,8 +1915,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": true,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 36,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 18,
@@ -1740,8 +1942,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 36,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 18,
@@ -1767,8 +1969,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 36,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 18,
@@ -1794,8 +1996,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 36,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 18,
@@ -1821,8 +2023,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 32,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 14,
@@ -1848,8 +2050,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 36,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 18,
@@ -1875,8 +2077,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 32,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 14,
@@ -1902,8 +2104,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 26,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 12,
         "seniority": 14,
@@ -1929,12 +2131,12 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 57,
-      "scoreConfidence": "medium",
+      "matchScore": 39,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 25,
         "seniority": 14,
-        "tech": 18,
+        "tech": 0,
         "domain": 0
       },
       "matchedSkills": [],
@@ -1944,9 +2146,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/software-development-engineer-in-test-sdet-at-healthedge-4444967375",
       "datePosted": "2026-08-15",
-      "listDate": "12 hours ago",
+      "listDate": "13 hours ago",
       "firstSeen": "2026-08-15T23:57:43.149Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4454873089",
@@ -1956,8 +2158,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 32,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 14,
@@ -1971,9 +2173,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/automation-test-engineer-at-trellisware-technologies-4454873089",
       "datePosted": "2026-08-15",
-      "listDate": "21 hours ago",
+      "listDate": "22 hours ago",
       "firstSeen": "2026-08-15T23:57:43.149Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4454853410",
@@ -1983,15 +2185,19 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": true,
-      "matchScore": 52,
-      "scoreConfidence": "medium",
+      "matchScore": 53,
+      "scoreConfidence": "high",
       "scoreBreakdown": {
         "role": 20,
-        "seniority": 14,
-        "tech": 18,
-        "domain": 0
+        "seniority": 18,
+        "tech": 13,
+        "domain": 2
       },
-      "matchedSkills": [],
+      "matchedSkills": [
+        "REST / GraphQL API",
+        "Selenium / Java",
+        "Performance / JMeter"
+      ],
       "companyApplyUrl": "https://www.google.com/search?q=eNGINE%20careers%20API%20Test%20Engineer%20apply",
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
@@ -2000,7 +2206,7 @@
       "datePosted": "2026-08-15",
       "listDate": "22 hours ago",
       "firstSeen": "2026-08-15T23:57:43.149Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4453947196",
@@ -2010,8 +2216,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 32,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 14,
@@ -2027,7 +2233,7 @@
       "datePosted": "2026-08-15",
       "listDate": "7 hours ago",
       "firstSeen": "2026-08-15T23:57:43.149Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4455121016",
@@ -2037,8 +2243,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 36,
+      "scoreConfidence": "high",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 18,
@@ -2054,7 +2260,7 @@
       "datePosted": "2026-08-15",
       "listDate": "13 hours ago",
       "firstSeen": "2026-08-15T23:57:43.149Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4453751093",
@@ -2064,8 +2270,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": true,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 36,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 18,
@@ -2091,11 +2297,11 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 38,
+      "scoreConfidence": "high",
       "scoreBreakdown": {
         "role": 18,
-        "seniority": 18,
+        "seniority": 20,
         "tech": 0,
         "domain": 0
       },
@@ -2108,7 +2314,7 @@
       "datePosted": "2026-08-15",
       "listDate": "9 hours ago",
       "firstSeen": "2026-08-15T23:57:43.149Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4451276484",
@@ -2118,8 +2324,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 36,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 18,
@@ -2145,15 +2351,18 @@
       "workplaceType": "Remote",
       "isTop100": true,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 25,
+      "scoreConfidence": "high",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 14,
-        "tech": 0,
-        "domain": 0
+        "tech": 7,
+        "domain": 3
       },
-      "matchedSkills": [],
+      "matchedSkills": [
+        "Python / Pytest",
+        "SQL / Database"
+      ],
       "companyApplyUrl": "https://www.google.com/search?q=NVIDIA%20careers%20Quality%20Assurance%20Software%20Developer%20Engineer%20in%20Test%2C%20GeForce%20GPU%20apply",
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
@@ -2162,7 +2371,7 @@
       "datePosted": "2026-08-15",
       "listDate": "8 hours ago",
       "firstSeen": "2026-08-15T23:57:43.148Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4445290268",
@@ -2172,24 +2381,28 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 54,
-      "scoreConfidence": "medium",
+      "matchScore": 56,
+      "scoreConfidence": "high",
       "scoreBreakdown": {
         "role": 22,
-        "seniority": 14,
-        "tech": 18,
-        "domain": 0
+        "seniority": 18,
+        "tech": 12,
+        "domain": 4
       },
-      "matchedSkills": [],
+      "matchedSkills": [
+        "Selenium / Java",
+        "TypeScript / JS",
+        "Cucumber / BDD"
+      ],
       "companyApplyUrl": "https://www.google.com/search?q=CGI%20careers%20Test%20Automation%20Engineer%20-%20U.S.%20Citizenship%20Required%20apply",
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/test-automation-engineer-u-s-citizenship-required-at-cgi-4445290268",
       "datePosted": "2026-08-15",
-      "listDate": "10 hours ago",
+      "listDate": "11 hours ago",
       "firstSeen": "2026-08-15T23:57:43.148Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4453907262",
@@ -2199,12 +2412,12 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 54,
-      "scoreConfidence": "medium",
+      "matchScore": 36,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 22,
         "seniority": 14,
-        "tech": 18,
+        "tech": 0,
         "domain": 0
       },
       "matchedSkills": [],
@@ -2214,9 +2427,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/test-automation-engineer-at-dxc-technology-4453907262",
       "datePosted": "2026-08-15",
-      "listDate": "21 hours ago",
+      "listDate": "22 hours ago",
       "firstSeen": "2026-08-15T23:57:43.148Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4451287377",
@@ -2226,12 +2439,12 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 25,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 22,
         "seniority": 0,
-        "tech": 18,
+        "tech": 0,
         "domain": 0
       },
       "matchedSkills": [],
@@ -2253,8 +2466,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 36,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 18,
@@ -2280,12 +2493,12 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 54,
-      "scoreConfidence": "medium",
+      "matchScore": 40,
+      "scoreConfidence": "high",
       "scoreBreakdown": {
         "role": 22,
-        "seniority": 14,
-        "tech": 18,
+        "seniority": 18,
+        "tech": 0,
         "domain": 0
       },
       "matchedSkills": [],
@@ -2297,7 +2510,7 @@
       "datePosted": "2026-08-15",
       "listDate": "8 hours ago",
       "firstSeen": "2026-08-15T23:57:43.147Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4444603420",
@@ -2327,7 +2540,7 @@
       "datePosted": "2026-08-15",
       "listDate": "11 hours ago",
       "firstSeen": "2026-08-15T23:57:43.147Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4454839859",
@@ -2337,12 +2550,12 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 60,
-      "scoreConfidence": "medium",
+      "matchScore": 42,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 22,
         "seniority": 20,
-        "tech": 18,
+        "tech": 0,
         "domain": 0
       },
       "matchedSkills": [],
@@ -2354,7 +2567,7 @@
       "datePosted": "2026-08-15",
       "listDate": "23 hours ago",
       "firstSeen": "2026-08-15T23:57:43.147Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4455146083",
@@ -2364,8 +2577,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 31,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 12,
         "seniority": 14,
@@ -2383,7 +2596,7 @@
       "datePosted": "2026-08-15",
       "listDate": "6 hours ago",
       "firstSeen": "2026-08-15T23:57:43.147Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4451284377",
@@ -2393,12 +2606,12 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 54,
-      "scoreConfidence": "medium",
+      "matchScore": 36,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 22,
         "seniority": 14,
-        "tech": 18,
+        "tech": 0,
         "domain": 0
       },
       "matchedSkills": [],
@@ -2420,15 +2633,22 @@
       "workplaceType": "Remote",
       "isTop100": true,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 83,
+      "scoreConfidence": "high",
       "scoreBreakdown": {
         "role": 18,
-        "seniority": 14,
-        "tech": 0,
-        "domain": 0
+        "seniority": 20,
+        "tech": 43,
+        "domain": 2
       },
-      "matchedSkills": [],
+      "matchedSkills": [
+        "Playwright",
+        "Python / Pytest",
+        "CI/CD Jenkins",
+        "REST / GraphQL API",
+        "TypeScript / JS",
+        "Performance / JMeter"
+      ],
       "companyApplyUrl": "https://www.google.com/search?q=LS%20Solutions%20careers%20Test%20Engineer%20apply",
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
@@ -2437,7 +2657,7 @@
       "datePosted": "2026-08-15",
       "listDate": "21 hours ago",
       "firstSeen": "2026-08-15T23:57:43.146Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4448494667",
@@ -2447,24 +2667,26 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 63,
-      "scoreConfidence": "medium",
+      "matchScore": 51,
+      "scoreConfidence": "high",
       "scoreBreakdown": {
         "role": 25,
         "seniority": 20,
-        "tech": 18,
+        "tech": 6,
         "domain": 0
       },
-      "matchedSkills": [],
+      "matchedSkills": [
+        "CI/CD Jenkins"
+      ],
       "companyApplyUrl": "https://www.google.com/search?q=Stuut%20careers%20Lead%20Software%20Engineer%20in%20Test%20apply",
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/lead-software-engineer-in-test-at-stuut-4448494667",
       "datePosted": "2026-08-15",
-      "listDate": "1 hour ago",
+      "listDate": "2 hours ago",
       "firstSeen": "2026-08-15T23:57:43.146Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4448706250",
@@ -2474,24 +2696,26 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 63,
-      "scoreConfidence": "medium",
+      "matchScore": 51,
+      "scoreConfidence": "high",
       "scoreBreakdown": {
         "role": 25,
         "seniority": 20,
-        "tech": 18,
+        "tech": 6,
         "domain": 0
       },
-      "matchedSkills": [],
+      "matchedSkills": [
+        "CI/CD Jenkins"
+      ],
       "companyApplyUrl": "https://www.google.com/search?q=Stuut%20careers%20Lead%20Software%20Engineer%20in%20Test%20apply",
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/lead-software-engineer-in-test-at-stuut-4448706250",
       "datePosted": "2026-08-15",
-      "listDate": "1 hour ago",
+      "listDate": "2 hours ago",
       "firstSeen": "2026-08-15T23:57:43.146Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4427926313",
@@ -2501,15 +2725,22 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 60,
-      "scoreConfidence": "medium",
+      "matchScore": 88,
+      "scoreConfidence": "high",
       "scoreBreakdown": {
         "role": 22,
         "seniority": 20,
-        "tech": 18,
-        "domain": 0
+        "tech": 42,
+        "domain": 4
       },
-      "matchedSkills": [],
+      "matchedSkills": [
+        "Playwright",
+        "Python / Pytest",
+        "CI/CD Jenkins",
+        "Selenium / Java",
+        "TypeScript / JS",
+        "Cucumber / BDD"
+      ],
       "companyApplyUrl": "https://www.google.com/search?q=Labcorp%20careers%20Lead%20Test%20Automation%20Engineer%20apply",
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
@@ -2518,7 +2749,7 @@
       "datePosted": "2026-08-15",
       "listDate": "16 hours ago",
       "firstSeen": "2026-08-15T23:57:43.146Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4444634488",
@@ -2528,15 +2759,19 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 63,
-      "scoreConfidence": "medium",
+      "matchScore": 70,
+      "scoreConfidence": "high",
       "scoreBreakdown": {
         "role": 25,
         "seniority": 20,
-        "tech": 18,
+        "tech": 25,
         "domain": 0
       },
-      "matchedSkills": [],
+      "matchedSkills": [
+        "Python / Pytest",
+        "CI/CD Jenkins",
+        "Appium / Mobile"
+      ],
       "companyApplyUrl": "https://www.google.com/search?q=Brain%20Corp%20careers%20Staff%20Software%20Development%20Engineer%20in%20Test%2C%20Cloud%20Applications%20apply",
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
@@ -2545,7 +2780,7 @@
       "datePosted": "2026-08-15",
       "listDate": "13 hours ago",
       "firstSeen": "2026-08-15T23:57:43.146Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4454832877",
@@ -2555,15 +2790,17 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 38,
+      "scoreConfidence": "high",
       "scoreBreakdown": {
         "role": 12,
         "seniority": 20,
-        "tech": 0,
+        "tech": 6,
         "domain": 0
       },
-      "matchedSkills": [],
+      "matchedSkills": [
+        "CI/CD Jenkins"
+      ],
       "companyApplyUrl": "https://www.google.com/search?q=Caterpillar%20Inc.%20careers%20QA%20Lead%20-%20Simulation%20Platform%20apply",
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
@@ -2572,7 +2809,7 @@
       "datePosted": "2026-08-15",
       "listDate": "23 hours ago",
       "firstSeen": "2026-08-15T23:57:43.146Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4444398963",
@@ -2582,8 +2819,8 @@
       "workplaceType": "Remote",
       "isTop100": true,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 37,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 12,
         "seniority": 14,
@@ -2611,12 +2848,12 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 43,
-      "scoreConfidence": "medium",
+      "matchScore": 25,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 25,
         "seniority": 0,
-        "tech": 18,
+        "tech": 0,
         "domain": 0
       },
       "matchedSkills": [],
@@ -2628,7 +2865,7 @@
       "datePosted": "2026-08-15",
       "listDate": "12 hours ago",
       "firstSeen": "2026-08-15T23:57:43.145Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4445229944",
@@ -2638,8 +2875,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 32,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 12,
         "seniority": 20,
@@ -2655,7 +2892,7 @@
       "datePosted": "2026-08-15",
       "listDate": "7 hours ago",
       "firstSeen": "2026-08-15T23:57:43.145Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4416721663",
@@ -2665,8 +2902,8 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 36,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 18,
@@ -2682,7 +2919,7 @@
       "datePosted": "2026-08-15",
       "listDate": "13 hours ago",
       "firstSeen": "2026-08-15T23:57:43.145Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4451224891",
@@ -2692,15 +2929,20 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 54,
-      "scoreConfidence": "medium",
+      "matchScore": 69,
+      "scoreConfidence": "high",
       "scoreBreakdown": {
         "role": 22,
-        "seniority": 14,
-        "tech": 18,
-        "domain": 0
+        "seniority": 20,
+        "tech": 23,
+        "domain": 4
       },
-      "matchedSkills": [],
+      "matchedSkills": [
+        "CI/CD Jenkins",
+        "REST / GraphQL API",
+        "Selenium / Java",
+        "Cucumber / BDD"
+      ],
       "companyApplyUrl": "https://www.google.com/search?q=Visionary%20Innovative%20Technology%20Solutions%20LLC%20careers%20Full%20Time%20Only%3A%20QA%20Automation%20Tester%20apply",
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
@@ -2709,7 +2951,7 @@
       "datePosted": "2026-08-15",
       "listDate": "17 hours ago",
       "firstSeen": "2026-08-15T23:57:43.145Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4441836834",
@@ -2719,8 +2961,8 @@
       "workplaceType": "Remote",
       "isTop100": true,
       "isPittsburgh": false,
-      "matchScore": 40,
-      "scoreConfidence": "medium",
+      "matchScore": 26,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 12,
         "seniority": 14,
@@ -2734,9 +2976,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/software-qa-engineer-at-sony-interactive-entertainment-4441836834",
       "datePosted": "2026-08-15",
-      "listDate": "14 hours ago",
+      "listDate": "15 hours ago",
       "firstSeen": "2026-08-15T23:57:43.144Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4413668216",
@@ -2746,12 +2988,12 @@
       "workplaceType": "Remote",
       "isTop100": true,
       "isPittsburgh": false,
-      "matchScore": 57,
-      "scoreConfidence": "medium",
+      "matchScore": 39,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 25,
         "seniority": 14,
-        "tech": 18,
+        "tech": 0,
         "domain": 0
       },
       "matchedSkills": [],
@@ -2773,12 +3015,12 @@
       "workplaceType": "Remote",
       "isTop100": true,
       "isPittsburgh": false,
-      "matchScore": 57,
-      "scoreConfidence": "medium",
+      "matchScore": 45,
+      "scoreConfidence": "high",
       "scoreBreakdown": {
         "role": 25,
-        "seniority": 14,
-        "tech": 18,
+        "seniority": 20,
+        "tech": 0,
         "domain": 0
       },
       "matchedSkills": [],
@@ -2790,7 +3032,7 @@
       "datePosted": "2026-08-15",
       "listDate": "20 hours ago",
       "firstSeen": "2026-08-15T23:57:43.143Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4455120173",
@@ -2800,12 +3042,12 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 54,
-      "scoreConfidence": "medium",
+      "matchScore": 36,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 22,
         "seniority": 14,
-        "tech": 18,
+        "tech": 0,
         "domain": 0
       },
       "matchedSkills": [],
@@ -2827,15 +3069,17 @@
       "workplaceType": "Remote",
       "isTop100": true,
       "isPittsburgh": false,
-      "matchScore": 63,
-      "scoreConfidence": "medium",
+      "matchScore": 26,
+      "scoreConfidence": "high",
       "scoreBreakdown": {
         "role": 25,
         "seniority": 20,
-        "tech": 18,
+        "tech": 6,
         "domain": 0
       },
-      "matchedSkills": [],
+      "matchedSkills": [
+        "CI/CD Jenkins"
+      ],
       "companyApplyUrl": "https://www.google.com/search?q=Sony%20Interactive%20Entertainment%20careers%20Staff%20Software%20Development%20Engineer%20in%20Test%20(Staff%20SDET)%20apply",
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
@@ -2844,7 +3088,7 @@
       "datePosted": "2026-08-15",
       "listDate": "13 hours ago",
       "firstSeen": "2026-08-15T23:57:43.142Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4435291127",
@@ -2854,15 +3098,17 @@
       "workplaceType": "Remote",
       "isTop100": true,
       "isPittsburgh": false,
-      "matchScore": 61,
-      "scoreConfidence": "medium",
+      "matchScore": 51,
+      "scoreConfidence": "high",
       "scoreBreakdown": {
         "role": 25,
-        "seniority": 18,
-        "tech": 18,
+        "seniority": 20,
+        "tech": 6,
         "domain": 0
       },
-      "matchedSkills": [],
+      "matchedSkills": [
+        "CI/CD Jenkins"
+      ],
       "companyApplyUrl": "https://www.google.com/search?q=NVIDIA%20careers%20Senior%20Software%20Development%20Engineer%20in%20Test%20apply",
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
@@ -2871,7 +3117,7 @@
       "datePosted": "2026-08-15",
       "listDate": "11 hours ago",
       "firstSeen": "2026-08-15T23:57:43.142Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4454572869",
@@ -2881,12 +3127,12 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 61,
-      "scoreConfidence": "medium",
+      "matchScore": 43,
+      "scoreConfidence": "low",
       "scoreBreakdown": {
         "role": 25,
         "seniority": 18,
-        "tech": 18,
+        "tech": 0,
         "domain": 0
       },
       "matchedSkills": [],
@@ -2908,12 +3154,12 @@
       "workplaceType": "Remote",
       "isTop100": true,
       "isPittsburgh": false,
-      "matchScore": 61,
-      "scoreConfidence": "medium",
+      "matchScore": 45,
+      "scoreConfidence": "high",
       "scoreBreakdown": {
         "role": 25,
-        "seniority": 18,
-        "tech": 18,
+        "seniority": 20,
+        "tech": 0,
         "domain": 0
       },
       "matchedSkills": [],
@@ -2925,7 +3171,7 @@
       "datePosted": "2026-08-15",
       "listDate": "20 hours ago",
       "firstSeen": "2026-08-15T23:57:43.142Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4444606426",
@@ -2953,9 +3199,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/senior-sdet-%E2%80%93-playwright-selenium-test-automation-at-cognizant-4444606426",
       "datePosted": "2026-08-15",
-      "listDate": "10 hours ago",
+      "listDate": "11 hours ago",
       "firstSeen": "2026-08-15T23:57:43.142Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4426694243",
@@ -2965,24 +3211,27 @@
       "workplaceType": "Remote",
       "isTop100": true,
       "isPittsburgh": false,
-      "matchScore": 61,
-      "scoreConfidence": "medium",
+      "matchScore": 39,
+      "scoreConfidence": "high",
       "scoreBreakdown": {
         "role": 25,
         "seniority": 18,
-        "tech": 18,
+        "tech": 21,
         "domain": 0
       },
-      "matchedSkills": [],
+      "matchedSkills": [
+        "AI / GenAI Testing",
+        "Python / Pytest"
+      ],
       "companyApplyUrl": "https://www.google.com/search?q=NVIDIA%20careers%20Senior%20Software%20Development%20Engineer%20in%20Test%20-%20SDET%20apply",
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/senior-software-development-engineer-in-test-sdet-at-nvidia-4426694243",
       "datePosted": "2026-08-15",
-      "listDate": "7 hours ago",
+      "listDate": "8 hours ago",
       "firstSeen": "2026-08-15T23:57:43.141Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     },
     {
       "id": "4386576548",
@@ -2992,12 +3241,12 @@
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
-      "matchScore": 61,
-      "scoreConfidence": "medium",
+      "matchScore": 25,
+      "scoreConfidence": "high",
       "scoreBreakdown": {
         "role": 25,
         "seniority": 18,
-        "tech": 18,
+        "tech": 0,
         "domain": 0
       },
       "matchedSkills": [],
@@ -3009,7 +3258,7 @@
       "datePosted": "2026-08-15",
       "listDate": "15 hours ago",
       "firstSeen": "2026-08-15T23:57:43.139Z",
-      "lastSeen": "2026-08-16T01:52:35.515Z"
+      "lastSeen": "2026-08-16T02:08:08.952Z"
     }
   ]
 }
