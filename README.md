@@ -58,11 +58,11 @@ npm start
 
 ```dotenv
 # Gmail sender credentials for notification digests
-GMAIL_USER=shubhamvijay8854@gmail.com
-GMAIL_APP_PASSWORD=eumy qvmf zltr mgpi
+GMAIL_USER=your_email@gmail.com
+GMAIL_APP_PASSWORD=your_16_char_app_password_here
 
-# Direct recipient for job alerts
-NOTIFY_EMAIL=ankita.vinculum@gmail.com
+# Direct recipients for job alerts (comma-separated)
+NOTIFY_EMAIL=ankita.vinculum@gmail.com, your_email@gmail.com
 
 # Server port
 PORT=3001
@@ -71,5 +71,5 @@ PORT=3001
 CRON_SCHEDULE=0 */3 * * *
 
 # Target search queries
-JOB_TITLES=Senior SDET,Lead SDET,Senior QA Automation Engineer,Quality Engineering Lead,Software Validation Engineer,AI Test Automation Engineer,API Automation Engineer
+JOB_TITLES=Senior SDET,Lead SDET,QA Automation Engineer,Senior Quality Assurance,QA Lead,Software Validation Engineer,AI Test Automation,API Test Engineer
 ```

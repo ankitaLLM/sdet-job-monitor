@@ -14,17 +14,43 @@ const { executeScan, getLastScanResult, isScanRunning } = require('./scheduler')
 
 const app = express();
 
-// Middleware
-app.use(express.json());
-
-// CORS headers
+// Security Headers Middleware
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+  res.setHeader('X-XSS-Protection', '1; mode=block');
+  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+  next();
+});
+
+// JSON Body Parser with strict payload size limit
+app.use(express.json({ limit: '100kb' }));
+
+// Restrict CORS to localhost/same-origin
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
+  const allowedOrigins = [
+    `http://localhost:${config.port}`,
+    `http://127.0.0.1:${config.port}`,
+    'https://ankitallm.github.io'
+  ];
+
+  if (origin && allowedOrigins.includes(origin)) {
+    res.header('Access-Control-Allow-Origin', origin);
+  } else if (!origin) {
+    // Same-origin request
+    res.header('Access-Control-Allow-Origin', `http://127.0.0.1:${config.port}`);
+  }
+
   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Content-Type');
   if (req.method === 'OPTIONS') return res.sendStatus(204);
   next();
 });
+
+// Rate limiting state for /api/scan to prevent abuse
+let lastScanTriggerTime = 0;
+const SCAN_COOLDOWN_MS = 60 * 1000; // 60s minimum interval
 
 // Serve frontend static assets
 app.use(express.static(path.join(__dirname, '..', 'public')));
@@ -49,7 +75,7 @@ app.get('/api/jobs', (req, res) => {
     const jobs = getJobs(filters);
     res.json({ success: true, count: jobs.length, jobs });
   } catch (err) {
-    res.status(500).json({ success: false, error: err.message });
+    res.status(500).json({ success: false, error: 'Internal server error' });
   }
 });
 
@@ -64,21 +90,28 @@ app.get('/api/stats', (req, res) => {
     stats.cronSchedule = config.cronSchedule;
     res.json({ success: true, ...stats });
   } catch (err) {
-    res.status(500).json({ success: false, error: err.message });
+    res.status(500).json({ success: false, error: 'Internal server error' });
   }
 });
 
 /**
- * POST /api/scan — Trigger manual scan
+ * POST /api/scan — Trigger manual scan with cooldown rate limiting
  */
 app.post('/api/scan', async (req, res) => {
+  const now = Date.now();
+  if (now - lastScanTriggerTime < SCAN_COOLDOWN_MS) {
+    const waitSec = Math.ceil((SCAN_COOLDOWN_MS - (now - lastScanTriggerTime)) / 1000);
+    return res.status(429).json({ success: false, message: `Scan cooldown active. Please wait ${waitSec}s.` });
+  }
+
   if (isScanRunning()) {
     return res.json({ success: false, message: 'Scan already in progress' });
   }
 
+  lastScanTriggerTime = now;
   res.json({ success: true, message: 'Scan started' });
 
-  // Run in background
+  // Run scan in background
   executeScan().catch(err => {
     console.error('Manual scan error:', err.message);
   });
@@ -105,10 +138,14 @@ app.post('/api/jobs/read-all', (req, res) => {
  */
 app.post('/api/jobs/status', (req, res) => {
   try {
-    const result = setApplicationStatus(req.body || {});
+    const { id, status, notes } = req.body || {};
+    if (!id || typeof id !== 'string') {
+      return res.status(400).json({ success: false, error: 'Valid job ID is required' });
+    }
+    const result = setApplicationStatus({ id, status, notes });
     res.status(result.success ? 200 : 404).json(result);
   } catch (err) {
-    res.status(500).json({ success: false, error: err.message });
+    res.status(500).json({ success: false, error: 'Internal server error' });
   }
 });
 
@@ -117,10 +154,11 @@ app.post('/api/jobs/status', (req, res) => {
  */
 app.post('/api/jobs/:id/notes', (req, res) => {
   try {
-    const result = updateJobNotes(req.params.id, req.body.notes || '');
+    const notes = typeof req.body.notes === 'string' ? req.body.notes.slice(0, 5000) : '';
+    const result = updateJobNotes(req.params.id, notes);
     res.status(result.success ? 200 : 404).json(result);
   } catch (err) {
-    res.status(500).json({ success: false, error: err.message });
+    res.status(500).json({ success: false, error: 'Internal server error' });
   }
 });
 
@@ -132,7 +170,7 @@ app.get('/api/statuses', (req, res) => {
 });
 
 /**
- * GET /api/pitch/:id — Generate quick tailored pitch snippet
+ * GET /api/pitch/:id — Generate quick tailored pitch snippet without exposed PII
  */
 app.get('/api/pitch/:id', (req, res) => {
   try {
@@ -140,22 +178,23 @@ app.get('/api/pitch/:id', (req, res) => {
     const job = jobs.find(j => j.id === req.params.id);
     if (!job) return res.status(404).json({ success: false, error: 'Job not found' });
 
-    const pitch = `Hi Hiring Team at ${job.company || 'the team'},\n\nI am writing to express my strong interest in the ${job.title} role. With over 11+ years of Quality Engineering & SDET experience, I specialize in designing scalable test automation frameworks (Playwright, WebdriverIO, Selenium, REST Assured, Appium) and integrating AI-assisted quality workflows (Amazon Bedrock, Agentic AI).\n\nKey Highlights of my experience:\n• Architected data-driven & BDD automation frameworks across Web, Mobile (iOS/Android), and REST/GraphQL APIs with parallel CI/CD execution.\n• Engineered AI-driven defect and testing workflows, driving significant time savings and 100% traceability across distributed agile teams.\n• Proven track record across enterprise platforms, financial systems, healthcare, and e-commerce.\n\nI am authorized to work in the US without sponsorship and would love to discuss how my skill set aligns with your engineering goals.\n\nBest regards,\nAnkita Agrawal\nPittsburgh, PA | ankita.vinculum@gmail.com | +1-716-400-6921`;
+    const pitch = `Hi Hiring Team at ${job.company || 'the team'},\n\nI am writing to express my strong interest in the ${job.title} role. With over 11+ years of Quality Engineering & SDET experience, I specialize in designing scalable test automation frameworks (Playwright, WebdriverIO, Selenium, REST Assured, Appium) and integrating AI-assisted quality workflows (Amazon Bedrock, Agentic AI).\n\nKey Highlights of my experience:\n• Architected data-driven & BDD automation frameworks across Web, Mobile (iOS/Android), and REST/GraphQL APIs with parallel CI/CD execution.\n• Engineered AI-driven defect and testing workflows, driving significant time savings and 100% traceability across distributed agile teams.\n• Proven track record across enterprise platforms, financial systems, healthcare, and e-commerce.\n\nI am authorized to work in the US without sponsorship and would love to discuss how my skill set aligns with your engineering goals.\n\nBest regards,\nAnkita Agrawal\nPittsburgh, PA`;
 
     res.json({ success: true, pitch, jobTitle: job.title, company: job.company });
   } catch (err) {
-    res.status(500).json({ success: false, error: err.message });
+    res.status(500).json({ success: false, error: 'Internal server error' });
   }
 });
 
 /**
- * Start the Express web server
+ * Start the Express web server (bound to 127.0.0.1 localhost by default)
  */
 function startServer() {
+  const host = process.env.HOST || '127.0.0.1';
   return new Promise((resolve) => {
-    app.listen(config.port, () => {
-      console.log(`\n🌐 SDET Job Dashboard: http://localhost:${config.port}`);
-      console.log(`📡 API Endpoints:       http://localhost:${config.port}/api/stats\n`);
+    app.listen(config.port, host, () => {
+      console.log(`\n🌐 SDET Job Dashboard: http://${host}:${config.port}`);
+      console.log(`📡 API Endpoints:       http://${host}:${config.port}/api/stats\n`);
       resolve();
     });
   });

@@ -4,9 +4,9 @@ const config = require('./config');
 const {
   isTop100Company,
   isPittsburghCompany,
-  buildCompanyCareersUrl,
   analyzeJobFit
 } = require('./companies');
+const { resolveApplicationPortal } = require('./atsResolver');
 const { isRelevantQATitle } = require('./scraper');
 
 const APPLICATION_STATUSES = ['New', 'Viewed', 'Applied', 'Interviewing', 'Offer', 'Rejected'];
@@ -27,14 +27,41 @@ function getJobsFilePath() {
 }
 
 /**
- * Enrich raw scraped job with intelligent metadata
+ * Atomic file writer using temporary file plus rename
+ */
+function writeJsonAtomic(filePath, data) {
+  const dir = path.dirname(filePath);
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+  }
+  const tempPath = `${filePath}.tmp.${Date.now()}`;
+  fs.writeFileSync(tempPath, JSON.stringify(data, null, 2), 'utf-8');
+  fs.renameSync(tempPath, filePath);
+}
+
+/**
+ * Robust Pittsburgh & Regional Pennsylvania check
+ * Avoids false positives on words like "Palm Bay" or "Palo Alto"
+ */
+function checkIsPittsburghLocation(loc, company) {
+  if (isPittsburghCompany(company)) return true;
+  if (!loc || typeof loc !== 'string') return false;
+
+  const l = loc.toLowerCase();
+  if (l.includes('pittsburgh') || l.includes('pennsylvania')) return true;
+  if (/\bpa\b/i.test(loc)) return true;
+  if (l.includes('cranberry') || l.includes('monroeville') || l.includes('allegheny') || l.includes('warrendale') || l.includes('canonsburg')) return true;
+
+  return false;
+}
+
+/**
+ * Enrich raw scraped job with intelligent metadata and ATS resolution
  */
 function enrichJob(job) {
   const isTop100 = isTop100Company(job.company);
-  const isPghCompany = isPittsburghCompany(job.company);
+  const isPgh = checkIsPittsburghLocation(job.location, job.company);
   const locLower = (job.location || '').toLowerCase();
-  const isPghLocation = locLower.includes('pittsburgh') || locLower.includes('pa') || locLower.includes('pennsylvania');
-  const isPgh = isPghCompany || isPghLocation;
 
   // Determine workplace type tag
   let workplaceType = 'Remote';
@@ -42,14 +69,19 @@ function enrichJob(job) {
     workplaceType = 'Remote';
   } else if (locLower.includes('hybrid')) {
     workplaceType = 'Hybrid';
-  } else if (isPghLocation) {
+  } else if (isPgh) {
     workplaceType = 'Pittsburgh Area';
   } else if (job.location) {
     workplaceType = job.location;
   }
 
-  // Calculate resume skill fit
-  const fit = analyzeJobFit(job.title, job.company, job.searchQuery);
+  // Calculate calibrated 100-pt resume skill fit
+  const fit = analyzeJobFit(job.title, job.company, job.description || '');
+
+  // Resolve direct ATS / career portal
+  const portal = resolveApplicationPortal(job.company, job.title, job.rawApplyUrl || '');
+
+  const now = new Date().toISOString();
 
   return {
     ...job,
@@ -57,18 +89,24 @@ function enrichJob(job) {
     isPittsburgh: isPgh,
     workplaceType,
     matchScore: fit.score,
+    scoreConfidence: fit.confidence,
+    scoreBreakdown: fit.breakdown,
     matchedSkills: fit.matchedSkills,
-    companyApplyUrl: job.companyApplyUrl || buildCompanyCareersUrl(job.company, job.title),
+    companyApplyUrl: portal.applyUrl,
+    atsProvider: portal.provider,
+    applySource: portal.source,
+    applyConfidence: portal.confidence,
     applicationStatus: job.applicationStatus || 'New',
-    notes: job.notes || '',
-    isRead: job.isRead || false,
+    notes: typeof job.notes === 'string' ? job.notes : '',
+    isRead: Boolean(job.isRead),
     isNew: job.isNew !== undefined ? job.isNew : true,
-    firstSeen: job.firstSeen || new Date().toISOString()
+    firstSeen: job.firstSeen || now,
+    lastSeen: job.lastSeen || now
   };
 }
 
 /**
- * Load existing jobs from the JSON file with strict relevance filtering
+ * Load existing jobs from the JSON file
  */
 function loadJobs() {
   ensureDataDir();
@@ -82,7 +120,6 @@ function loadJobs() {
     const raw = fs.readFileSync(filePath, 'utf-8');
     const data = JSON.parse(raw);
     if (data.jobs && Array.isArray(data.jobs)) {
-      // Strictly retain ONLY validated QA, SDET, Test Engineer, Validation roles
       data.jobs = data.jobs
         .filter(job => isRelevantQATitle(job.title))
         .map(job => enrichJob(job));
@@ -95,12 +132,31 @@ function loadJobs() {
 }
 
 /**
- * Save jobs to the JSON file
+ * Save jobs atomically to the JSON file and sync public projection
  */
 function saveJobs(data) {
   ensureDataDir();
   const filePath = getJobsFilePath();
-  fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf-8');
+  writeJsonAtomic(filePath, data);
+
+  // Sync sanitized public projection to public/data/jobs.json
+  try {
+    const publicDataDir = path.join(__dirname, '..', 'public', 'data');
+    const publicJobsPath = path.join(publicDataDir, 'jobs.json');
+
+    const sanitizedData = {
+      ...data,
+      jobs: (data.jobs || []).map(j => {
+        // Strip private notes/audit from public projection
+        const { notes, ...publicJob } = j;
+        return publicJob;
+      })
+    };
+
+    writeJsonAtomic(publicJobsPath, sanitizedData);
+  } catch (err) {
+    // Non-fatal if public folder is read-only
+  }
 }
 
 /**
@@ -114,9 +170,12 @@ function initDatabase() {
 
 /**
  * Merge newly scraped jobs with existing stored jobs.
+ * Tracks lastSeen, updates mutable attributes, and maintains user status & notes.
  */
 function mergeJobs(existingJobs, scrapedJobs) {
   const existingMap = new Map();
+  const now = new Date().toISOString();
+
   existingJobs.forEach(j => {
     if (j.id && isRelevantQATitle(j.title)) {
       existingMap.set(j.id, j);
@@ -128,10 +187,19 @@ function mergeJobs(existingJobs, scrapedJobs) {
   for (const rawJob of scrapedJobs) {
     if (!rawJob.id || !isRelevantQATitle(rawJob.title)) continue;
 
-    if (!existingMap.has(rawJob.id)) {
+    if (existingMap.has(rawJob.id)) {
+      // Existing job seen again: update lastSeen and mutable fields
+      const existing = existingMap.get(rawJob.id);
+      existing.lastSeen = now;
+      if (rawJob.listDate) existing.listDate = rawJob.listDate;
+      if (rawJob.datePosted) existing.datePosted = rawJob.datePosted;
+      if (rawJob.location) existing.location = rawJob.location;
+    } else {
+      // Brand new job
       const enriched = enrichJob({
         ...rawJob,
-        firstSeen: new Date().toISOString(),
+        firstSeen: now,
+        lastSeen: now,
         isNew: true,
         isRead: false
       });
@@ -142,13 +210,22 @@ function mergeJobs(existingJobs, scrapedJobs) {
 
   // Mark old "new" jobs as no longer new after 24 hours
   const oneDayAgo = Date.now() - 24 * 60 * 60 * 1000;
-  const allJobs = Array.from(existingMap.values()).map(job => {
-    const updated = { ...job };
-    if (updated.isNew && new Date(updated.firstSeen).getTime() < oneDayAgo) {
-      updated.isNew = false;
-    }
-    return updated;
-  });
+  const thirtyDaysAgo = Date.now() - 30 * 24 * 60 * 60 * 1000;
+
+  const allJobs = Array.from(existingMap.values())
+    // Prune stale jobs not seen in 30 days unless marked Applied/Interviewing
+    .filter(job => {
+      const isTracked = ['Applied', 'Interviewing', 'Offer'].includes(job.applicationStatus);
+      const lastSeenTime = new Date(job.lastSeen || job.firstSeen).getTime();
+      return isTracked || lastSeenTime >= thirtyDaysAgo;
+    })
+    .map(job => {
+      const updated = { ...job };
+      if (updated.isNew && new Date(updated.firstSeen).getTime() < oneDayAgo) {
+        updated.isNew = false;
+      }
+      return updated;
+    });
 
   // Sort by firstSeen descending (newest first)
   allJobs.sort((a, b) => new Date(b.firstSeen) - new Date(a.firstSeen));
@@ -314,7 +391,7 @@ function setApplicationStatus(opts = {}) {
 
   job.applicationStatus = status;
   if (opts.notes !== undefined) {
-    job.notes = opts.notes;
+    job.notes = typeof opts.notes === 'string' ? opts.notes.slice(0, 5000) : '';
   }
   if (status === 'Applied' && !job.appliedAt) {
     job.appliedAt = new Date().toISOString();
@@ -334,7 +411,7 @@ function updateJobNotes(jobId, notes) {
   const data = loadJobs();
   const job = data.jobs.find(j => j.id === jobId);
   if (job) {
-    job.notes = notes;
+    job.notes = typeof notes === 'string' ? notes.slice(0, 5000) : '';
     saveJobs(data);
     return { success: true, job };
   }
@@ -351,5 +428,6 @@ module.exports = {
   markAllRead,
   setApplicationStatus,
   updateJobNotes,
+  checkIsPittsburghLocation,
   APPLICATION_STATUSES
 };

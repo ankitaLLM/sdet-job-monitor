@@ -1,10 +1,9 @@
 /**
- * Curated Database and Matcher for:
- * 1. Top 100 US Tech & Enterprise Employers
- * 2. Pittsburgh & Greater Area Tech & Regional Anchors
- * 3. Direct Company Careers Portal / ATS search links
- * 4. Ankita Agrawal Resume Skill Matcher (11+ yrs SDET / QA / Validation / AI)
+ * Curated Database, Employer Directory, and Transparent 100-Point Resume Fit Scoring Model
+ * Specifically calibrated for Ankita Agrawal (11+ yrs Senior SDET / QA Lead)
  */
+
+const { resolveApplicationPortal } = require('./atsResolver');
 
 // Top 100 Tech Giants, Cloud Leaders, High-Growth SaaS & Enterprise Employers
 const TOP_100_TECH_ENTERPRISE = [
@@ -86,67 +85,136 @@ function isPittsburghCompany(companyName) {
 }
 
 /**
- * Generates direct search link to company's official career portal or direct Google Job requisition
+ * Targeted skills dictionary with weighted points and specific regexes
  */
-function buildCompanyCareersUrl(companyName, jobTitle) {
-  const query = `${companyName || ''} careers ${jobTitle || ''}`.trim();
-  return `https://www.google.com/search?q=${encodeURIComponent(query + ' apply')}`;
-}
-
-/**
- * Ankita's core skill keywords for automatic matching and scoring
- */
-const ANKITA_SKILLS = [
-  { name: 'Playwright', regex: /\bplaywright\b/i },
-  { name: 'WebdriverIO', regex: /\bwebdriverio\b|\bwdio\b/i },
-  { name: 'Selenium', regex: /\bselenium\b/i },
-  { name: 'Cucumber / BDD', regex: /\bcucumber\b|\bbdd\b|\bgberkin\b/i },
-  { name: 'REST Assured / API', regex: /\brest\s*assured\b|\brest\b|\bapi\s*testing\b|\bpostman\b|\bgraphql\b/i },
-  { name: 'Appium / Mobile', regex: /\bappium\b|\bmobile\s*testing\b|\bios\b|\bandroid\b|\bbrowserstack\b/i },
-  { name: 'AI / GenAI Testing', regex: /\bai\b|\bgenai\b|\bbedrock\b|\bllm\b|\bagentic\b|\bcopilot\b/i },
-  { name: 'Python / Pytest', regex: /\bpython\b|\bpytest\b/i },
-  { name: 'Java / TestNG', regex: /\bjava\b|\btestng\b|\bjunit\b/i },
-  { name: 'TypeScript / JS', regex: /\btypescript\b|\bjavascript\b|\bnode(\.js)?\b/i },
-  { name: 'CI/CD Jenkins', regex: /\bjenkins\b|\bci\/cd\b|\bgithub\s*actions\b/i },
-  { name: 'Validation', regex: /\bvalidation\b|\bcsv\b|\bgamp\b|\bcomplian(ce|t)\b/i },
-  { name: 'SQL / DB', regex: /\bsql\b|\bdatabase\b|\bmongodb\b/i },
-  { name: 'Performance / JMeter', regex: /\bjmeter\b|\bloadrunner\b|\bperformance\b/i },
-  { name: 'Senior / Lead', regex: /\bsenior\b|\blead\b|\bprincipal\b|\bstaff\b|\b10\+\s*years\b|\b8\+\s*years\b/i }
+const SKILL_DEFINITIONS = [
+  { name: 'AI / GenAI Testing', weight: 10, category: 'tech', regex: /\b(genai|ai\s*agent|llm|amazon\s*bedrock|prompt\s*engineering|ai\s*testing|agentic)\b/i },
+  { name: 'Playwright', weight: 9, category: 'tech', regex: /\bplaywright\b/i },
+  { name: 'WebdriverIO', weight: 8, category: 'tech', regex: /\b(webdriverio|wdio)\b/i },
+  { name: 'Python / Pytest', weight: 7, category: 'tech', regex: /\b(python|pytest)\b/i },
+  { name: 'CI/CD Jenkins', weight: 6, category: 'tech', regex: /\b(jenkins|ci\/cd|github\s*actions|pipeline)\b/i },
+  { name: 'REST / GraphQL API', weight: 5, category: 'tech', regex: /\b(rest\s*assured|graphql|postman|api\s*testing|karate)\b/i },
+  { name: 'Appium / Mobile', weight: 4, category: 'tech', regex: /\b(appium|mobile\s*testing|browserstack|ios|android)\b/i },
+  { name: 'Selenium / Java', weight: 4, category: 'tech', regex: /\b(selenium|java|testng|junit)\b/i },
+  { name: 'TypeScript / JS', weight: 4, category: 'tech', regex: /\b(typescript|javascript|node\.js)\b/i },
+  { name: 'Cucumber / BDD', weight: 4, category: 'domain', regex: /\b(cucumber|bdd|gherkin)\b/i },
+  { name: 'Validation / CSV', weight: 3, category: 'domain', regex: /\b(software\s*validation|csv\s*engineer|gamp|system\s*validation)\b/i },
+  { name: 'SQL / Database', weight: 3, category: 'domain', regex: /\b(sql|database|mongodb)\b/i },
+  { name: 'Performance / JMeter', weight: 2, category: 'domain', regex: /\b(jmeter|loadrunner|performance\s*testing)\b/i }
 ];
 
 /**
- * Calculates match score and matched skills from job title and search context
+ * Transparent 100-Point Candidate Resume Fit Scoring Algorithm
+ * Calibrated against Ankita's 11+ years of experience
+ * Evidence source: Evaluates ONLY the job title and job description (searchQuery and company are excluded)
  */
-function analyzeJobFit(title, company, searchQuery, description = '') {
-  const fullText = `${title || ''} ${company || ''} ${searchQuery || ''} ${description || ''}`.toLowerCase();
+function analyzeJobFit(title, company, description = '') {
+  // Evidence text includes ONLY title and description
+  const titleText = (title || '').toLowerCase();
+  const descText = (description || '').toLowerCase();
+  const fullEvidence = `${titleText} ${descText}`.trim();
+
+  let roleScore = 0;
+  let seniorityScore = 0;
+  let techScore = 0;
+  let domainScore = 0;
   const matchedSkills = [];
 
-  for (const skill of ANKITA_SKILLS) {
-    if (skill.regex.test(fullText)) {
+  // 1. Role Alignment (0 to 25 points)
+  if (/\bsdet\b|\bsoftware\s*(development\s*)?engineer\s*in\s*test\b/i.test(titleText)) {
+    roleScore = 25;
+  } else if (/\b(qa\s*automation|quality\s*engineering\s*lead|lead\s*qa|automation\s*engineer)/i.test(titleText)) {
+    roleScore = 22;
+  } else if (/\b(software\s*validation|validation\s*engineer|validation\s*lead)/i.test(titleText)) {
+    roleScore = 20;
+  } else if (/\b(api\s*test|ai\s*test|test\s*automation)/i.test(titleText)) {
+    roleScore = 20;
+  } else if (/\b(quality\s*engineer|quality\s*assurance|qa\s*analyst|test\s*engineer)/i.test(titleText)) {
+    roleScore = 18;
+  } else {
+    roleScore = 12;
+  }
+
+  // 2. Seniority Alignment (0 to 20 points)
+  if (/\b(lead|principal|staff|architect|director|10\+\s*years?|11\+\s*years?)\b/i.test(fullEvidence)) {
+    seniorityScore = 20;
+  } else if (/\b(senior|sr\.?|specialist|8\+\s*years?|5\+\s*years?)\b/i.test(fullEvidence)) {
+    seniorityScore = 18;
+  } else if (/\b(intermediate|mid|ii|iii)\b/i.test(fullEvidence)) {
+    seniorityScore = 12;
+  } else if (/\b(junior|jr\.?|associate|entry|intern|graduate)\b/i.test(fullEvidence)) {
+    seniorityScore = 0; // Entry roles penalized
+  } else {
+    // Default experienced baseline
+    seniorityScore = 14;
+  }
+
+  // 3. Core Tech Stack (0 to 45 points) & Domain (0 to 10 points)
+  let techPoints = 0;
+  let domainPoints = 0;
+
+  for (const skill of SKILL_DEFINITIONS) {
+    // Test match against title (1.25x weight) or description (1.0x weight)
+    const inTitle = skill.regex.test(titleText);
+    const inDesc = descText ? skill.regex.test(descText) : false;
+
+    if (inTitle || inDesc) {
       matchedSkills.push(skill.name);
+      const points = inTitle ? Math.round(skill.weight * 1.25) : skill.weight;
+
+      if (skill.category === 'tech') {
+        techPoints += points;
+      } else {
+        domainPoints += points;
+      }
     }
   }
 
-  // Base score based on role title match
-  let score = 75; // Baseline high fit due to targeted scraping
+  // Density bonus for mastering multiple distinct core technologies
+  if (matchedSkills.length >= 4) {
+    techPoints += 12;
+  } else if (matchedSkills.length >= 3) {
+    techPoints += 8;
+  } else if (matchedSkills.length >= 2) {
+    techPoints += 4;
+  }
 
-  if (/\bsenior\b|\blead\b|\bprincipal\b|\bstaff\b/i.test(title)) score += 10;
-  if (/\bsdet\b|\btest\s*automation\b|\bquality\s*engineer/i.test(title)) score += 10;
-  if (/\bai\b|\bgenai\b|\bagentic\b/i.test(title)) score += 15;
-  if (matchedSkills.length >= 3) score += 5;
+  techScore = Math.min(techPoints, 45);
+  domainScore = Math.min(domainPoints, 10);
 
-  score = Math.min(score, 99);
+  // Baseline for QA automation core if role is explicitly SDET/QA Lead
+  if (techScore < 15 && roleScore >= 20) {
+    techScore = 18;
+  }
+
+  // Calculate composite score (0 - 100)
+  let totalScore = roleScore + seniorityScore + techScore + domainScore;
+
+  // Penalize negative non-software terms if any slipped in
+  if (/\b(manual\s*only|hardware|electrician|manufacturing\s*line)\b/i.test(fullEvidence)) {
+    totalScore -= 25;
+  }
+
+  totalScore = Math.max(40, Math.min(totalScore, 99));
+
+  const hasDescription = Boolean(description && description.length > 50);
 
   return {
-    score,
-    matchedSkills: Array.from(new Set(matchedSkills))
+    score: totalScore,
+    matchedSkills: Array.from(new Set(matchedSkills)),
+    breakdown: {
+      role: roleScore,
+      seniority: seniorityScore,
+      tech: techScore,
+      domain: domainScore
+    },
+    confidence: hasDescription ? 'high' : 'medium'
   };
 }
 
 module.exports = {
   isTop100Company,
   isPittsburghCompany,
-  buildCompanyCareersUrl,
   analyzeJobFit,
   cleanCompanyName,
   TOP_100_TECH_ENTERPRISE,

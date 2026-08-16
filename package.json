@@ -1,11 +1,12 @@
 {
   "name": "sdet-job-monitor",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Automated Senior SDET, QA Automation, Validation & AI Testing Job Monitor for Ankita Agrawal",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "node --watch app.js"
+    "dev": "node --watch app.js",
+    "test": "vitest run"
   },
   "engines": {
     "node": ">=18.0.0"
@@ -15,6 +16,9 @@
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "node-cron": "^3.0.3",
-    "nodemailer": "^6.9.16"
+    "nodemailer": "^6.10.0"
+  },
+  "devDependencies": {
+    "vitest": "^2.1.8"
   }
 }

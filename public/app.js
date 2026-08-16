@@ -1,11 +1,14 @@
 /* ══════════════════════════════════════════════════════════════
    Ankita Agrawal — Senior SDET & QA Job Monitor Frontend App
-   Supports both Full Node Server & GitHub Pages Static Hosting
+   Resilient Dual-Mode (Node API + GitHub Pages Static Hosting)
+   Hardened against XSS, CSV formula injection, and Race Conditions
    ══════════════════════════════════════════════════════════════ */
 
 let allJobs = [];
 let filteredJobs = [];
 let isStaticMode = false;
+let currentRequestGen = 0;
+let activeAbortController = null;
 
 // Filter state
 let currentCategory = 'all';
@@ -21,104 +24,186 @@ let autoRefreshInterval = null;
 
 const STATUS_OPTIONS = ['New', 'Viewed', 'Applied', 'Interviewing', 'Offer', 'Rejected'];
 
-// Local storage keys for GitHub Pages static mode
-const STORAGE_STATUSES_KEY = 'ankita_sdet_job_statuses';
-const STORAGE_NOTES_KEY = 'ankita_sdet_job_notes';
-const STORAGE_READ_KEY = 'ankita_sdet_job_read';
+// Unified Local Storage Record for GitHub Pages static mode
+const USER_RECORDS_KEY = 'ankita_sdet_user_records_v2';
 
-function getLocalStatuses() {
-  try { return JSON.parse(localStorage.getItem(STORAGE_STATUSES_KEY) || '{}'); } catch(e) { return {}; }
-}
-function saveLocalStatus(id, status) {
-  const data = getLocalStatuses();
-  data[id] = status;
-  localStorage.setItem(STORAGE_STATUSES_KEY, JSON.stringify(data));
+function getUserRecords() {
+  try {
+    return JSON.parse(localStorage.getItem(USER_RECORDS_KEY) || '{}');
+  } catch (e) {
+    return {};
+  }
 }
 
-function getLocalNotes() {
-  try { return JSON.parse(localStorage.getItem(STORAGE_NOTES_KEY) || '{}'); } catch(e) { return {}; }
-}
-function saveLocalNote(id, note) {
-  const data = getLocalNotes();
-  data[id] = note;
-  localStorage.setItem(STORAGE_NOTES_KEY, JSON.stringify(data));
+function saveUserRecord(jobId, updates) {
+  try {
+    const records = getUserRecords();
+    records[jobId] = {
+      ...(records[jobId] || {}),
+      ...updates,
+      updatedAt: new Date().toISOString()
+    };
+    localStorage.setItem(USER_RECORDS_KEY, JSON.stringify(records));
+  } catch (err) {
+    console.warn('LocalStorage write failed (quota exceeded?):', err.message);
+  }
 }
 
-function getLocalRead() {
-  try { return JSON.parse(localStorage.getItem(STORAGE_READ_KEY) || '{}'); } catch(e) { return {}; }
+// ─── Multi-Tab Realtime Synchronization ──────────────────────
+window.addEventListener('storage', (event) => {
+  if (event.key === USER_RECORDS_KEY && isStaticMode) {
+    loadData();
+  }
+});
+
+// ─── IndexedDB Offline Catalog Cache ─────────────────────────
+const IDB_NAME = 'sdet_job_monitor_db';
+const IDB_STORE = 'jobs_catalog';
+
+function openJobsDB() {
+  return new Promise((resolve) => {
+    if (!window.indexedDB) return resolve(null);
+    const req = indexedDB.open(IDB_NAME, 1);
+    req.onupgradeneeded = () => {
+      const db = req.result;
+      if (!db.objectStoreNames.contains(IDB_STORE)) {
+        db.createObjectStore(IDB_STORE, { keyPath: 'id' });
+      }
+    };
+    req.onsuccess = () => resolve(req.result);
+    req.onerror = () => resolve(null);
+  });
 }
-function markLocalRead(id) {
-  const data = getLocalRead();
-  data[id] = true;
-  localStorage.setItem(STORAGE_READ_KEY, JSON.stringify(data));
+
+async function cacheJobsInIDB(jobs) {
+  try {
+    const db = await openJobsDB();
+    if (!db) return;
+    const tx = db.transaction(IDB_STORE, 'readwrite');
+    const store = tx.objectStore(IDB_STORE);
+    store.clear();
+    jobs.forEach(j => store.put(j));
+  } catch (e) {}
+}
+
+async function loadJobsFromIDB() {
+  try {
+    const db = await openJobsDB();
+    if (!db) return [];
+    return new Promise((resolve) => {
+      const tx = db.transaction(IDB_STORE, 'readonly');
+      const req = tx.objectStore(IDB_STORE).getAll();
+      req.onsuccess = () => resolve(req.result || []);
+      req.onerror = () => resolve([]);
+    });
+  } catch (e) {
+    return [];
+  }
 }
 
 // ─── Initialization ──────────────────────────────────────────
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Explicit deployment mode check: GitHub Pages vs Local/Container backend
+  const isGitHubPages = window.location.hostname.endsWith('github.io');
+  isStaticMode = isGitHubPages;
+
   loadData();
   startAutoPolling();
 });
 
 function startAutoPolling() {
   if (autoRefreshInterval) clearInterval(autoRefreshInterval);
-  autoRefreshInterval = setInterval(loadData, 30000);
+  // 30s poll for Node API, 3m poll on GitHub Pages
+  const intervalMs = isStaticMode ? 3 * 60 * 1000 : 30 * 1000;
+  autoRefreshInterval = setInterval(loadData, intervalMs);
 }
 
-// ─── Data Loading ────────────────────────────────────────────
+// ─── Resilient Data Loading with Monotonic Generation ─────────
 
 async function loadData() {
-  try {
-    // Try Node.js API first
-    let jobsLoaded = false;
-    try {
-      const jobsRes = await fetch('/api/jobs');
-      if (jobsRes.ok) {
-        const jobsData = await jobsRes.json();
-        if (jobsData.success && Array.isArray(jobsData.jobs)) {
-          allJobs = jobsData.jobs;
-          isStaticMode = false;
-          jobsLoaded = true;
+  const reqGen = ++currentRequestGen;
+  if (activeAbortController) {
+    activeAbortController.abort();
+  }
+  activeAbortController = new AbortController();
+  const signal = activeAbortController.signal;
 
-          const statsRes = await fetch('/api/stats');
-          if (statsRes.ok) {
-            const statsData = await statsRes.json();
-            updateKPIs(statsData);
-            updateScanStatus(statsData);
+  try {
+    let rawJobs = [];
+    let lastScanTime = null;
+    let scanCountVal = 1;
+
+    if (!isStaticMode) {
+      // Dynamic Node API mode
+      try {
+        const [jobsRes, statsRes] = await Promise.all([
+          fetch('/api/jobs', { signal }),
+          fetch('/api/stats', { signal })
+        ]);
+
+        if (jobsRes.ok && reqGen === currentRequestGen) {
+          const jobsData = await jobsRes.json();
+          if (jobsData.success && Array.isArray(jobsData.jobs)) {
+            rawJobs = jobsData.jobs;
           }
         }
+
+        if (statsRes.ok && reqGen === currentRequestGen) {
+          const statsData = await statsRes.json();
+          updateKPIs(statsData);
+          updateScanStatus(statsData);
+        }
+      } catch (e) {
+        if (e.name === 'AbortError') return;
+        // Fallback to static mode if local server is unreachable
+        isStaticMode = true;
       }
-    } catch (e) {
-      // API not available, switch to static mode
     }
 
-    // Static mode fallback (GitHub Pages)
-    if (!jobsLoaded) {
-      isStaticMode = true;
-      const staticRes = await fetch('./data/jobs.json');
-      if (staticRes.ok) {
-        const staticData = await staticRes.json();
-        let rawJobs = Array.isArray(staticData) ? staticData : (staticData.jobs || []);
-
-        // Overlay localStorage data
-        const localStatuses = getLocalStatuses();
-        const localNotes = getLocalNotes();
-        const localReads = getLocalRead();
-
-        allJobs = rawJobs.map(j => ({
-          ...j,
-          applicationStatus: localStatuses[j.id] || j.applicationStatus || 'New',
-          notes: localNotes[j.id] !== undefined ? localNotes[j.id] : (j.notes || ''),
-          isRead: localReads[j.id] || j.isRead || false
-        }));
-
-        computeAndSetStaticStats(staticData.lastScan, staticData.scanCount);
+    if (isStaticMode) {
+      // Static GitHub Pages mode
+      try {
+        const cacheBuster = `?_t=${Math.floor(Date.now() / 60000)}`;
+        const staticRes = await fetch(`./data/jobs.json${cacheBuster}`, { signal });
+        if (staticRes.ok && reqGen === currentRequestGen) {
+          const staticData = await staticRes.json();
+          rawJobs = Array.isArray(staticData) ? staticData : (staticData.jobs || []);
+          lastScanTime = staticData.lastScan;
+          scanCountVal = staticData.scanCount;
+          cacheJobsInIDB(rawJobs);
+        }
+      } catch (e) {
+        if (e.name === 'AbortError') return;
+        // Load from IndexedDB offline fallback
+        rawJobs = await loadJobsFromIDB();
       }
+    }
+
+    // Ignore if a newer request generation has already started
+    if (reqGen !== currentRequestGen) return;
+
+    // Overlay unified user records (status, notes, read state)
+    const userRecords = getUserRecords();
+    allJobs = rawJobs.map(j => {
+      const rec = userRecords[j.id] || {};
+      return {
+        ...j,
+        applicationStatus: rec.status || j.applicationStatus || 'New',
+        notes: rec.notes !== undefined ? rec.notes : (j.notes || ''),
+        isRead: rec.isRead !== undefined ? rec.isRead : Boolean(j.isRead)
+      };
+    });
+
+    if (isStaticMode) {
+      computeAndSetStaticStats(lastScanTime, scanCountVal);
     }
 
     applyAllFilters();
   } catch (err) {
-    console.error('Failed to load jobs data:', err);
+    if (err.name !== 'AbortError') {
+      console.error('Failed to load jobs data:', err);
+    }
   }
 }
 
@@ -170,7 +255,7 @@ function setAnimatedNumber(elementId, target) {
   const current = parseInt(el.textContent, 10) || 0;
   if (current === target) return;
 
-  const duration = 350;
+  const duration = 300;
   const start = performance.now();
 
   function step(now) {
@@ -380,7 +465,18 @@ function applyAllFilters() {
   renderJobsFeed();
 }
 
-// ─── Rendering ───────────────────────────────────────────────
+// ─── Safe Rendering with Event Delegation ─────────────────────
+
+function sanitizeSafeUrl(url) {
+  if (!url || typeof url !== 'string') return '#';
+  try {
+    const parsed = new URL(url);
+    if (parsed.protocol === 'https:' || parsed.protocol === 'http:') {
+      return parsed.href;
+    }
+  } catch (e) {}
+  return '#';
+}
 
 function renderJobsFeed() {
   const feed = document.getElementById('jobsFeed');
@@ -427,8 +523,12 @@ function renderJobsFeed() {
       </div>
     ` : '';
 
+    const safeApplyUrl = sanitizeSafeUrl(job.companyApplyUrl);
+    const safeLinkedInUrl = sanitizeSafeUrl(job.url);
+    const safeId = escapeHtml(String(job.id || ''));
+
     return `
-      <article class="job-card ${isNewClass} ${isReadClass}" id="card-${job.id}">
+      <article class="job-card ${isNewClass} ${isReadClass}" id="card-${safeId}" data-job-id="${safeId}">
         <div class="job-card-top">
           <div class="job-main-info">
             <div class="job-title-row">
@@ -444,7 +544,7 @@ function renderJobsFeed() {
             </div>
           </div>
 
-          <div class="match-score-badge" title="Calculated fit with Ankita's 11+ yrs SDET experience">
+          <div class="match-score-badge" title="Calibrated 100-pt fit with Ankita's 11+ yrs SDET experience">
             <span>⚡ ${job.matchScore || 85}% Match</span>
           </div>
         </div>
@@ -474,22 +574,22 @@ function renderJobsFeed() {
 
         <div class="job-card-actions">
           <div class="card-action-links">
-            <a href="${job.companyApplyUrl}" target="_blank" rel="noopener noreferrer" class="btn-apply-company" onclick="markJobAsRead('${job.id}')">
+            <a href="${safeApplyUrl}" target="_blank" rel="noopener noreferrer" class="btn-apply-company" data-action="apply">
               🚀 Apply on Company Site →
             </a>
-            <a href="${job.url}" target="_blank" rel="noopener noreferrer" class="btn-view-linkedin" onclick="markJobAsRead('${job.id}')">
+            <a href="${safeLinkedInUrl}" target="_blank" rel="noopener noreferrer" class="btn-view-linkedin" data-action="linkedin">
               View on LinkedIn
             </a>
-            <button class="btn-card-tool" onclick="openPitchModal('${job.id}')" title="Generate tailored intro pitch">
+            <button class="btn-card-tool" data-action="pitch" title="Generate tailored intro pitch">
               📝 Pitch
             </button>
-            <button class="btn-card-tool" onclick="openNotesModal('${job.id}')" title="Add / edit notes for this job">
+            <button class="btn-card-tool" data-action="notes" title="Add / edit notes for this job">
               💬 ${job.notes ? 'Edit Notes' : 'Notes'}
             </button>
           </div>
 
           <div class="card-status-tracker">
-            <select class="status-dropdown status-${currentStatus}" onchange="changeJobStatus('${job.id}', this.value)">
+            <select class="status-dropdown status-${escapeHtml(currentStatus)}" data-action="status-select">
               ${STATUS_OPTIONS.map(s => `
                 <option value="${s}" ${currentStatus === s ? 'selected' : ''}>${s === 'New' ? 'Status: New' : s}</option>
               `).join('')}
@@ -500,6 +600,39 @@ function renderJobsFeed() {
     `;
   }).join('');
 }
+
+// ─── Event Delegation for Feed Interactions ──────────────────
+
+document.addEventListener('click', (e) => {
+  const target = e.target.closest('[data-action]');
+  if (!target) return;
+
+  const card = target.closest('.job-card');
+  if (!card) return;
+  const jobId = card.getAttribute('data-job-id');
+  if (!jobId) return;
+
+  const action = target.getAttribute('data-action');
+
+  if (action === 'apply' || action === 'linkedin') {
+    markJobAsRead(jobId);
+  } else if (action === 'pitch') {
+    openPitchModal(jobId);
+  } else if (action === 'notes') {
+    openNotesModal(jobId);
+  }
+});
+
+document.addEventListener('change', (e) => {
+  if (e.target && e.target.getAttribute('data-action') === 'status-select') {
+    const card = e.target.closest('.job-card');
+    if (!card) return;
+    const jobId = card.getAttribute('data-job-id');
+    if (jobId) {
+      changeJobStatus(jobId, e.target.value);
+    }
+  }
+});
 
 // ─── Actions & Handlers ──────────────────────────────────────
 
@@ -542,15 +675,12 @@ async function markJobAsRead(jobId) {
     }
   }
 
-  if (isStaticMode) {
-    markLocalRead(jobId);
-    return;
-  }
+  saveUserRecord(jobId, { isRead: true });
 
-  try {
-    await fetch(`/api/jobs/${jobId}/read`, { method: 'POST' });
-  } catch (e) {
-    console.error('Failed to mark read:', e);
+  if (!isStaticMode) {
+    try {
+      await fetch(`/api/jobs/${encodeURIComponent(jobId)}/read`, { method: 'POST' });
+    } catch (e) {}
   }
 }
 
@@ -558,7 +688,7 @@ async function markAllAsRead() {
   allJobs.forEach(j => {
     j.isRead = true;
     j.isNew = false;
-    if (isStaticMode) markLocalRead(j.id);
+    saveUserRecord(j.id, { isRead: true });
   });
   applyAllFilters();
 
@@ -579,9 +709,9 @@ async function changeJobStatus(jobId, status) {
     job.isNew = false;
   }
 
+  saveUserRecord(jobId, { status, isRead: true });
+
   if (isStaticMode) {
-    saveLocalStatus(jobId, status);
-    markLocalRead(jobId);
     computeAndSetStaticStats();
     applyAllFilters();
     showToast(`Updated status to "${status}"`, 'success');
@@ -607,7 +737,7 @@ async function changeJobStatus(jobId, status) {
 // ─── Pitch Modal ─────────────────────────────────────────────
 
 function generatePitchForJob(job) {
-  return `Hi Hiring Team at ${job.company || 'the team'},\n\nI am writing to express my strong interest in the ${job.title} role. With over 11+ years of Quality Engineering & SDET experience, I specialize in designing scalable test automation frameworks (Playwright, WebdriverIO, Selenium, REST Assured, Appium) and integrating AI-assisted quality workflows (Amazon Bedrock, Agentic AI).\n\nKey Highlights of my experience:\n• Architected data-driven & BDD automation frameworks across Web, Mobile (iOS/Android), and REST/GraphQL APIs with parallel CI/CD execution.\n• Engineered AI-driven defect and testing workflows, driving significant time savings and 100% traceability across distributed agile teams.\n• Proven track record across enterprise platforms, financial systems, healthcare, and e-commerce.\n\nI am authorized to work in the US without sponsorship and would love to discuss how my skill set aligns with your engineering goals.\n\nBest regards,\nAnkita Agrawal\nPittsburgh, PA | ankita.vinculum@gmail.com | +1-716-400-6921`;
+  return `Hi Hiring Team at ${job.company || 'the team'},\n\nI am writing to express my strong interest in the ${job.title} role. With over 11+ years of Quality Engineering & SDET experience, I specialize in designing scalable test automation frameworks (Playwright, WebdriverIO, Selenium, REST Assured, Appium) and integrating AI-assisted quality workflows (Amazon Bedrock, Agentic AI).\n\nKey Highlights of my experience:\n• Architected data-driven & BDD automation frameworks across Web, Mobile (iOS/Android), and REST/GraphQL APIs with parallel CI/CD execution.\n• Engineered AI-driven defect and testing workflows, driving significant time savings and 100% traceability across distributed agile teams.\n• Proven track record across enterprise platforms, financial systems, healthcare, and e-commerce.\n\nI am authorized to work in the US without sponsorship and would love to discuss how my skill set aligns with your engineering goals.\n\nBest regards,\nAnkita Agrawal\nPittsburgh, PA`;
 }
 
 async function openPitchModal(jobId) {
@@ -658,8 +788,9 @@ async function saveJobNotes() {
   const job = allJobs.find(j => j.id === activeEditingJobId);
   if (job) job.notes = notes;
 
+  saveUserRecord(activeEditingJobId, { notes });
+
   if (isStaticMode) {
-    saveLocalNote(activeEditingJobId, notes);
     closeNotesModal();
     applyAllFilters();
     showToast('Notes saved successfully!', 'success');
@@ -667,7 +798,7 @@ async function saveJobNotes() {
   }
 
   try {
-    const res = await fetch(`/api/jobs/${activeEditingJobId}/notes`, {
+    const res = await fetch(`/api/jobs/${encodeURIComponent(activeEditingJobId)}/notes`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ notes })
@@ -683,7 +814,17 @@ async function saveJobNotes() {
   }
 }
 
-// ─── CSV Export ──────────────────────────────────────────────
+// ─── CSV Export with Formula Injection Guard ─────────────────
+
+function sanitizeCsvCell(str) {
+  if (!str) return '""';
+  let val = String(str);
+  // CSV Formula Injection (DDE) prevention: prefix =, +, -, @ with single quote
+  if (/^[=+\-@\t\r]/.test(val)) {
+    val = "'" + val;
+  }
+  return `"${val.replace(/"/g, '""')}"`;
+}
 
 function exportToCSV() {
   if (filteredJobs.length === 0) {
@@ -691,18 +832,19 @@ function exportToCSV() {
     return;
   }
 
-  const headers = ['Title', 'Company', 'Location', 'WorkplaceType', 'MatchScore', 'Status', 'DatePosted', 'ApplyURL', 'LinkedInURL', 'Notes'];
+  const headers = ['Title', 'Company', 'Location', 'WorkplaceType', 'MatchScore', 'ATSProvider', 'Status', 'DatePosted', 'ApplyURL', 'LinkedInURL', 'Notes'];
   const rows = filteredJobs.map(j => [
-    `"${(j.title || '').replace(/"/g, '""')}"`,
-    `"${(j.company || '').replace(/"/g, '""')}"`,
-    `"${(j.location || '').replace(/"/g, '""')}"`,
-    `"${j.workplaceType || 'Remote'}"`,
-    `${j.matchScore || 85}%`,
-    `"${j.applicationStatus || 'New'}"`,
-    `"${j.listDate || ''}"`,
-    `"${j.companyApplyUrl || ''}"`,
-    `"${j.url || ''}"`,
-    `"${(j.notes || '').replace(/"/g, '""')}"`
+    sanitizeCsvCell(j.title),
+    sanitizeCsvCell(j.company),
+    sanitizeCsvCell(j.location),
+    sanitizeCsvCell(j.workplaceType || 'Remote'),
+    sanitizeCsvCell(`${j.matchScore || 85}%`),
+    sanitizeCsvCell(j.atsProvider || 'Direct'),
+    sanitizeCsvCell(j.applicationStatus || 'New'),
+    sanitizeCsvCell(j.listDate || ''),
+    sanitizeCsvCell(j.companyApplyUrl || ''),
+    sanitizeCsvCell(j.url || ''),
+    sanitizeCsvCell(j.notes || '')
   ]);
 
   const csvContent = [headers.join(','), ...rows.map(r => r.join(','))].join('\n');

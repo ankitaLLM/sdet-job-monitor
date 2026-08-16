@@ -1,7 +1,7 @@
 const cron = require('node-cron');
 const config = require('./config');
 const { runFullScan } = require('./scraper');
-const { processScanResults } = require('./storage');
+const { processScanResults, getStats } = require('./storage');
 const { sendNotification } = require('./notifier');
 
 let isScanning = false;
@@ -26,10 +26,9 @@ async function executeScan() {
     // 2. Process, enrich, and store results
     const { newJobs, totalJobs, scanCount } = processScanResults(scrapedJobs);
 
-    // 3. Send email summary notification
-    let emailResult = { sent: false, reason: 'Email transporter not configured' };
-    const stats = { totalJobs, scanCount, remoteJobs: 0, pittsburghJobs: 0, top100Jobs: 0 };
-    emailResult = await sendNotification(newJobs, stats);
+    // 3. Send email summary notification with accurate category metrics
+    const stats = getStats();
+    let emailResult = await sendNotification(newJobs, stats);
 
     const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
 
