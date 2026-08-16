@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ankita Agrawal — Senior SDET & QA Job Monitor</title>
+  <meta name="description" content="Automated Job Search Monitor for Senior SDET, QA Automation, Validation & AI Testing roles in Remote US and Pittsburgh Area">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=2.0.0">
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="app-header" id="appHeader">
+    <div class="header-container">
+      <div class="header-brand">
+        <div class="brand-badge">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+          </svg>
+        </div>
+        <div>
+          <div class="brand-title-row">
+            <h1 class="brand-title">Ankita Agrawal</h1>
+            <span class="profile-tag">11+ Yrs Senior SDET / QA Lead</span>
+            <span class="status-authorized">🇺🇸 US Authorized (No Sponsorship Required)</span>
+          </div>
+          <p class="brand-subtitle" id="scanScheduleText">SDET • Automation • AI Testing • Validation • Pittsburgh & Remote Track</p>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <div class="scan-status-pill" id="scanStatusIndicator">
+          <span class="status-indicator-dot"></span>
+          <span id="scanStatusLabel">Auto-scanning Active</span>
+          <span class="scan-last-time" id="lastScanLabel">—</span>
+        </div>
+        <button class="btn-primary-action" id="btnScanNow" onclick="triggerManualScan()">
+          <svg class="icon-spin-target" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/>
+          </svg>
+          <span id="btnScanText">Scan Now</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Application Container -->
+  <div class="main-wrapper">
+
+    <!-- KPI Metric Cards Bar -->
+    <section class="kpi-grid" id="kpiGrid">
+      <div class="kpi-card" onclick="quickFilter('all')">
+        <div class="kpi-header">
+          <span class="kpi-title">Total Openings</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        </div>
+        <div class="kpi-value" id="kpiTotal">0</div>
+        <div class="kpi-sub" id="kpiScansCount">0 scans completed</div>
+      </div>
+
+      <div class="kpi-card kpi-highlight-green" onclick="quickFilter('new')">
+        <div class="kpi-header">
+          <span class="kpi-title">New Today</span>
+          <span class="kpi-badge-live">LIVE</span>
+        </div>
+        <div class="kpi-value" id="kpiNew">0</div>
+        <div class="kpi-sub">Discovered last 24h</div>
+      </div>
+
+      <div class="kpi-card" onclick="quickFilter('remote')">
+        <div class="kpi-header">
+          <span class="kpi-title">🌐 Remote (US)</span>
+          <span class="kpi-icon-pill blue">Remote</span>
+        </div>
+        <div class="kpi-value" id="kpiRemote">0</div>
+        <div class="kpi-sub">Work from anywhere</div>
+      </div>
+
+      <div class="kpi-card" onclick="quickFilter('pittsburgh')">
+        <div class="kpi-header">
+          <span class="kpi-title">📍 Pittsburgh & Area</span>
+          <span class="kpi-icon-pill amber">Local</span>
+        </div>
+        <div class="kpi-value" id="kpiPittsburgh">0</div>
+        <div class="kpi-sub">PA Local & Regional</div>
+      </div>
+
+      <div class="kpi-card" onclick="quickFilter('top100')">
+        <div class="kpi-header">
+          <span class="kpi-title">⭐ Top 100 Tech</span>
+          <span class="kpi-icon-pill purple">Tier 1</span>
+        </div>
+        <div class="kpi-value" id="kpiTop100">0</div>
+        <div class="kpi-sub">FAANG & Enterprise</div>
+      </div>
+
+      <div class="kpi-card" onclick="quickFilter('applied')">
+        <div class="kpi-header">
+          <span class="kpi-title">🎯 Applied Pipeline</span>
+          <span class="kpi-icon-pill emerald">Pipeline</span>
+        </div>
+        <div class="kpi-value" id="kpiApplied">0</div>
+        <div class="kpi-sub">Active applications</div>
+      </div>
+    </section>
+
+    <!-- Filter Control Hub -->
+    <section class="filter-hub" id="filterHub">
+      <div class="filter-row primary-filters">
+        <!-- Role Category Pills -->
+        <div class="pill-group" id="categoryPillGroup">
+          <button class="filter-pill active" data-cat="all" onclick="selectCategory('all', this)">All Roles</button>
+          <button class="filter-pill" data-cat="SDET" onclick="selectCategory('SDET', this)">
+            <span class="dot" style="background:#2563eb"></span>Senior / Lead SDET
+          </button>
+          <button class="filter-pill" data-cat="Automation" onclick="selectCategory('Automation', this)">
+            <span class="dot" style="background:#059669"></span>QA Automation
+          </button>
+          <button class="filter-pill" data-cat="Quality Assurance" onclick="selectCategory('Quality Assurance', this)">
+            <span class="dot" style="background:#0284c7"></span>Senior QA / Analyst
+          </button>
+          <button class="filter-pill" data-cat="Lead" onclick="selectCategory('Lead', this)">
+            <span class="dot" style="background:#d97706"></span>QA Lead
+          </button>
+          <button class="filter-pill" data-cat="AI" onclick="selectCategory('AI', this)">
+            <span class="dot" style="background:#7c3aed"></span>AI Test Automation
+          </button>
+          <button class="filter-pill" data-cat="Validation" onclick="selectCategory('Validation', this)">
+            <span class="dot" style="background:#e11d48"></span>Validation Engineer
+          </button>
+          <button class="filter-pill" data-cat="API" onclick="selectCategory('API', this)">
+            <span class="dot" style="background:#0d9488"></span>API Test Engineer
+          </button>
+        </div>
+
+        <!-- Utility Buttons -->
+        <div class="filter-tools">
+          <button class="tool-btn" onclick="exportToCSV()" title="Export filtered jobs to CSV">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+            Export CSV
+          </button>
+          <button class="tool-btn" onclick="markAllAsRead()" title="Mark all loaded listings as read">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Mark All Read
+          </button>
+        </div>
+      </div>
+
+      <!-- Secondary Filter Row: Locations, Employers, Status & Search -->
+      <div class="filter-row secondary-filters">
+        <div class="toggle-pills">
+          <button class="toggle-pill" id="toggleRemote" onclick="toggleLocationFilter('remote')">
+            🌐 Remote Only
+          </button>
+          <button class="toggle-pill" id="togglePittsburgh" onclick="toggleLocationFilter('pittsburgh')">
+            📍 Pittsburgh & Area
+          </button>
+          <button class="toggle-pill" id="toggleTop100" onclick="toggleTop100Filter()">
+            ⭐ Top 100 Employers
+          </button>
+          <button class="toggle-pill" id="toggleUnreadOnly" onclick="toggleUnreadFilter()">
+            📬 Unread Only
+          </button>
+        </div>
+
+        <div class="search-and-status">
+          <select class="status-filter-select" id="statusFilterSelect" onchange="handleStatusFilterChange(this.value)">
+            <option value="all">All Application Statuses</option>
+            <option value="New">Status: New</option>
+            <option value="Viewed">Status: Viewed</option>
+            <option value="Applied">Status: Applied</option>
+            <option value="Interviewing">Status: Interviewing</option>
+            <option value="Offer">Status: Offer</option>
+            <option value="Rejected">Status: Rejected</option>
+          </select>
+
+          <div class="search-box">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <input type="text" id="searchInput" placeholder="Search Playwright, Python, PNC, company..." oninput="handleSearchInput(this.value)">
+            <button class="btn-clear-search" id="btnClearSearch" onclick="clearSearch()" style="display:none;">✕</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results Header -->
+    <div class="results-header">
+      <div class="results-count-text" id="resultsCountText">Loading job postings...</div>
+      <div class="sort-selector">
+        <label for="sortSelect">Sort:</label>
+        <select id="sortSelect" onchange="handleSortChange(this.value)">
+          <option value="newest">Newest First</option>
+          <option value="match">Highest Match %</option>
+          <option value="company">Company Name</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Job Cards Feed Container -->
+    <main class="jobs-feed" id="jobsFeed">
+      <div class="feed-loader" id="feedLoader">
+        <div class="spinner-ring"></div>
+        <p>Fetching latest LinkedIn openings for Ankita...</p>
+      </div>
+    </main>
+
+    <!-- Empty State -->
+    <div class="empty-feed" id="emptyFeed" style="display:none;">
+      <div class="empty-feed-icon">🔍</div>
+      <h3>No matching jobs found</h3>
+      <p>Try clearing some filters or click <strong>Scan Now</strong> to fetch fresh openings from LinkedIn.</p>
+      <button class="btn-reset-filters" onclick="resetAllFilters()">Reset All Filters</button>
+    </div>
+
+  </div>
+
+  <!-- Pitch Modal -->
+  <div class="modal-backdrop" id="pitchModal" style="display:none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title" id="pitchModalTitle">1-Click Tailored Intro Pitch</h3>
+          <p class="modal-subtitle" id="pitchModalSub">Personalized for Ankita Agrawal (11+ yrs SDET & QA)</p>
+        </div>
+        <button class="modal-close-btn" onclick="closePitchModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-tip">Copy and paste this concise pitch directly into cover letter fields, LinkedIn recruiter messages, or application notes:</p>
+        <textarea class="pitch-textarea" id="pitchContent" readonly></textarea>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" onclick="closePitchModal()">Close</button>
+        <button class="btn-primary-action" id="btnCopyPitch" onclick="copyPitchText()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+          Copy to Clipboard
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notes Modal -->
+  <div class="modal-backdrop" id="notesModal" style="display:none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title" id="notesModalTitle">Application Notes & Tracking</h3>
+          <p class="modal-subtitle" id="notesModalSub">Track referrals, recruiter contacts, interview dates</p>
+        </div>
+        <button class="modal-close-btn" onclick="closeNotesModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <textarea class="notes-textarea" id="notesContent" placeholder="e.g. Applied via career page, reached out to Hiring Manager on LinkedIn on 8/16..."></textarea>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" onclick="closeNotesModal()">Cancel</button>
+        <button class="btn-primary-action" onclick="saveJobNotes()">Save Notes</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-stack" id="toastStack"></div>
+
+  <script src="app.js?v=2.0.0"></script>
+</body>
+</html>
