@@ -11,9 +11,43 @@ const { isRelevantQATitle } = require('./scraper');
 
 const APPLICATION_STATUSES = ['New', 'Viewed', 'Applied', 'Interviewing', 'Offer', 'Rejected'];
 
+// Strict Allowlist for Public Data Projection (GitHub Pages)
+const PUBLIC_ALLOWLIST_FIELDS = [
+  'id',
+  'title',
+  'company',
+  'location',
+  'workplaceType',
+  'isTop100',
+  'isPittsburgh',
+  'matchScore',
+  'scoreConfidence',
+  'scoreBreakdown',
+  'matchedSkills',
+  'companyApplyUrl',
+  'atsProvider',
+  'applySource',
+  'applyConfidence',
+  'url',
+  'datePosted',
+  'listDate',
+  'firstSeen',
+  'lastSeen'
+];
+
+let customStorageDir = null;
+
+function setStorageDir(dir) {
+  customStorageDir = dir;
+}
+
+function getStorageDir() {
+  return customStorageDir || process.env.DATA_DIR || path.resolve(config.dataDir);
+}
+
 // Ensure data directory exists
 function ensureDataDir() {
-  const dir = path.resolve(config.dataDir);
+  const dir = getStorageDir();
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir, { recursive: true });
   }
@@ -23,7 +57,7 @@ function ensureDataDir() {
  * Get the jobs file path
  */
 function getJobsFilePath() {
-  return path.join(path.resolve(config.dataDir), 'jobs.json');
+  return path.join(getStorageDir(), 'jobs.json');
 }
 
 /**
@@ -34,7 +68,7 @@ function writeJsonAtomic(filePath, data) {
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir, { recursive: true });
   }
-  const tempPath = `${filePath}.tmp.${Date.now()}`;
+  const tempPath = `${filePath}.tmp.${Date.now()}.${Math.random().toString(36).slice(2, 8)}`;
   fs.writeFileSync(tempPath, JSON.stringify(data, null, 2), 'utf-8');
   fs.renameSync(tempPath, filePath);
 }
@@ -106,6 +140,19 @@ function enrichJob(job) {
 }
 
 /**
+ * Creates an allowlisted sanitized public projection of a job
+ */
+function sanitizeJobForPublic(job) {
+  const publicObj = {};
+  for (const field of PUBLIC_ALLOWLIST_FIELDS) {
+    if (job[field] !== undefined) {
+      publicObj[field] = job[field];
+    }
+  }
+  return publicObj;
+}
+
+/**
  * Load existing jobs from the JSON file
  */
 function loadJobs() {
@@ -132,30 +179,29 @@ function loadJobs() {
 }
 
 /**
- * Save jobs atomically to the JSON file and sync public projection
+ * Save jobs atomically to the JSON file and sync sanitized public projection
  */
 function saveJobs(data) {
   ensureDataDir();
   const filePath = getJobsFilePath();
   writeJsonAtomic(filePath, data);
 
-  // Sync sanitized public projection to public/data/jobs.json
-  try {
-    const publicDataDir = path.join(__dirname, '..', 'public', 'data');
-    const publicJobsPath = path.join(publicDataDir, 'jobs.json');
+  // Sync sanitized public projection to public/data/jobs.json ONLY in production storage mode
+  if (!customStorageDir) {
+    try {
+      const publicDataDir = path.join(__dirname, '..', 'public', 'data');
+      const publicJobsPath = path.join(publicDataDir, 'jobs.json');
 
-    const sanitizedData = {
-      ...data,
-      jobs: (data.jobs || []).map(j => {
-        // Strip private notes/audit from public projection
-        const { notes, ...publicJob } = j;
-        return publicJob;
-      })
-    };
+      const sanitizedData = {
+        lastScan: data.lastScan,
+        scanCount: data.scanCount || 0,
+        jobs: (data.jobs || []).map(sanitizeJobForPublic)
+      };
 
-    writeJsonAtomic(publicJobsPath, sanitizedData);
-  } catch (err) {
-    // Non-fatal if public folder is read-only
+      writeJsonAtomic(publicJobsPath, sanitizedData);
+    } catch (err) {
+      // Non-fatal if public folder is read-only or in testing
+    }
   }
 }
 
@@ -172,7 +218,7 @@ function initDatabase() {
  * Merge newly scraped jobs with existing stored jobs.
  * Tracks lastSeen, updates mutable attributes, and maintains user status & notes.
  */
-function mergeJobs(existingJobs, scrapedJobs) {
+function mergeJobs(existingJobs, scrapedJobs, pruneStale = true) {
   const existingMap = new Map();
   const now = new Date().toISOString();
 
@@ -194,6 +240,14 @@ function mergeJobs(existingJobs, scrapedJobs) {
       if (rawJob.listDate) existing.listDate = rawJob.listDate;
       if (rawJob.datePosted) existing.datePosted = rawJob.datePosted;
       if (rawJob.location) existing.location = rawJob.location;
+      if (rawJob.description && (!existing.description || rawJob.description.length > existing.description.length)) {
+        existing.description = rawJob.description;
+        const fit = analyzeJobFit(existing.title, existing.company, existing.description);
+        existing.matchScore = fit.score;
+        existing.scoreConfidence = fit.confidence;
+        existing.scoreBreakdown = fit.breakdown;
+        existing.matchedSkills = fit.matchedSkills;
+      }
     } else {
       // Brand new job
       const enriched = enrichJob({
@@ -213,8 +267,9 @@ function mergeJobs(existingJobs, scrapedJobs) {
   const thirtyDaysAgo = Date.now() - 30 * 24 * 60 * 60 * 1000;
 
   const allJobs = Array.from(existingMap.values())
-    // Prune stale jobs not seen in 30 days unless marked Applied/Interviewing
+    // Prune stale jobs not seen in 30 days unless marked Applied/Interviewing (only if pruneStale is true)
     .filter(job => {
+      if (!pruneStale) return true;
       const isTracked = ['Applied', 'Interviewing', 'Offer'].includes(job.applicationStatus);
       const lastSeenTime = new Date(job.lastSeen || job.firstSeen).getTime();
       return isTracked || lastSeenTime >= thirtyDaysAgo;
@@ -239,14 +294,16 @@ function mergeJobs(existingJobs, scrapedJobs) {
 /**
  * Process scan results
  */
-function processScanResults(scrapedJobs) {
+function processScanResults(scrapedJobs, scanHealth = 'healthy') {
   const data = loadJobs();
-  const { allJobs, newJobs } = mergeJobs(data.jobs, scrapedJobs);
+  const isHealthy = scanHealth === 'healthy' || scanHealth === 'degraded';
+  const { allJobs, newJobs } = mergeJobs(data.jobs, scrapedJobs, isHealthy);
 
   const updatedData = {
     jobs: allJobs,
     lastScan: new Date().toISOString(),
-    scanCount: (data.scanCount || 0) + 1,
+    scanCount: isHealthy ? (data.scanCount || 0) + 1 : (data.scanCount || 0),
+    scanHealth
   };
 
   saveJobs(updatedData);
@@ -420,7 +477,9 @@ function updateJobNotes(jobId, notes) {
 
 module.exports = {
   initDatabase,
+  setStorageDir,
   loadJobs,
+  saveJobs,
   processScanResults,
   getJobs,
   getStats,
@@ -429,5 +488,7 @@ module.exports = {
   setApplicationStatus,
   updateJobNotes,
   checkIsPittsburghLocation,
+  sanitizeJobForPublic,
+  PUBLIC_ALLOWLIST_FIELDS,
   APPLICATION_STATUSES
 };

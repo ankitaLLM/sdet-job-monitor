@@ -1,5 +1,3 @@
-const fs = require('fs');
-const path = require('path');
 const { runFullScan } = require('../src/scraper');
 const { processScanResults, getStats } = require('../src/storage');
 const { sendNotification, initTransporter } = require('../src/notifier');
@@ -10,30 +8,16 @@ async function runCliScrape() {
   
   initTransporter();
 
-  // 1. Run full LinkedIn scan
-  const scrapedJobs = await runFullScan();
+  // 1. Run full LinkedIn scan with diagnostics and description enrichment
+  const { jobs: scrapedJobs, scanHealth } = await runFullScan();
 
-  // 2. Process and store in data/jobs.json
-  const { newJobs, totalJobs, scanCount } = processScanResults(scrapedJobs);
-
-  // 3. Also copy jobs.json and stats to public/data/jobs.json for GitHub Pages static hosting
-  const publicDataDir = path.join(__dirname, '..', 'public', 'data');
-  if (!fs.existsSync(publicDataDir)) {
-    fs.mkdirSync(publicDataDir, { recursive: true });
-  }
-
-  const jobsDataPath = path.join(__dirname, '..', 'data', 'jobs.json');
-  const publicJobsDataPath = path.join(publicDataDir, 'jobs.json');
-
-  if (fs.existsSync(jobsDataPath)) {
-    const rawData = fs.readFileSync(jobsDataPath, 'utf-8');
-    fs.writeFileSync(publicJobsDataPath, rawData, 'utf-8');
-    console.log(`📋 Copied jobs database to public/data/jobs.json for GitHub Pages`);
-  }
+  // 2. Process and store in data/jobs.json & automatically export sanitized public projection
+  const { newJobs, totalJobs, scanCount } = processScanResults(scrapedJobs, scanHealth);
+  console.log(`📋 Updated local database and synchronized sanitized public projection (${totalJobs} total active jobs)`);
 
   const stats = getStats();
 
-  // 4. Send notification email with stats summary
+  // 3. Send notification email with stats summary
   console.log(`📧 Sending refresh summary & stats to ${config.gmail.notifyEmail}...`);
   await sendNotification(newJobs, stats);
   console.log('📊 Scan completed successfully:', stats);

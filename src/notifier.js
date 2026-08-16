@@ -1,5 +1,6 @@
 const nodemailer = require('nodemailer');
 const config = require('./config');
+const { escapeHtml, sanitizeSafeHttpsUrl } = require('./security');
 
 let transporter = null;
 
@@ -27,6 +28,7 @@ function initTransporter() {
 
 /**
  * Format rich HTML email with full scan statistics and top matched jobs
+ * All untrusted fields are escaped with escapeHtml and URLs validated with sanitizeSafeHttpsUrl
  */
 function formatEmailHtml(newJobs, totalStats = null) {
   const remoteCount = newJobs.filter(j => j.workplaceType === 'Remote' || (j.location && j.location.toLowerCase().includes('remote'))).length;
@@ -42,22 +44,25 @@ function formatEmailHtml(newJobs, totalStats = null) {
     const isPgh = job.isPittsburgh;
     const isTop100 = job.isTop100;
     const skillsList = (job.matchedSkills || []).slice(0, 4).map(s => 
-      `<span style="display:inline-block; padding:2px 8px; margin:2px; font-size:11px; background:#f1f5f9; color:#334155; border-radius:12px; border:1px solid #e2e8f0;">${s}</span>`
+      `<span style="display:inline-block; padding:2px 8px; margin:2px; font-size:11px; background:#f1f5f9; color:#334155; border-radius:12px; border:1px solid #e2e8f0;">${escapeHtml(s)}</span>`
     ).join(' ');
+
+    const safeApplyUrl = sanitizeSafeHttpsUrl(job.companyApplyUrl);
+    const safeLinkedInUrl = sanitizeSafeHttpsUrl(job.url);
 
     return `
       <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:10px; padding:16px 18px; margin-bottom:14px; box-shadow:0 1px 3px rgba(0,0,0,0.04);">
         <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:6px;">
           <div>
-            <h3 style="margin:0 0 4px 0; color:#0f172a; font-size:15px; font-weight:700;">${job.title}</h3>
-            <div style="color:#334155; font-size:13px; font-weight:600;">🏢 ${job.company || 'Unknown Company'}</div>
+            <h3 style="margin:0 0 4px 0; color:#0f172a; font-size:15px; font-weight:700;">${escapeHtml(job.title)}</h3>
+            <div style="color:#334155; font-size:13px; font-weight:600;">🏢 ${escapeHtml(job.company || 'Unknown Company')}</div>
           </div>
-          ${job.matchScore ? `<div style="background:#ecfdf5; color:#047857; font-weight:700; font-size:12px; padding:3px 9px; border-radius:20px; border:1px solid #a7f3d0;">${job.matchScore}% Match</div>` : ''}
+          ${job.matchScore ? `<div style="background:#ecfdf5; color:#047857; font-weight:700; font-size:12px; padding:3px 9px; border-radius:20px; border:1px solid #a7f3d0;">${escapeHtml(job.matchScore)}% Match</div>` : ''}
         </div>
 
         <div style="margin-bottom:8px; font-size:12px; color:#64748b;">
-          <span>📍 ${job.location || 'United States'}</span>
-          ${job.listDate ? `<span style="margin-left:12px;">🕒 ${job.listDate}</span>` : ''}
+          <span>📍 ${escapeHtml(job.location || 'United States')}</span>
+          ${job.listDate ? `<span style="margin-left:12px;">🕒 ${escapeHtml(job.listDate)}</span>` : ''}
         </div>
 
         <div style="margin-bottom:10px;">
@@ -68,8 +73,8 @@ function formatEmailHtml(newJobs, totalStats = null) {
         </div>
 
         <div style="display:flex; gap:8px; margin-top:8px;">
-          <a href="${job.companyApplyUrl}" target="_blank" style="display:inline-block; background:#0f172a; color:#ffffff; padding:7px 12px; border-radius:6px; text-decoration:none; font-size:12px; font-weight:600;">🚀 Apply on Company Site →</a>
-          <a href="${job.url}" target="_blank" style="display:inline-block; background:#f8fafc; color:#0f172a; border:1px solid #cbd5e1; padding:7px 12px; border-radius:6px; text-decoration:none; font-size:12px; font-weight:500;">View on LinkedIn</a>
+          <a href="${safeApplyUrl}" target="_blank" style="display:inline-block; background:#0f172a; color:#ffffff; padding:7px 12px; border-radius:6px; text-decoration:none; font-size:12px; font-weight:600;">🚀 Apply on Company Site →</a>
+          <a href="${safeLinkedInUrl}" target="_blank" style="display:inline-block; background:#f8fafc; color:#0f172a; border:1px solid #cbd5e1; padding:7px 12px; border-radius:6px; text-decoration:none; font-size:12px; font-weight:500;">View on LinkedIn</a>
         </div>
       </div>
     `;
@@ -163,4 +168,4 @@ async function sendNotification(newJobs, totalStats = null) {
   }
 }
 
-module.exports = { initTransporter, sendNotification };
+module.exports = { initTransporter, sendNotification, formatEmailHtml };

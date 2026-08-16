@@ -1,8 +1,10 @@
 /**
  * ATS & Career Portal Direct Resolution Engine
  * Resolves job postings to direct Applicant Tracking System (ATS) portals
- * (Greenhouse, Lever, Workday, SmartRecruiters, Ashby, iCIMS) and verified corporate career sites.
+ * (Greenhouse, Lever, Workday, SmartRecruiters, Ashby, iCIMS) with strict parsed-hostname validation.
  */
+
+const { isSafeIpOrHostname, sanitizeSafeHttpsUrl } = require('./security');
 
 // Curated Company Registry with verified ATS providers and career domains
 const COMPANY_REGISTRY = {
@@ -60,50 +62,37 @@ const COMPANY_REGISTRY = {
 };
 
 /**
- * SSRF & Protocol Safety Guard
+ * Checks if a hostname exactly matches or is a valid subdomain of a root domain
  */
-function isSafeHttpsUrl(urlString) {
-  if (!urlString || typeof urlString !== 'string') return false;
-  try {
-    const parsed = new URL(urlString);
-    if (parsed.protocol !== 'https:') return false;
-
-    const hostname = parsed.hostname.toLowerCase();
-    // Disallow loopback and private IP blocks
-    if (
-      hostname === 'localhost' ||
-      hostname === '127.0.0.1' ||
-      hostname === '0.0.0.0' ||
-      hostname.startsWith('10.') ||
-      hostname.startsWith('192.168.') ||
-      hostname.startsWith('172.16.') ||
-      hostname.startsWith('169.254.') ||
-      hostname.endsWith('.local') ||
-      hostname === '[::1]'
-    ) {
-      return false;
-    }
-
-    return true;
-  } catch (e) {
-    return false;
-  }
+function matchesHostname(hostname, rootDomain) {
+  if (!hostname || !rootDomain) return false;
+  const h = hostname.toLowerCase();
+  const r = rootDomain.toLowerCase();
+  return h === r || h.endsWith('.' + r);
 }
 
 /**
- * Identify ATS provider from URL pattern
+ * Identify ATS provider using strict parsed hostname validation
+ * Prevents bypasses like greenhouse.io.attacker.example
  */
 function detectAtsProvider(url) {
-  if (!url) return null;
-  const u = url.toLowerCase();
-  if (u.includes('greenhouse.io')) return 'greenhouse';
-  if (u.includes('jobs.lever.co')) return 'lever';
-  if (u.includes('myworkdayjobs.com')) return 'workday';
-  if (u.includes('smartrecruiters.com')) return 'smartrecruiters';
-  if (u.includes('ashbyhq.com')) return 'ashby';
-  if (u.includes('icims.com')) return 'icims';
-  if (u.includes('taleo.net')) return 'taleo';
-  return null;
+  if (!url || typeof url !== 'string') return null;
+  try {
+    const parsed = new URL(url);
+    const host = parsed.hostname.toLowerCase();
+
+    if (matchesHostname(host, 'greenhouse.io')) return 'greenhouse';
+    if (matchesHostname(host, 'lever.co')) return 'lever';
+    if (matchesHostname(host, 'myworkdayjobs.com')) return 'workday';
+    if (matchesHostname(host, 'smartrecruiters.com')) return 'smartrecruiters';
+    if (matchesHostname(host, 'ashbyhq.com')) return 'ashby';
+    if (matchesHostname(host, 'icims.com')) return 'icims';
+    if (matchesHostname(host, 'taleo.net')) return 'taleo';
+
+    return null;
+  } catch (e) {
+    return null;
+  }
 }
 
 /**
@@ -125,7 +114,7 @@ function normalizeCompanyKey(name) {
  */
 function resolveApplicationPortal(companyName, jobTitle, rawApplyUrl = '') {
   // 1. If explicit ATS apply URL is already present and valid
-  if (rawApplyUrl && isSafeHttpsUrl(rawApplyUrl)) {
+  if (rawApplyUrl && isSafeIpOrHostname(rawApplyUrl)) {
     const provider = detectAtsProvider(rawApplyUrl);
     if (provider) {
       return {
@@ -154,7 +143,7 @@ function resolveApplicationPortal(companyName, jobTitle, rawApplyUrl = '') {
       };
     }
 
-    if (entry.careerUrl && isSafeHttpsUrl(entry.careerUrl)) {
+    if (entry.careerUrl && isSafeIpOrHostname(entry.careerUrl)) {
       return {
         applyUrl: entry.careerUrl,
         provider: entry.ats || 'corporate-portal',
@@ -183,6 +172,6 @@ function resolveApplicationPortal(companyName, jobTitle, rawApplyUrl = '') {
 module.exports = {
   resolveApplicationPortal,
   detectAtsProvider,
-  isSafeHttpsUrl,
+  matchesHostname,
   COMPANY_REGISTRY
 };

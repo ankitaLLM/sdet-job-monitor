@@ -109,7 +109,6 @@ const SKILL_DEFINITIONS = [
  * Evidence source: Evaluates ONLY the job title and job description (searchQuery and company are excluded)
  */
 function analyzeJobFit(title, company, description = '') {
-  // Evidence text includes ONLY title and description
   const titleText = (title || '').toLowerCase();
   const descText = (description || '').toLowerCase();
   const fullEvidence = `${titleText} ${descText}`.trim();
@@ -119,6 +118,8 @@ function analyzeJobFit(title, company, description = '') {
   let techScore = 0;
   let domainScore = 0;
   const matchedSkills = [];
+  const matchedTechSkills = [];
+  const matchedDomainSkills = [];
 
   // 1. Role Alignment (0 to 25 points)
   if (/\bsdet\b|\bsoftware\s*(development\s*)?engineer\s*in\s*test\b/i.test(titleText)) {
@@ -145,7 +146,6 @@ function analyzeJobFit(title, company, description = '') {
   } else if (/\b(junior|jr\.?|associate|entry|intern|graduate)\b/i.test(fullEvidence)) {
     seniorityScore = 0; // Entry roles penalized
   } else {
-    // Default experienced baseline
     seniorityScore = 14;
   }
 
@@ -154,7 +154,6 @@ function analyzeJobFit(title, company, description = '') {
   let domainPoints = 0;
 
   for (const skill of SKILL_DEFINITIONS) {
-    // Test match against title (1.25x weight) or description (1.0x weight)
     const inTitle = skill.regex.test(titleText);
     const inDesc = descText ? skill.regex.test(descText) : false;
 
@@ -163,29 +162,31 @@ function analyzeJobFit(title, company, description = '') {
       const points = inTitle ? Math.round(skill.weight * 1.25) : skill.weight;
 
       if (skill.category === 'tech') {
+        matchedTechSkills.push(skill.name);
         techPoints += points;
       } else {
+        matchedDomainSkills.push(skill.name);
         domainPoints += points;
       }
     }
   }
 
-  // Density bonus for mastering multiple distinct core technologies
-  if (matchedSkills.length >= 4) {
+  // Density bonus strictly for matching multiple distinct technology skills
+  if (matchedTechSkills.length >= 4) {
     techPoints += 12;
-  } else if (matchedSkills.length >= 3) {
+  } else if (matchedTechSkills.length >= 3) {
     techPoints += 8;
-  } else if (matchedSkills.length >= 2) {
+  } else if (matchedTechSkills.length >= 2) {
     techPoints += 4;
+  }
+
+  // Domain bonus for domain/validation depth
+  if (matchedDomainSkills.length >= 2) {
+    domainPoints += 3;
   }
 
   techScore = Math.min(techPoints, 45);
   domainScore = Math.min(domainPoints, 10);
-
-  // Baseline for QA automation core if role is explicitly SDET/QA Lead
-  if (techScore < 15 && roleScore >= 20) {
-    techScore = 18;
-  }
 
   // Calculate composite score (0 - 100)
   let totalScore = roleScore + seniorityScore + techScore + domainScore;
@@ -195,7 +196,7 @@ function analyzeJobFit(title, company, description = '') {
     totalScore -= 25;
   }
 
-  totalScore = Math.max(40, Math.min(totalScore, 99));
+  totalScore = Math.max(25, Math.min(totalScore, 99));
 
   const hasDescription = Boolean(description && description.length > 50);
 
@@ -208,7 +209,7 @@ function analyzeJobFit(title, company, description = '') {
       tech: techScore,
       domain: domainScore
     },
-    confidence: hasDescription ? 'high' : 'medium'
+    confidence: hasDescription ? 'high' : (matchedSkills.length >= 2 ? 'medium' : 'low')
   };
 }
 

@@ -1,5 +1,10 @@
 import { describe, it, expect } from 'vitest';
-const { isRelevantQATitle, parseJobListings, buildSearchUrl } = require('../src/scraper');
+const {
+  isRelevantQATitle,
+  parseJobListings,
+  buildSearchUrl,
+  parseRetryAfter
+} = require('../src/scraper');
 
 describe('Scraper & Title Validation Engine', () => {
   describe('isRelevantQATitle', () => {
@@ -45,25 +50,29 @@ describe('Scraper & Title Validation Engine', () => {
     });
   });
 
-  describe('parseJobListings', () => {
+  describe('parseJobListings with in-page deduplication', () => {
     it('parses valid HTML card fixtures with explicit data-entity-urn and filters non-QA cards', () => {
       const mockHtml = `
-        <div class="jobs-search__results-list">
-          <div class="base-card job-search-card" data-entity-urn="urn:li:jobPosting:4453030568">
-            <h3 class="base-search-card__title">Senior SDET - Playwright</h3>
-            <h4 class="base-search-card__subtitle"><a href="#">Acme Tech</a></h4>
-            <span class="job-search-card__location">Pittsburgh, PA</span>
-            <time datetime="2026-08-15">2 hours ago</time>
-            <a class="base-card__full-link" href="https://www.linkedin.com/jobs/view/4453030568?refId=123"></a>
-          </div>
-          <div class="base-card job-search-card" data-entity-urn="urn:li:jobPosting:9999999999">
-            <h3 class="base-search-card__title">Spacecraft System Engineer</h3>
-            <h4 class="base-search-card__subtitle"><a href="#">AeroCorp</a></h4>
-            <span class="job-search-card__location">Houston, TX</span>
-            <time datetime="2026-08-15">3 hours ago</time>
-            <a class="base-card__full-link" href="https://www.linkedin.com/jobs/view/9999999999?refId=456"></a>
-          </div>
-        </div>
+        <ul class="jobs-search__results-list">
+          <li>
+            <div class="base-card job-search-card" data-entity-urn="urn:li:jobPosting:4453030568">
+              <h3 class="base-search-card__title">Senior SDET - Playwright</h3>
+              <h4 class="base-search-card__subtitle"><a href="#">Acme Tech</a></h4>
+              <span class="job-search-card__location">Pittsburgh, PA</span>
+              <time datetime="2026-08-15">2 hours ago</time>
+              <a class="base-card__full-link" href="https://www.linkedin.com/jobs/view/4453030568?refId=123"></a>
+            </div>
+          </li>
+          <li>
+            <div class="base-card job-search-card" data-entity-urn="urn:li:jobPosting:9999999999">
+              <h3 class="base-search-card__title">Spacecraft System Engineer</h3>
+              <h4 class="base-search-card__subtitle"><a href="#">AeroCorp</a></h4>
+              <span class="job-search-card__location">Houston, TX</span>
+              <time datetime="2026-08-15">3 hours ago</time>
+              <a class="base-card__full-link" href="https://www.linkedin.com/jobs/view/9999999999?refId=456"></a>
+            </div>
+          </li>
+        </ul>
       `;
 
       const result = parseJobListings(mockHtml, 'Senior SDET', '📍 Pittsburgh Area');
@@ -75,9 +84,48 @@ describe('Scraper & Title Validation Engine', () => {
       expect(result.diagnostics.nonQACards).toBe(1);
     });
 
+    it('deduplicates identical cards on the same page', () => {
+      const duplicateHtml = `
+        <ul class="jobs-search__results-list">
+          <li>
+            <div class="base-card job-search-card" data-entity-urn="urn:li:jobPosting:11111111">
+              <h3 class="base-search-card__title">Senior SDET</h3>
+              <h4 class="base-search-card__subtitle">Cloud Corp</h4>
+            </div>
+          </li>
+          <li>
+            <div class="base-card job-search-card" data-entity-urn="urn:li:jobPosting:11111111">
+              <h3 class="base-search-card__title">Senior SDET</h3>
+              <h4 class="base-search-card__subtitle">Cloud Corp</h4>
+            </div>
+          </li>
+        </ul>
+      `;
+
+      const result = parseJobListings(duplicateHtml, 'Senior SDET', 'Remote');
+      expect(result.jobs.length).toBe(1);
+      expect(result.diagnostics.duplicateCards).toBe(1);
+    });
+
     it('throws error when LinkedIn authwall or security checkpoint is encountered', () => {
       const authwallHtml = `<html><head><title>LinkedIn Security Verification</title></head><body>Please complete the security challenge (authwall)</body></html>`;
       expect(() => parseJobListings(authwallHtml, 'SDET', 'US')).toThrow(/authwall|security/i);
+    });
+  });
+
+  describe('parseRetryAfter', () => {
+    it('parses integer seconds correctly', () => {
+      expect(parseRetryAfter('5')).toBe(5000);
+      expect(parseRetryAfter('20')).toBe(20000);
+    });
+
+    it('caps retry delay at 30 seconds', () => {
+      expect(parseRetryAfter('120')).toBe(30000);
+    });
+
+    it('handles null/invalid headers', () => {
+      expect(parseRetryAfter(null)).toBeNull();
+      expect(parseRetryAfter('invalid-header')).toBeNull();
     });
   });
 

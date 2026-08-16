@@ -2,36 +2,34 @@ import { describe, it, expect } from 'vitest';
 const {
   resolveApplicationPortal,
   detectAtsProvider,
-  isSafeHttpsUrl
+  matchesHostname
 } = require('../src/atsResolver');
 
 describe('ATS & Career Portal Direct Resolution', () => {
-  describe('detectAtsProvider', () => {
-    it('accurately identifies major ATS providers from URL patterns', () => {
+  describe('detectAtsProvider (Strict Parsed-Hostname Matching)', () => {
+    it('accurately identifies major ATS providers from exact hostnames and subdomains', () => {
       expect(detectAtsProvider('https://boards.greenhouse.io/duolingo/jobs/12345')).toBe('greenhouse');
+      expect(detectAtsProvider('https://job-boards.greenhouse.io/snowflake/jobs/678')).toBe('greenhouse');
       expect(detectAtsProvider('https://jobs.lever.co/company/abc-123')).toBe('lever');
       expect(detectAtsProvider('https://pnc.wd5.myworkdayjobs.com/PNC/job/123')).toBe('workday');
       expect(detectAtsProvider('https://jobs.smartrecruiters.com/ServiceNow/456')).toBe('smartrecruiters');
       expect(detectAtsProvider('https://jobs.ashbyhq.com/org/789')).toBe('ashby');
       expect(detectAtsProvider('https://careers-us.icims.com/jobs/101')).toBe('icims');
-      expect(detectAtsProvider('https://example.com')).toBeNull();
+    });
+
+    it('strictly prevents attacker domain bypasses such as greenhouse.io.attacker.example', () => {
+      expect(detectAtsProvider('https://greenhouse.io.attacker.example/job/123')).toBeNull();
+      expect(detectAtsProvider('https://lever.co.phishing.site/job')).toBeNull();
+      expect(detectAtsProvider('https://myworkdayjobs.com.fake.org/test')).toBeNull();
     });
   });
 
-  describe('isSafeHttpsUrl (SSRF Guard)', () => {
-    it('accepts legitimate public HTTPS URLs', () => {
-      expect(isSafeHttpsUrl('https://boards.greenhouse.io/duolingo')).toBe(true);
-      expect(isSafeHttpsUrl('https://careers.pnc.com/job/123')).toBe(true);
-    });
-
-    it('rejects HTTP, private IP, localhost, and link-local destinations', () => {
-      expect(isSafeHttpsUrl('http://insecure.com')).toBe(false);
-      expect(isSafeHttpsUrl('https://localhost:3000')).toBe(false);
-      expect(isSafeHttpsUrl('https://127.0.0.1/admin')).toBe(false);
-      expect(isSafeHttpsUrl('https://192.168.1.1/')).toBe(false);
-      expect(isSafeHttpsUrl('https://10.0.0.1/')).toBe(false);
-      expect(isSafeHttpsUrl('https://169.254.169.254/latest/meta-data')).toBe(false);
-      expect(isSafeHttpsUrl('javascript:alert(1)')).toBe(false);
+  describe('matchesHostname helper', () => {
+    it('matches exact domain and valid subdomains only', () => {
+      expect(matchesHostname('boards.greenhouse.io', 'greenhouse.io')).toBe(true);
+      expect(matchesHostname('greenhouse.io', 'greenhouse.io')).toBe(true);
+      expect(matchesHostname('attacker-greenhouse.io', 'greenhouse.io')).toBe(false);
+      expect(matchesHostname('greenhouse.io.attacker.com', 'greenhouse.io')).toBe(false);
     });
   });
 

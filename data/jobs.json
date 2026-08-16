@@ -1,307 +1,6 @@
 {
   "jobs": [
     {
-      "id": "4454879733",
-      "title": "Principal Test Engineer (Contingent)- Onsite",
-      "company": "Collins Aerospace",
-      "location": "Aurora, CO",
-      "datePosted": "2026-08-15",
-      "listDate": "16 hours ago",
-      "url": "https://www.linkedin.com/jobs/view/principal-test-engineer-contingent-onsite-at-collins-aerospace-4454879733",
-      "searchQuery": "Lead SDET",
-      "locationQuery": "🌐 Remote (US)",
-      "firstSeen": "2026-08-16T01:54:38.397Z",
-      "isNew": true,
-      "isRead": false,
-      "lastSeen": "2026-08-16T01:54:38.397Z",
-      "isTop100": false,
-      "isPittsburgh": false,
-      "workplaceType": "Remote",
-      "matchScore": 40,
-      "scoreConfidence": "medium",
-      "scoreBreakdown": {
-        "role": 18,
-        "seniority": 20,
-        "tech": 0,
-        "domain": 0
-      },
-      "matchedSkills": [],
-      "companyApplyUrl": "https://www.google.com/search?q=Collins%20Aerospace%20careers%20Principal%20Test%20Engineer%20(Contingent)-%20Onsite%20apply",
-      "atsProvider": "google-jobs-search",
-      "applySource": "google-fallback",
-      "applyConfidence": 0.6,
-      "applicationStatus": "New",
-      "notes": ""
-    },
-    {
-      "id": "4453755902",
-      "title": "Senior Software Engineer in Test (SDET)",
-      "company": "Piper Companies",
-      "location": "North Carolina, United States",
-      "datePosted": "2026-08-15",
-      "listDate": "23 hours ago",
-      "url": "https://www.linkedin.com/jobs/view/senior-software-engineer-in-test-sdet-at-piper-companies-4453755902",
-      "searchQuery": "Lead SDET",
-      "locationQuery": "🌐 Remote (US)",
-      "firstSeen": "2026-08-16T01:54:38.397Z",
-      "isNew": true,
-      "isRead": false,
-      "lastSeen": "2026-08-16T01:54:38.397Z",
-      "isTop100": false,
-      "isPittsburgh": false,
-      "workplaceType": "Remote",
-      "matchScore": 61,
-      "scoreConfidence": "medium",
-      "scoreBreakdown": {
-        "role": 25,
-        "seniority": 18,
-        "tech": 18,
-        "domain": 0
-      },
-      "matchedSkills": [],
-      "companyApplyUrl": "https://www.google.com/search?q=Piper%20Companies%20careers%20Senior%20Software%20Engineer%20in%20Test%20(SDET)%20apply",
-      "atsProvider": "google-jobs-search",
-      "applySource": "google-fallback",
-      "applyConfidence": 0.6,
-      "applicationStatus": "New",
-      "notes": ""
-    },
-    {
-      "id": "4445238793",
-      "title": "Sr. Quality Assurance Engineer-Infrastructure Systems",
-      "company": "General Motors",
-      "location": "Warren, MI",
-      "datePosted": "2026-08-15",
-      "listDate": "13 hours ago",
-      "url": "https://www.linkedin.com/jobs/view/sr-quality-assurance-engineer-infrastructure-systems-at-general-motors-4445238793",
-      "searchQuery": "QA Lead",
-      "locationQuery": "🌐 Remote (US)",
-      "firstSeen": "2026-08-16T01:54:38.397Z",
-      "isNew": true,
-      "isRead": false,
-      "lastSeen": "2026-08-16T01:54:38.397Z",
-      "isTop100": false,
-      "isPittsburgh": false,
-      "workplaceType": "Remote",
-      "matchScore": 40,
-      "scoreConfidence": "medium",
-      "scoreBreakdown": {
-        "role": 18,
-        "seniority": 18,
-        "tech": 0,
-        "domain": 0
-      },
-      "matchedSkills": [],
-      "companyApplyUrl": "https://www.google.com/search?q=General%20Motors%20careers%20Sr.%20Quality%20Assurance%20Engineer-Infrastructure%20Systems%20apply",
-      "atsProvider": "google-jobs-search",
-      "applySource": "google-fallback",
-      "applyConfidence": 0.6,
-      "applicationStatus": "New",
-      "notes": ""
-    },
-    {
-      "id": "4395474367",
-      "title": "Senior High-Speed IO Validation Engineer",
-      "company": "NVIDIA",
-      "location": "Santa Clara, CA",
-      "datePosted": "2026-08-15",
-      "listDate": "7 hours ago",
-      "url": "https://www.linkedin.com/jobs/view/senior-high-speed-io-validation-engineer-at-nvidia-4395474367",
-      "searchQuery": "Software Validation Engineer",
-      "locationQuery": "🌐 Remote (US)",
-      "firstSeen": "2026-08-16T01:54:38.397Z",
-      "isNew": true,
-      "isRead": false,
-      "lastSeen": "2026-08-16T01:54:38.397Z",
-      "isTop100": true,
-      "isPittsburgh": false,
-      "workplaceType": "Remote",
-      "matchScore": 56,
-      "scoreConfidence": "medium",
-      "scoreBreakdown": {
-        "role": 20,
-        "seniority": 18,
-        "tech": 18,
-        "domain": 0
-      },
-      "matchedSkills": [],
-      "companyApplyUrl": "https://www.google.com/search?q=NVIDIA%20careers%20Senior%20High-Speed%20IO%20Validation%20Engineer%20apply",
-      "atsProvider": "google-jobs-search",
-      "applySource": "google-fallback",
-      "applyConfidence": 0.6,
-      "applicationStatus": "New",
-      "notes": ""
-    },
-    {
-      "id": "4444345454",
-      "title": "SoC/Validation Engineer",
-      "company": "Qualcomm",
-      "location": "San Diego, CA",
-      "datePosted": "2026-08-15",
-      "listDate": "15 hours ago",
-      "url": "https://www.linkedin.com/jobs/view/soc-validation-engineer-at-qualcomm-4444345454",
-      "searchQuery": "Software Validation Engineer",
-      "locationQuery": "🌐 Remote (US)",
-      "firstSeen": "2026-08-16T01:54:38.397Z",
-      "isNew": true,
-      "isRead": false,
-      "lastSeen": "2026-08-16T01:54:38.397Z",
-      "isTop100": true,
-      "isPittsburgh": false,
-      "workplaceType": "Remote",
-      "matchScore": 52,
-      "scoreConfidence": "medium",
-      "scoreBreakdown": {
-        "role": 20,
-        "seniority": 14,
-        "tech": 18,
-        "domain": 0
-      },
-      "matchedSkills": [],
-      "companyApplyUrl": "https://www.google.com/search?q=Qualcomm%20careers%20SoC%2FValidation%20Engineer%20apply",
-      "atsProvider": "google-jobs-search",
-      "applySource": "google-fallback",
-      "applyConfidence": 0.6,
-      "applicationStatus": "New",
-      "notes": ""
-    },
-    {
-      "id": "4441885963",
-      "title": "Silicon Validation Engineer, Infra Silicon",
-      "company": "Meta",
-      "location": "Sunnyvale, CA",
-      "datePosted": "2026-08-15",
-      "listDate": "12 hours ago",
-      "url": "https://www.linkedin.com/jobs/view/silicon-validation-engineer-infra-silicon-at-meta-4441885963",
-      "searchQuery": "Software Validation Engineer",
-      "locationQuery": "🌐 Remote (US)",
-      "firstSeen": "2026-08-16T01:54:38.397Z",
-      "isNew": true,
-      "isRead": false,
-      "lastSeen": "2026-08-16T01:54:38.397Z",
-      "isTop100": true,
-      "isPittsburgh": false,
-      "workplaceType": "Remote",
-      "matchScore": 52,
-      "scoreConfidence": "medium",
-      "scoreBreakdown": {
-        "role": 20,
-        "seniority": 14,
-        "tech": 18,
-        "domain": 0
-      },
-      "matchedSkills": [],
-      "companyApplyUrl": "https://www.metacareers.com/jobs",
-      "atsProvider": "corporate-portal",
-      "applySource": "company-career-portal",
-      "applyConfidence": 0.88,
-      "applicationStatus": "New",
-      "notes": ""
-    },
-    {
-      "id": "4340386901",
-      "title": "Computer System Validation Engineer",
-      "company": "Avid Bioservices",
-      "location": "Tustin, CA",
-      "datePosted": "2026-08-15",
-      "listDate": "9 hours ago",
-      "url": "https://www.linkedin.com/jobs/view/computer-system-validation-engineer-at-avid-bioservices-4340386901",
-      "searchQuery": "Software Validation Engineer",
-      "locationQuery": "🌐 Remote (US)",
-      "firstSeen": "2026-08-16T01:54:38.397Z",
-      "isNew": true,
-      "isRead": false,
-      "lastSeen": "2026-08-16T01:54:38.397Z",
-      "isTop100": false,
-      "isPittsburgh": false,
-      "workplaceType": "Remote",
-      "matchScore": 56,
-      "scoreConfidence": "medium",
-      "scoreBreakdown": {
-        "role": 20,
-        "seniority": 14,
-        "tech": 18,
-        "domain": 4
-      },
-      "matchedSkills": [
-        "Validation / CSV"
-      ],
-      "companyApplyUrl": "https://www.google.com/search?q=Avid%20Bioservices%20careers%20Computer%20System%20Validation%20Engineer%20apply",
-      "atsProvider": "google-jobs-search",
-      "applySource": "google-fallback",
-      "applyConfidence": 0.6,
-      "applicationStatus": "New",
-      "notes": ""
-    },
-    {
-      "id": "4441876202",
-      "title": "AI Validation and Test Engineer",
-      "company": "AMD",
-      "location": "Secaucus, NJ",
-      "datePosted": "2026-08-15",
-      "listDate": "16 hours ago",
-      "url": "https://www.linkedin.com/jobs/view/ai-validation-and-test-engineer-at-amd-4441876202",
-      "searchQuery": "Software Validation Engineer",
-      "locationQuery": "🌐 Remote (US)",
-      "firstSeen": "2026-08-16T01:54:38.397Z",
-      "isNew": true,
-      "isRead": false,
-      "lastSeen": "2026-08-16T01:54:38.397Z",
-      "isTop100": true,
-      "isPittsburgh": false,
-      "workplaceType": "Remote",
-      "matchScore": 40,
-      "scoreConfidence": "medium",
-      "scoreBreakdown": {
-        "role": 18,
-        "seniority": 14,
-        "tech": 0,
-        "domain": 0
-      },
-      "matchedSkills": [],
-      "companyApplyUrl": "https://www.google.com/search?q=AMD%20careers%20AI%20Validation%20and%20Test%20Engineer%20apply",
-      "atsProvider": "google-jobs-search",
-      "applySource": "google-fallback",
-      "applyConfidence": 0.6,
-      "applicationStatus": "New",
-      "notes": ""
-    },
-    {
-      "id": "4407302204",
-      "title": "Sr. Software Validation and HIL Engineer, Power Electronics",
-      "company": "Rivian",
-      "location": "Torrance, CA",
-      "datePosted": "2026-08-15",
-      "listDate": "15 hours ago",
-      "url": "https://www.linkedin.com/jobs/view/sr-software-validation-and-hil-engineer-power-electronics-at-rivian-4407302204",
-      "searchQuery": "Software Validation Engineer",
-      "locationQuery": "🌐 Remote (US)",
-      "firstSeen": "2026-08-16T01:54:38.397Z",
-      "isNew": true,
-      "isRead": false,
-      "lastSeen": "2026-08-16T01:54:38.397Z",
-      "isTop100": false,
-      "isPittsburgh": false,
-      "workplaceType": "Remote",
-      "matchScore": 60,
-      "scoreConfidence": "medium",
-      "scoreBreakdown": {
-        "role": 20,
-        "seniority": 18,
-        "tech": 18,
-        "domain": 4
-      },
-      "matchedSkills": [
-        "Validation / CSV"
-      ],
-      "companyApplyUrl": "https://www.google.com/search?q=Rivian%20careers%20Sr.%20Software%20Validation%20and%20HIL%20Engineer%2C%20Power%20Electronics%20apply",
-      "atsProvider": "google-jobs-search",
-      "applySource": "google-fallback",
-      "applyConfidence": 0.6,
-      "applicationStatus": "New",
-      "notes": ""
-    },
-    {
       "id": "4435280573",
       "title": "Senior Software Development Engineer in Test, Confidential Computing - SDET",
       "company": "NVIDIA",
@@ -380,7 +79,7 @@
       "firstSeen": "2026-08-16T01:52:35.515Z",
       "isNew": true,
       "isRead": false,
-      "lastSeen": "2026-08-16T01:54:38.397Z",
+      "lastSeen": "2026-08-16T01:52:35.515Z",
       "isTop100": false,
       "isPittsburgh": false,
       "workplaceType": "Remote",
@@ -413,7 +112,7 @@
       "firstSeen": "2026-08-16T01:52:35.515Z",
       "isNew": true,
       "isRead": false,
-      "lastSeen": "2026-08-16T01:54:38.397Z",
+      "lastSeen": "2026-08-16T01:52:35.515Z",
       "isTop100": false,
       "isPittsburgh": false,
       "workplaceType": "Remote",
@@ -446,7 +145,7 @@
       "firstSeen": "2026-08-16T01:52:35.515Z",
       "isNew": true,
       "isRead": false,
-      "lastSeen": "2026-08-16T01:54:38.397Z",
+      "lastSeen": "2026-08-16T01:52:35.515Z",
       "isTop100": false,
       "isPittsburgh": false,
       "workplaceType": "Remote",
@@ -479,7 +178,7 @@
       "firstSeen": "2026-08-16T01:52:35.515Z",
       "isNew": true,
       "isRead": false,
-      "lastSeen": "2026-08-16T01:54:38.397Z",
+      "lastSeen": "2026-08-16T01:52:35.515Z",
       "isTop100": false,
       "isPittsburgh": false,
       "workplaceType": "Remote",
@@ -512,7 +211,7 @@
       "firstSeen": "2026-08-16T01:52:35.515Z",
       "isNew": true,
       "isRead": false,
-      "lastSeen": "2026-08-16T01:54:38.397Z",
+      "lastSeen": "2026-08-16T01:52:35.515Z",
       "isTop100": false,
       "isPittsburgh": false,
       "workplaceType": "Remote",
@@ -545,7 +244,7 @@
       "firstSeen": "2026-08-16T01:52:35.515Z",
       "isNew": true,
       "isRead": false,
-      "lastSeen": "2026-08-16T01:54:38.397Z",
+      "lastSeen": "2026-08-16T01:52:35.515Z",
       "isTop100": false,
       "isPittsburgh": false,
       "workplaceType": "Remote",
@@ -578,7 +277,7 @@
       "firstSeen": "2026-08-16T01:52:35.515Z",
       "isNew": true,
       "isRead": false,
-      "lastSeen": "2026-08-16T01:54:38.397Z",
+      "lastSeen": "2026-08-16T01:52:35.515Z",
       "isTop100": false,
       "isPittsburgh": false,
       "workplaceType": "Remote",
@@ -611,7 +310,7 @@
       "firstSeen": "2026-08-16T01:52:35.515Z",
       "isNew": true,
       "isRead": false,
-      "lastSeen": "2026-08-16T01:54:38.397Z",
+      "lastSeen": "2026-08-16T01:52:35.515Z",
       "isTop100": false,
       "isPittsburgh": false,
       "workplaceType": "Remote",
@@ -644,7 +343,7 @@
       "firstSeen": "2026-08-16T01:52:35.515Z",
       "isNew": true,
       "isRead": false,
-      "lastSeen": "2026-08-16T01:54:38.397Z",
+      "lastSeen": "2026-08-16T01:52:35.515Z",
       "isTop100": false,
       "isPittsburgh": false,
       "workplaceType": "Remote",
@@ -710,7 +409,7 @@
       "firstSeen": "2026-08-16T01:52:35.515Z",
       "isNew": true,
       "isRead": false,
-      "lastSeen": "2026-08-16T01:54:38.397Z",
+      "lastSeen": "2026-08-16T01:52:35.515Z",
       "isTop100": false,
       "isPittsburgh": false,
       "workplaceType": "Remote",
@@ -743,7 +442,7 @@
       "firstSeen": "2026-08-16T01:52:35.515Z",
       "isNew": true,
       "isRead": false,
-      "lastSeen": "2026-08-16T01:54:38.397Z",
+      "lastSeen": "2026-08-16T01:52:35.515Z",
       "isTop100": false,
       "isPittsburgh": false,
       "workplaceType": "Remote",
@@ -769,14 +468,14 @@
       "company": "Epic",
       "location": "Whitewater, WI",
       "datePosted": "2026-08-15",
-      "listDate": "7 hours ago",
+      "listDate": "6 hours ago",
       "url": "https://www.linkedin.com/jobs/view/quality-manager-at-epic-4416733152",
       "searchQuery": "QA Lead",
       "locationQuery": "🌐 Remote (US)",
       "firstSeen": "2026-08-16T01:52:35.515Z",
       "isNew": true,
       "isRead": false,
-      "lastSeen": "2026-08-16T01:54:38.397Z",
+      "lastSeen": "2026-08-16T01:52:35.515Z",
       "isTop100": false,
       "isPittsburgh": false,
       "workplaceType": "Remote",
@@ -809,7 +508,7 @@
       "firstSeen": "2026-08-16T01:52:35.515Z",
       "isNew": true,
       "isRead": false,
-      "lastSeen": "2026-08-16T01:54:38.397Z",
+      "lastSeen": "2026-08-16T01:52:35.515Z",
       "isTop100": false,
       "isPittsburgh": false,
       "workplaceType": "Remote",
@@ -842,7 +541,7 @@
       "firstSeen": "2026-08-16T01:52:35.515Z",
       "isNew": true,
       "isRead": false,
-      "lastSeen": "2026-08-16T01:54:38.397Z",
+      "lastSeen": "2026-08-16T01:52:35.515Z",
       "isTop100": false,
       "isPittsburgh": false,
       "workplaceType": "Remote",
@@ -974,7 +673,7 @@
       "firstSeen": "2026-08-16T01:52:35.515Z",
       "isNew": true,
       "isRead": false,
-      "lastSeen": "2026-08-16T01:54:38.397Z",
+      "lastSeen": "2026-08-16T01:52:35.515Z",
       "isTop100": true,
       "isPittsburgh": false,
       "workplaceType": "Remote",
@@ -1007,7 +706,7 @@
       "firstSeen": "2026-08-16T01:52:35.515Z",
       "isNew": true,
       "isRead": false,
-      "lastSeen": "2026-08-16T01:54:38.397Z",
+      "lastSeen": "2026-08-16T01:52:35.515Z",
       "isTop100": true,
       "isPittsburgh": false,
       "workplaceType": "Remote",
@@ -1026,35 +725,6 @@
       "applyConfidence": 0.6,
       "applicationStatus": "New",
       "notes": ""
-    },
-    {
-      "id": "test-job-1",
-      "title": "Senior SDET",
-      "company": "Acme Test Corp",
-      "location": "Remote",
-      "firstSeen": "2026-08-16T01:50:57.665Z",
-      "lastSeen": "2026-08-16T01:51:25.879Z",
-      "isNew": false,
-      "isRead": true,
-      "isTop100": false,
-      "isPittsburgh": false,
-      "workplaceType": "Remote",
-      "matchScore": 61,
-      "scoreConfidence": "medium",
-      "scoreBreakdown": {
-        "role": 25,
-        "seniority": 18,
-        "tech": 18,
-        "domain": 0
-      },
-      "matchedSkills": [],
-      "companyApplyUrl": "https://www.google.com/search?q=Acme%20Test%20Corp%20careers%20Senior%20SDET%20apply",
-      "atsProvider": "google-jobs-search",
-      "applySource": "google-fallback",
-      "applyConfidence": 0.6,
-      "applicationStatus": "Applied",
-      "notes": "Updated recruiter interview date",
-      "appliedAt": "2026-08-16T01:50:57.706Z"
     },
     {
       "id": "4454860753",
@@ -1219,7 +889,7 @@
       "atsProvider": "workday",
       "applySource": "company-career-portal",
       "applyConfidence": 0.88,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4454838818",
@@ -1320,7 +990,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4454807737",
@@ -1419,7 +1089,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4431981443",
@@ -1452,7 +1122,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4454896483",
@@ -1526,7 +1196,7 @@
       "company": "Blue Origin",
       "location": "Greater Seattle Area",
       "datePosted": "2026-08-15",
-      "listDate": "16 hours ago",
+      "listDate": "14 hours ago",
       "url": "https://www.linkedin.com/jobs/view/testbed-validation-engineer-blue-ring-at-blue-origin-4433134351",
       "searchQuery": "Software Validation Engineer",
       "locationQuery": "🌐 Remote (US)",
@@ -1551,7 +1221,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:50:57.649Z"
     },
     {
       "id": "4435293155",
@@ -1716,7 +1386,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4407640775",
@@ -1815,7 +1485,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4427581589",
@@ -1980,7 +1650,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4448474708",
@@ -2021,7 +1691,7 @@
       "company": "BAE Systems, Inc.",
       "location": "Merrimack, NH",
       "datePosted": "2026-08-15",
-      "listDate": "8 hours ago",
+      "listDate": "6 hours ago",
       "url": "https://www.linkedin.com/jobs/view/test-automation-lead-at-bae-systems-inc-4424830272",
       "searchQuery": "QA Lead",
       "locationQuery": "🌐 Remote (US)",
@@ -2046,7 +1716,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:50:57.652Z"
     },
     {
       "id": "4445307984",
@@ -2079,7 +1749,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4451271891",
@@ -2145,7 +1815,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4451746434",
@@ -2244,7 +1914,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4442902140",
@@ -2277,7 +1947,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4453949213",
@@ -2310,7 +1980,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4435277359",
@@ -2409,7 +2079,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4427921108",
@@ -2706,7 +2376,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4454873089",
@@ -2739,7 +2409,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4454853410",
@@ -2772,7 +2442,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4453947196",
@@ -2805,7 +2475,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4455121016",
@@ -2838,7 +2508,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4453751093",
@@ -2904,7 +2574,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4451276484",
@@ -2970,7 +2640,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4445290268",
@@ -3003,7 +2673,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4453907262",
@@ -3036,7 +2706,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4451287377",
@@ -3135,7 +2805,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4444603420",
@@ -3171,7 +2841,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4454839859",
@@ -3204,7 +2874,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4455146083",
@@ -3239,7 +2909,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4451284377",
@@ -3305,7 +2975,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4448494667",
@@ -3338,7 +3008,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4448706250",
@@ -3371,7 +3041,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4427926313",
@@ -3404,7 +3074,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4444634488",
@@ -3437,7 +3107,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4454832877",
@@ -3470,7 +3140,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4444398963",
@@ -3538,7 +3208,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4445229944",
@@ -3571,7 +3241,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4416721663",
@@ -3604,7 +3274,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4451224891",
@@ -3637,7 +3307,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4441836834",
@@ -3670,7 +3340,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4413668216",
@@ -3736,7 +3406,7 @@
       "atsProvider": "workday",
       "applySource": "company-career-portal",
       "applyConfidence": 0.88,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4455120173",
@@ -3802,7 +3472,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4435291127",
@@ -3835,7 +3505,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4454572869",
@@ -3868,7 +3538,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4451297494",
@@ -3901,7 +3571,7 @@
       "atsProvider": "workday",
       "applySource": "company-career-portal",
       "applyConfidence": 0.88,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4444606426",
@@ -3909,7 +3579,7 @@
       "company": "Cognizant",
       "location": "Phoenix, AZ",
       "datePosted": "2026-08-15",
-      "listDate": "11 hours ago",
+      "listDate": "10 hours ago",
       "url": "https://www.linkedin.com/jobs/view/senior-sdet-%E2%80%93-playwright-selenium-test-automation-at-cognizant-4444606426",
       "searchQuery": "Senior SDET",
       "locationQuery": "🌐 Remote (US)",
@@ -3937,7 +3607,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4426694243",
@@ -3970,7 +3640,7 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     },
     {
       "id": "4386576548",
@@ -4003,9 +3673,9 @@
       "atsProvider": "google-jobs-search",
       "applySource": "google-fallback",
       "applyConfidence": 0.6,
-      "lastSeen": "2026-08-16T01:54:38.397Z"
+      "lastSeen": "2026-08-16T01:52:35.515Z"
     }
   ],
-  "lastScan": "2026-08-16T01:54:38.400Z",
+  "lastScan": "2026-08-16T01:53:41.600Z",
   "scanCount": 7
 }

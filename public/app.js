@@ -1,12 +1,13 @@
 /* ══════════════════════════════════════════════════════════════
    Ankita Agrawal — Senior SDET & QA Job Monitor Frontend App
    Resilient Dual-Mode (Node API + GitHub Pages Static Hosting)
-   Hardened against XSS, CSV formula injection, and Race Conditions
+   Hardened with Offline Outbox, Accurate Scoring, and Strict URL Guards
    ══════════════════════════════════════════════════════════════ */
 
 let allJobs = [];
 let filteredJobs = [];
 let isStaticMode = false;
+let isServerOnline = true;
 let currentRequestGen = 0;
 let activeAbortController = null;
 
@@ -21,11 +22,13 @@ let currentSort = 'newest';
 
 let activeEditingJobId = null;
 let autoRefreshInterval = null;
+let scanPollingInterval = null;
 
 const STATUS_OPTIONS = ['New', 'Viewed', 'Applied', 'Interviewing', 'Offer', 'Rejected'];
 
-// Unified Local Storage Record for GitHub Pages static mode
+// Unified Local Storage Record for GitHub Pages static mode and offline caching
 const USER_RECORDS_KEY = 'ankita_sdet_user_records_v2';
+const PENDING_MUTATIONS_KEY = 'ankita_sdet_pending_mutations_v2';
 
 function getUserRecords() {
   try {
@@ -49,9 +52,58 @@ function saveUserRecord(jobId, updates) {
   }
 }
 
+function getPendingMutations() {
+  try {
+    return JSON.parse(localStorage.getItem(PENDING_MUTATIONS_KEY) || '[]');
+  } catch (e) {
+    return [];
+  }
+}
+
+function queueMutation(mutation) {
+  try {
+    const queue = getPendingMutations();
+    queue.push({ ...mutation, timestamp: Date.now() });
+    localStorage.setItem(PENDING_MUTATIONS_KEY, JSON.stringify(queue));
+  } catch (e) {}
+}
+
+async function flushPendingMutations() {
+  if (isStaticMode) return;
+  const queue = getPendingMutations();
+  if (!queue.length) return;
+
+  const remaining = [];
+  for (const item of queue) {
+    try {
+      if (item.action === 'status') {
+        await fetch('/api/jobs/status', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ id: item.id, status: item.status, notes: item.notes })
+        });
+      } else if (item.action === 'notes') {
+        await fetch(`/api/jobs/${encodeURIComponent(item.id)}/notes`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ notes: item.notes })
+        });
+      } else if (item.action === 'read') {
+        await fetch(`/api/jobs/${encodeURIComponent(item.id)}/read`, { method: 'POST' });
+      }
+    } catch (err) {
+      remaining.push(item);
+    }
+  }
+
+  try {
+    localStorage.setItem(PENDING_MUTATIONS_KEY, JSON.stringify(remaining));
+  } catch (e) {}
+}
+
 // ─── Multi-Tab Realtime Synchronization ──────────────────────
 window.addEventListener('storage', (event) => {
-  if (event.key === USER_RECORDS_KEY && isStaticMode) {
+  if (event.key === USER_RECORDS_KEY) {
     loadData();
   }
 });
@@ -104,9 +156,8 @@ async function loadJobsFromIDB() {
 // ─── Initialization ──────────────────────────────────────────
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Explicit deployment mode check: GitHub Pages vs Local/Container backend
-  const isGitHubPages = window.location.hostname.endsWith('github.io');
-  isStaticMode = isGitHubPages;
+  // Explicit deployment mode check: GitHub Pages vs Local backend
+  isStaticMode = window.location.hostname.endsWith('github.io') || window.location.protocol === 'file:';
 
   loadData();
   startAutoPolling();
@@ -114,7 +165,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function startAutoPolling() {
   if (autoRefreshInterval) clearInterval(autoRefreshInterval);
-  // 30s poll for Node API, 3m poll on GitHub Pages
   const intervalMs = isStaticMode ? 3 * 60 * 1000 : 30 * 1000;
   autoRefreshInterval = setInterval(loadData, intervalMs);
 }
@@ -146,6 +196,8 @@ async function loadData() {
           const jobsData = await jobsRes.json();
           if (jobsData.success && Array.isArray(jobsData.jobs)) {
             rawJobs = jobsData.jobs;
+            isServerOnline = true;
+            flushPendingMutations();
           }
         }
 
@@ -156,13 +208,13 @@ async function loadData() {
         }
       } catch (e) {
         if (e.name === 'AbortError') return;
-        // Fallback to static mode if local server is unreachable
-        isStaticMode = true;
+        isServerOnline = false;
+        // Temporary server blip: read from static cache without permanently setting isStaticMode
       }
     }
 
-    if (isStaticMode) {
-      // Static GitHub Pages mode
+    if (isStaticMode || !isServerOnline) {
+      // Static / Offline fallback
       try {
         const cacheBuster = `?_t=${Math.floor(Date.now() / 60000)}`;
         const staticRes = await fetch(`./data/jobs.json${cacheBuster}`, { signal });
@@ -175,7 +227,6 @@ async function loadData() {
         }
       } catch (e) {
         if (e.name === 'AbortError') return;
-        // Load from IndexedDB offline fallback
         rawJobs = await loadJobsFromIDB();
       }
     }
@@ -195,7 +246,7 @@ async function loadData() {
       };
     });
 
-    if (isStaticMode) {
+    if (isStaticMode || !isServerOnline) {
       computeAndSetStaticStats(lastScanTime, scanCountVal);
     }
 
@@ -227,7 +278,9 @@ function computeAndSetStaticStats(lastScan, scanCount) {
 
   const lastScanLabel = document.getElementById('lastScanLabel');
   const statusLabel = document.getElementById('scanStatusLabel');
-  if (statusLabel) statusLabel.textContent = 'GitHub Actions Active (Every 3h)';
+  if (statusLabel) {
+    statusLabel.textContent = isStaticMode ? 'GitHub Actions Active (Every 3h)' : 'Offline Local Cache';
+  }
   if (lastScanLabel && lastScan) {
     lastScanLabel.textContent = `• Updated: ${formatTimeAgo(lastScan)}`;
   }
@@ -458,7 +511,6 @@ function applyAllFilters() {
   } else if (currentSort === 'company') {
     filteredJobs.sort((a, b) => (a.company || '').localeCompare(b.company || ''));
   } else {
-    // Newest first
     filteredJobs.sort((a, b) => new Date(b.firstSeen || 0) - new Date(a.firstSeen || 0));
   }
 
@@ -467,11 +519,21 @@ function applyAllFilters() {
 
 // ─── Safe Rendering with Event Delegation ─────────────────────
 
-function sanitizeSafeUrl(url) {
+function sanitizeSafeHttpsUrl(url) {
   if (!url || typeof url !== 'string') return '#';
   try {
     const parsed = new URL(url);
-    if (parsed.protocol === 'https:' || parsed.protocol === 'http:') {
+    if (parsed.protocol === 'https:') {
+      const host = parsed.hostname.toLowerCase();
+      if (
+        host === 'localhost' ||
+        host === '127.0.0.1' ||
+        host.startsWith('10.') ||
+        host.startsWith('192.168.') ||
+        host.startsWith('172.16.')
+      ) {
+        return '#';
+      }
       return parsed.href;
     }
   } catch (e) {}
@@ -523,9 +585,12 @@ function renderJobsFeed() {
       </div>
     ` : '';
 
-    const safeApplyUrl = sanitizeSafeUrl(job.companyApplyUrl);
-    const safeLinkedInUrl = sanitizeSafeUrl(job.url);
+    const safeApplyUrl = sanitizeSafeHttpsUrl(job.companyApplyUrl);
+    const safeLinkedInUrl = sanitizeSafeHttpsUrl(job.url);
     const safeId = escapeHtml(String(job.id || ''));
+
+    const scoreDisplay = job.matchScore ? `⚡ ${job.matchScore}% Match` : 'Not Scored';
+    const confidenceTag = job.scoreConfidence ? `(${job.scoreConfidence} conf)` : '';
 
     return `
       <article class="job-card ${isNewClass} ${isReadClass}" id="card-${safeId}" data-job-id="${safeId}">
@@ -544,8 +609,8 @@ function renderJobsFeed() {
             </div>
           </div>
 
-          <div class="match-score-badge" title="Calibrated 100-pt fit with Ankita's 11+ yrs SDET experience">
-            <span>⚡ ${job.matchScore || 85}% Match</span>
+          <div class="match-score-badge" title="Calibrated 100-pt fit with Ankita's 11+ yrs SDET experience ${confidenceTag}">
+            <span>${scoreDisplay}</span>
           </div>
         </div>
 
@@ -652,14 +717,37 @@ async function triggerManualScan() {
 
     if (data.success) {
       showToast('LinkedIn scan initiated across Remote US & Pittsburgh tracks!', 'info');
-      setTimeout(loadData, 6000);
-      setTimeout(loadData, 18000);
-      setTimeout(loadData, 35000);
+
+      // Poll stats every 3s until scan finishes rather than fixed arbitrary timeouts
+      if (scanPollingInterval) clearInterval(scanPollingInterval);
+      scanPollingInterval = setInterval(async () => {
+        try {
+          const sRes = await fetch('/api/stats');
+          if (sRes.ok) {
+            const stats = await sRes.json();
+            updateKPIs(stats);
+            updateScanStatus(stats);
+            if (!stats.isScanning) {
+              clearInterval(scanPollingInterval);
+              scanPollingInterval = null;
+              loadData();
+              showToast('LinkedIn scan completed successfully!', 'success');
+            }
+          }
+        } catch (e) {
+          clearInterval(scanPollingInterval);
+          scanPollingInterval = null;
+        }
+      }, 3000);
     } else {
       showToast(data.message || 'Scan already active', 'warning');
+      btn.classList.remove('scanning');
+      document.getElementById('btnScanText').textContent = 'Scan Now';
     }
   } catch (err) {
     showToast('Failed to trigger scan', 'error');
+    btn.classList.remove('scanning');
+    document.getElementById('btnScanText').textContent = 'Scan Now';
   }
 }
 
@@ -677,10 +765,12 @@ async function markJobAsRead(jobId) {
 
   saveUserRecord(jobId, { isRead: true });
 
-  if (!isStaticMode) {
+  if (!isStaticMode && isServerOnline) {
     try {
       await fetch(`/api/jobs/${encodeURIComponent(jobId)}/read`, { method: 'POST' });
-    } catch (e) {}
+    } catch (e) {
+      queueMutation({ action: 'read', id: jobId });
+    }
   }
 }
 
@@ -692,7 +782,7 @@ async function markAllAsRead() {
   });
   applyAllFilters();
 
-  if (!isStaticMode) {
+  if (!isStaticMode && isServerOnline) {
     try {
       await fetch('/api/jobs/read-all', { method: 'POST' });
       loadData();
@@ -711,7 +801,8 @@ async function changeJobStatus(jobId, status) {
 
   saveUserRecord(jobId, { status, isRead: true });
 
-  if (isStaticMode) {
+  if (isStaticMode || !isServerOnline) {
+    queueMutation({ action: 'status', id: jobId, status });
     computeAndSetStaticStats();
     applyAllFilters();
     showToast(`Updated status to "${status}"`, 'success');
@@ -730,7 +821,8 @@ async function changeJobStatus(jobId, status) {
       showToast(`Updated status to "${status}"`, 'success');
     }
   } catch (e) {
-    showToast('Failed to update status', 'error');
+    queueMutation({ action: 'status', id: jobId, status });
+    showToast(`Status saved locally: "${status}"`, 'info');
   }
 }
 
@@ -790,10 +882,11 @@ async function saveJobNotes() {
 
   saveUserRecord(activeEditingJobId, { notes });
 
-  if (isStaticMode) {
+  if (isStaticMode || !isServerOnline) {
+    queueMutation({ action: 'notes', id: activeEditingJobId, notes });
     closeNotesModal();
     applyAllFilters();
-    showToast('Notes saved successfully!', 'success');
+    showToast('Notes saved locally!', 'success');
     return;
   }
 
@@ -810,7 +903,10 @@ async function saveJobNotes() {
       showToast('Notes saved successfully!', 'success');
     }
   } catch (e) {
-    showToast('Failed to save notes', 'error');
+    queueMutation({ action: 'notes', id: activeEditingJobId, notes });
+    closeNotesModal();
+    applyAllFilters();
+    showToast('Notes saved locally (will sync when online)', 'info');
   }
 }
 
@@ -819,7 +915,6 @@ async function saveJobNotes() {
 function sanitizeCsvCell(str) {
   if (!str) return '""';
   let val = String(str);
-  // CSV Formula Injection (DDE) prevention: prefix =, +, -, @ with single quote
   if (/^[=+\-@\t\r]/.test(val)) {
     val = "'" + val;
   }
@@ -838,7 +933,7 @@ function exportToCSV() {
     sanitizeCsvCell(j.company),
     sanitizeCsvCell(j.location),
     sanitizeCsvCell(j.workplaceType || 'Remote'),
-    sanitizeCsvCell(`${j.matchScore || 85}%`),
+    sanitizeCsvCell(j.matchScore ? `${j.matchScore}%` : 'Not Scored'),
     sanitizeCsvCell(j.atsProvider || 'Direct'),
     sanitizeCsvCell(j.applicationStatus || 'New'),
     sanitizeCsvCell(j.listDate || ''),

@@ -1,17 +1,34 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 const fs = require('fs');
 const path = require('path');
+const os = require('os');
 const {
   checkIsPittsburghLocation,
-  initDatabase,
+  setStorageDir,
   processScanResults,
   getJobs,
   getStats,
   setApplicationStatus,
-  updateJobNotes
+  updateJobNotes,
+  sanitizeJobForPublic,
+  PUBLIC_ALLOWLIST_FIELDS
 } = require('../src/storage');
 
 describe('Storage, Pittsburgh Location Matcher, and Lifecycle Management', () => {
+  let tempDir;
+
+  beforeEach(() => {
+    tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'sdet-storage-test-'));
+    setStorageDir(tempDir);
+  });
+
+  afterEach(() => {
+    setStorageDir(null);
+    if (tempDir && fs.existsSync(tempDir)) {
+      fs.rmSync(tempDir, { recursive: true, force: true });
+    }
+  });
+
   describe('checkIsPittsburghLocation', () => {
     it('accurately identifies Pittsburgh and surrounding regional locations', () => {
       expect(checkIsPittsburghLocation('Pittsburgh, PA', 'Generic Co')).toBe(true);
@@ -37,27 +54,62 @@ describe('Storage, Pittsburgh Location Matcher, and Lifecycle Management', () =>
     });
   });
 
-  describe('Storage Status & Note Management', () => {
-    it('manages application status updates and personal notes correctly', () => {
+  describe('Storage Isolation & Status/Note Management', () => {
+    it('runs completely isolated without modifying production data', () => {
       const mockJobs = [
         {
-          id: 'test-job-1',
+          id: 'test-job-isolated-1',
           title: 'Senior SDET',
           company: 'Acme Test Corp',
-          location: 'Remote'
+          location: 'Remote',
+          notes: 'Private personal recruiter notes',
+          applicationStatus: 'Applied',
+          appliedAt: '2026-08-15T00:00:00Z',
+          isRead: true
         }
       ];
 
       processScanResults(mockJobs);
 
-      const updateRes = setApplicationStatus({ id: 'test-job-1', status: 'Applied', notes: 'Applied on company portal' });
-      expect(updateRes.success).toBe(true);
-      expect(updateRes.job.applicationStatus).toBe('Applied');
-      expect(updateRes.job.notes).toBe('Applied on company portal');
+      // Verify stored in tempDir
+      const storedFile = path.join(tempDir, 'jobs.json');
+      expect(fs.existsSync(storedFile)).toBe(true);
+      const fileData = JSON.parse(fs.readFileSync(storedFile, 'utf-8'));
+      expect(fileData.jobs.length).toBe(1);
+      expect(fileData.jobs[0].id).toBe('test-job-isolated-1');
 
-      const noteRes = updateJobNotes('test-job-1', 'Updated recruiter interview date');
+      const updateRes = setApplicationStatus({ id: 'test-job-isolated-1', status: 'Interviewing', notes: 'Round 1 technical scheduled' });
+      expect(updateRes.success).toBe(true);
+      expect(updateRes.job.applicationStatus).toBe('Interviewing');
+      expect(updateRes.job.notes).toBe('Round 1 technical scheduled');
+
+      const noteRes = updateJobNotes('test-job-isolated-1', 'Updated prep notes');
       expect(noteRes.success).toBe(true);
-      expect(noteRes.job.notes).toBe('Updated recruiter interview date');
+      expect(noteRes.job.notes).toBe('Updated prep notes');
+    });
+
+    it('sanitizeJobForPublic strictly redacts notes, applicationStatus, appliedAt, and isRead', () => {
+      const privateJob = {
+        id: '12345',
+        title: 'Senior SDET',
+        company: 'Cloud Corp',
+        location: 'Remote',
+        workplaceType: 'Remote',
+        matchScore: 92,
+        notes: 'Confidential salary expectations and interview notes',
+        applicationStatus: 'Interviewing',
+        appliedAt: '2026-08-15T12:00:00Z',
+        isRead: true
+      };
+
+      const publicJob = sanitizeJobForPublic(privateJob);
+      expect(publicJob.id).toBe('12345');
+      expect(publicJob.title).toBe('Senior SDET');
+      expect(publicJob.matchScore).toBe(92);
+      expect(publicJob.notes).toBeUndefined();
+      expect(publicJob.applicationStatus).toBeUndefined();
+      expect(publicJob.appliedAt).toBeUndefined();
+      expect(publicJob.isRead).toBeUndefined();
     });
   });
 });

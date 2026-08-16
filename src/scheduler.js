@@ -21,10 +21,10 @@ async function executeScan() {
 
   try {
     // 1. Scrape LinkedIn across Remote and Pittsburgh tracks
-    const scrapedJobs = await runFullScan();
+    const { jobs: scrapedJobs, scanHealth } = await runFullScan();
 
-    // 2. Process, enrich, and store results
-    const { newJobs, totalJobs, scanCount } = processScanResults(scrapedJobs);
+    // 2. Process, enrich, and store results (prunes stale jobs only if scan was healthy)
+    const { newJobs, totalJobs, scanCount } = processScanResults(scrapedJobs, scanHealth);
 
     // 3. Send email summary notification with accurate category metrics
     const stats = getStats();
@@ -38,6 +38,7 @@ async function executeScan() {
       newJobsCount: newJobs.length,
       totalJobs,
       scanCount,
+      scanHealth,
       emailSent: emailResult.sent,
       emailReason: emailResult.reason || null,
       durationSeconds: parseFloat(elapsed),
