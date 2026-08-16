@@ -36,9 +36,9 @@ describe('ATS & Career Portal Direct Resolution', () => {
   describe('resolveApplicationPortal', () => {
     it('resolves direct ATS portal from company registry for Duolingo', () => {
       const portal = resolveApplicationPortal('Duolingo', 'Senior SDET');
-      expect(portal.provider).toBe('greenhouse');
+      expect(portal.provider).toBe('greenhouse-board');
       expect(portal.applyUrl).toContain('boards.greenhouse.io/duolingo');
-      expect(portal.confidence).toBeGreaterThanOrEqual(0.90);
+      expect(portal.confidence).toBeGreaterThanOrEqual(0.85);
     });
 
     it('resolves verified Workday career portal for PNC Bank', () => {

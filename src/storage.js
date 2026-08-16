@@ -160,7 +160,15 @@ function loadJobs() {
   const filePath = getJobsFilePath();
 
   if (!fs.existsSync(filePath)) {
-    return { jobs: [], lastScan: null, scanCount: 0 };
+    return {
+      jobs: [],
+      lastScan: null,
+      lastSuccessfulScan: null,
+      lastAttempt: null,
+      scanCount: 0,
+      degradedAttempts: 0,
+      failedAttempts: 0
+    };
   }
 
   try {
@@ -174,7 +182,15 @@ function loadJobs() {
     return data;
   } catch (err) {
     console.error('❌ Error loading jobs file:', err.message);
-    return { jobs: [], lastScan: null, scanCount: 0 };
+    return {
+      jobs: [],
+      lastScan: null,
+      lastSuccessfulScan: null,
+      lastAttempt: null,
+      scanCount: 0,
+      degradedAttempts: 0,
+      failedAttempts: 0
+    };
   }
 }
 
@@ -186,22 +202,20 @@ function saveJobs(data) {
   const filePath = getJobsFilePath();
   writeJsonAtomic(filePath, data);
 
-  // Sync sanitized public projection to public/data/jobs.json ONLY in production storage mode
+  // Sync sanitized public projection to public/data/jobs.json
   if (!customStorageDir) {
-    try {
-      const publicDataDir = path.join(__dirname, '..', 'public', 'data');
-      const publicJobsPath = path.join(publicDataDir, 'jobs.json');
+    const publicDataDir = path.join(__dirname, '..', 'public', 'data');
+    const publicJobsPath = path.join(publicDataDir, 'jobs.json');
 
-      const sanitizedData = {
-        lastScan: data.lastScan,
-        scanCount: data.scanCount || 0,
-        jobs: (data.jobs || []).map(sanitizeJobForPublic)
-      };
+    const sanitizedData = {
+      lastScan: data.lastScan,
+      lastSuccessfulScan: data.lastSuccessfulScan || data.lastScan,
+      scanCount: data.scanCount || 0,
+      jobs: (data.jobs || []).map(sanitizeJobForPublic)
+    };
 
-      writeJsonAtomic(publicJobsPath, sanitizedData);
-    } catch (err) {
-      // Non-fatal if public folder is read-only or in testing
-    }
+    // Fatal write check in production mode
+    writeJsonAtomic(publicJobsPath, sanitizedData);
   }
 }
 
@@ -216,7 +230,7 @@ function initDatabase() {
 
 /**
  * Merge newly scraped jobs with existing stored jobs.
- * Tracks lastSeen, updates mutable attributes, and maintains user status & notes.
+ * Only prunes stale jobs if isHealthy is strictly true.
  */
 function mergeJobs(existingJobs, scrapedJobs, pruneStale = true) {
   const existingMap = new Map();
@@ -240,6 +254,7 @@ function mergeJobs(existingJobs, scrapedJobs, pruneStale = true) {
       if (rawJob.listDate) existing.listDate = rawJob.listDate;
       if (rawJob.datePosted) existing.datePosted = rawJob.datePosted;
       if (rawJob.location) existing.location = rawJob.location;
+      if (rawJob.rawApplyUrl) existing.rawApplyUrl = rawJob.rawApplyUrl;
       if (rawJob.description && (!existing.description || rawJob.description.length > existing.description.length)) {
         existing.description = rawJob.description;
         const fit = analyzeJobFit(existing.title, existing.company, existing.description);
@@ -267,7 +282,7 @@ function mergeJobs(existingJobs, scrapedJobs, pruneStale = true) {
   const thirtyDaysAgo = Date.now() - 30 * 24 * 60 * 60 * 1000;
 
   const allJobs = Array.from(existingMap.values())
-    // Prune stale jobs not seen in 30 days unless marked Applied/Interviewing (only if pruneStale is true)
+    // Prune stale jobs ONLY during strictly healthy scans
     .filter(job => {
       if (!pruneStale) return true;
       const isTracked = ['Applied', 'Interviewing', 'Offer'].includes(job.applicationStatus);
@@ -293,16 +308,24 @@ function mergeJobs(existingJobs, scrapedJobs, pruneStale = true) {
 
 /**
  * Process scan results
+ * Strictly requires scanHealth === 'healthy' to increment successful scan count and prune stale jobs.
  */
 function processScanResults(scrapedJobs, scanHealth = 'healthy') {
   const data = loadJobs();
-  const isHealthy = scanHealth === 'healthy' || scanHealth === 'degraded';
+  const isHealthy = scanHealth === 'healthy';
+  const now = new Date().toISOString();
+
+  // Prune only when scan is strictly healthy
   const { allJobs, newJobs } = mergeJobs(data.jobs, scrapedJobs, isHealthy);
 
   const updatedData = {
     jobs: allJobs,
-    lastScan: new Date().toISOString(),
+    lastAttempt: now,
+    lastScan: isHealthy ? now : (data.lastScan || now),
+    lastSuccessfulScan: isHealthy ? now : (data.lastSuccessfulScan || data.lastScan),
     scanCount: isHealthy ? (data.scanCount || 0) + 1 : (data.scanCount || 0),
+    degradedAttempts: scanHealth === 'degraded' ? (data.degradedAttempts || 0) + 1 : (data.degradedAttempts || 0),
+    failedAttempts: scanHealth === 'failed' ? (data.failedAttempts || 0) + 1 : (data.failedAttempts || 0),
     scanHealth
   };
 
@@ -393,8 +416,11 @@ function getStats() {
     pittsburghJobs: pittsburghCount,
     top100Jobs: top100Count,
     categories,
-    lastScan: data.lastScan,
+    lastScan: data.lastSuccessfulScan || data.lastScan,
+    lastAttempt: data.lastAttempt,
     scanCount: data.scanCount || 0,
+    degradedAttempts: data.degradedAttempts || 0,
+    failedAttempts: data.failedAttempts || 0
   };
 }
 

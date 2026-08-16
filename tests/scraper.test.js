@@ -3,7 +3,8 @@ const {
   isRelevantQATitle,
   parseJobListings,
   buildSearchUrl,
-  parseRetryAfter
+  parseRetryAfter,
+  fetchJobDescription
 } = require('../src/scraper');
 
 describe('Scraper & Title Validation Engine', () => {
@@ -136,6 +137,14 @@ describe('Scraper & Title Validation Engine', () => {
       expect(url).toContain('geoId=106093475');
       expect(url).toContain('sortBy=DD');
       expect(url).toContain('f_TPR=r86400');
+    });
+  });
+
+  describe('fetchJobDescription validation', () => {
+    it('returns empty object when invalid or non-numeric jobId is passed', async () => {
+      const res = await fetchJobDescription('invalid-id', '');
+      expect(res.description).toBe('');
+      expect(res.rawApplyUrl).toBe('');
     });
   });
 });

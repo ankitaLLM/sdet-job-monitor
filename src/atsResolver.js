@@ -120,7 +120,7 @@ function resolveApplicationPortal(companyName, jobTitle, rawApplyUrl = '') {
       return {
         applyUrl: rawApplyUrl,
         provider,
-        source: 'ats-direct',
+        source: 'ats-direct-requisition',
         confidence: 0.98,
         resolutionStatus: 'resolved'
       };
@@ -136,10 +136,10 @@ function resolveApplicationPortal(companyName, jobTitle, rawApplyUrl = '') {
       const boardUrl = `https://boards.greenhouse.io/${entry.board}`;
       return {
         applyUrl: boardUrl,
-        provider: 'greenhouse',
-        source: 'company-ats-registry',
-        confidence: 0.92,
-        resolutionStatus: 'resolved'
+        provider: 'greenhouse-board',
+        source: 'company-careers-portal',
+        confidence: 0.88,
+        resolutionStatus: 'registry-board'
       };
     }
 
@@ -147,14 +147,14 @@ function resolveApplicationPortal(companyName, jobTitle, rawApplyUrl = '') {
       return {
         applyUrl: entry.careerUrl,
         provider: entry.ats || 'corporate-portal',
-        source: 'company-career-portal',
-        confidence: 0.88,
-        resolutionStatus: 'resolved'
+        source: 'company-careers-portal',
+        confidence: 0.85,
+        resolutionStatus: 'registry-portal'
       };
     }
   }
 
-  // 3. Fallback: Google Jobs / Official Company Search Requisition
+  // 3. Fallback: Google Search Requisition
   const cleanComp = (companyName || '').trim();
   const cleanTitl = (jobTitle || '').trim();
   const query = `${cleanComp} careers ${cleanTitl} apply`.trim();
@@ -163,7 +163,7 @@ function resolveApplicationPortal(companyName, jobTitle, rawApplyUrl = '') {
   return {
     applyUrl: fallbackUrl,
     provider: 'google-jobs-search',
-    source: 'google-fallback',
+    source: 'company-search-fallback',
     confidence: 0.60,
     resolutionStatus: 'fallback'
   };

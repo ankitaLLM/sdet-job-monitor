@@ -258,11 +258,9 @@ async function fetchWithRetry(url, options = {}, maxRetries = 3) {
 
   while (attempt <= maxRetries) {
     try {
-      // Fresh timeout signal per attempt
       const signal = AbortSignal.timeout(12000);
       const response = await fetch(url, { ...options, signal });
 
-      // Handle rate limits or temporary server errors
       if ([408, 425, 429, 500, 502, 503, 504].includes(response.status)) {
         attempt++;
         if (attempt > maxRetries) {
@@ -292,10 +290,11 @@ async function fetchWithRetry(url, options = {}, maxRetries = 3) {
 }
 
 /**
- * Fetch job description snippet from LinkedIn guest detail API
+ * Fetch job description snippet and extract external apply URL from LinkedIn detail endpoint
+ * Returns { description, rawApplyUrl }
  */
 async function fetchJobDescription(jobId, jobUrl) {
-  if (!jobId || !/^\d+$/.test(jobId)) return '';
+  if (!jobId || !/^\d+$/.test(jobId)) return { description: '', rawApplyUrl: '' };
   const detailUrl = `https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/${jobId}`;
 
   try {
@@ -309,7 +308,7 @@ async function fetchJobDescription(jobId, jobUrl) {
       }
     });
 
-    if (!response.ok) return '';
+    if (!response.ok) return { description: '', rawApplyUrl: '' };
     const html = await response.text();
     const $ = cheerio.load(html);
 
@@ -320,15 +319,30 @@ async function fetchJobDescription(jobId, jobUrl) {
       ''
     );
 
-    return descText.slice(0, 3000);
+    // Extract external apply URL if present
+    let rawApplyUrl = '';
+    const applyAnchor = $(
+      'a.apply-button, a[data-tracking-control-name*="apply"], a.sign-up-modal__link, a[href*="myworkdayjobs.com"], a[href*="greenhouse.io"], a[href*="lever.co"], a[href*="smartrecruiters.com"], a[href*="ashbyhq.com"], a[href*="icims.com"]'
+    ).first();
+
+    if (applyAnchor.length > 0) {
+      const href = applyAnchor.attr('href');
+      if (href && href.startsWith('https://')) {
+        rawApplyUrl = href.split('?')[0];
+      }
+    }
+
+    return {
+      description: descText.slice(0, 3000),
+      rawApplyUrl
+    };
   } catch (e) {
-    return '';
+    return { description: '', rawApplyUrl: '' };
   }
 }
 
 /**
  * Fetch jobs for a single search query and location track
- * Returns structured result: { jobs, rawCardCount, status: 'healthy'|'empty'|'throttled'|'blocked'|'failed', diagnostics }
  */
 async function fetchJobsForQuery(query, locationQuery, geoId, workplaceType, locationLabel) {
   const allJobs = [];
@@ -336,6 +350,9 @@ async function fetchJobsForQuery(query, locationQuery, geoId, workplaceType, loc
   let queryStatus = 'healthy';
   let totalRawCards = 0;
   const aggregateDiagnostics = { malformedCards: 0, nonQACards: 0, duplicateCards: 0 };
+  let descriptionAttempts = 0;
+  let descriptionSuccesses = 0;
+  let exactAtsCount = 0;
 
   const headers = {
     'User-Agent': profile.userAgent,
@@ -373,6 +390,10 @@ async function fetchJobsForQuery(query, locationQuery, geoId, workplaceType, loc
       aggregateDiagnostics.nonQACards += diagnostics.nonQACards;
       aggregateDiagnostics.duplicateCards += diagnostics.duplicateCards;
 
+      if (rawCardCount === 0 && html.length > 300) {
+        queryStatus = 'drift_or_empty';
+      }
+
       allJobs.push(...jobs);
 
       if (rawCardCount < 8) {
@@ -394,13 +415,19 @@ async function fetchJobsForQuery(query, locationQuery, geoId, workplaceType, loc
     }
   }
 
-  // Enrich top new listings with description snippet (up to 5 per query batch to respect rate limits)
+  // Enrich listings with description snippet and external apply link
   for (let i = 0; i < Math.min(allJobs.length, 5); i++) {
     const job = allJobs[i];
     if (job.id && /^\d+$/.test(job.id)) {
-      const desc = await fetchJobDescription(job.id, job.url);
-      if (desc) {
-        job.description = desc;
+      descriptionAttempts++;
+      const { description, rawApplyUrl } = await fetchJobDescription(job.id, job.url);
+      if (description) {
+        job.description = description;
+        descriptionSuccesses++;
+      }
+      if (rawApplyUrl) {
+        job.rawApplyUrl = rawApplyUrl;
+        exactAtsCount++;
       }
       await sleep(200);
     }
@@ -410,7 +437,12 @@ async function fetchJobsForQuery(query, locationQuery, geoId, workplaceType, loc
     jobs: allJobs,
     rawCardCount: totalRawCards,
     status: queryStatus,
-    diagnostics: aggregateDiagnostics
+    diagnostics: aggregateDiagnostics,
+    metrics: {
+      descriptionAttempts,
+      descriptionSuccesses,
+      exactAtsCount
+    }
   };
 }
 
@@ -430,6 +462,9 @@ async function runFullScan() {
 
   let consecutiveErrors = 0;
   let totalErrors = 0;
+  let totalDescAttempts = 0;
+  let totalDescSuccesses = 0;
+  let totalExactAts = 0;
   const MAX_CONSECUTIVE_ERRORS = 3;
   let step = 1;
   const totalSteps = config.jobTitles.length * tracks.length;
@@ -443,6 +478,12 @@ async function runFullScan() {
       console.log(`   [${step}/${totalSteps}] Searching: "${query}" in ${track.label}`);
 
       const result = await fetchJobsForQuery(query, track.location, track.geoId, track.wt, track.label);
+
+      if (result.metrics) {
+        totalDescAttempts += result.metrics.descriptionAttempts;
+        totalDescSuccesses += result.metrics.descriptionSuccesses;
+        totalExactAts += result.metrics.exactAtsCount;
+      }
 
       if (result.status === 'throttled' || result.status === 'blocked' || result.status === 'failed') {
         consecutiveErrors++;
@@ -469,14 +510,32 @@ async function runFullScan() {
     }
   }
 
-  if (totalErrors > 0 && scanHealth !== 'degraded') {
-    scanHealth = 'degraded';
-  } else if (allJobs.length === 0 && totalErrors > 0) {
+  // CORRECTED HEALTH CLASSIFICATION: failed takes priority if zero jobs returned with errors
+  if (allJobs.length === 0 && totalErrors > 0) {
     scanHealth = 'failed';
+  } else if (totalErrors > 0 || scanHealth === 'degraded') {
+    scanHealth = 'degraded';
+  } else {
+    scanHealth = 'healthy';
   }
 
+  const descSuccessRate = totalDescAttempts > 0 ? `${Math.round((totalDescSuccesses / totalDescAttempts) * 100)}%` : 'N/A';
+
   console.log(`\n✅ Scan complete (${scanHealth}). Found ${allJobs.length} strictly validated SDET/QA listings.`);
-  return { jobs: allJobs, scanHealth };
+  console.log(`   📊 Telemetry: Descriptions ${totalDescSuccesses}/${totalDescAttempts} (${descSuccessRate}) | Exact ATS: ${totalExactAts}`);
+
+  return {
+    jobs: allJobs,
+    scanHealth,
+    metrics: {
+      totalScraped: allJobs.length,
+      descriptionAttempts: totalDescAttempts,
+      descriptionSuccesses: totalDescSuccesses,
+      descriptionSuccessRate: descSuccessRate,
+      exactAtsResolutionCount: totalExactAts,
+      totalErrors
+    }
+  };
 }
 
 module.exports = {

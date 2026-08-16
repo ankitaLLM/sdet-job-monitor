@@ -69,7 +69,7 @@ describe('Storage, Pittsburgh Location Matcher, and Lifecycle Management', () =>
         }
       ];
 
-      processScanResults(mockJobs);
+      processScanResults(mockJobs, 'healthy');
 
       // Verify stored in tempDir
       const storedFile = path.join(tempDir, 'jobs.json');
@@ -110,6 +110,31 @@ describe('Storage, Pittsburgh Location Matcher, and Lifecycle Management', () =>
       expect(publicJob.applicationStatus).toBeUndefined();
       expect(publicJob.appliedAt).toBeUndefined();
       expect(publicJob.isRead).toBeUndefined();
+    });
+
+    it('strictly guards scanCount increment and tracking during degraded and failed scans', () => {
+      const mockJobs = [
+        { id: 'job-1', title: 'Senior SDET', company: 'Corp A', location: 'Remote' }
+      ];
+
+      // 1. Healthy scan increments scanCount
+      processScanResults(mockJobs, 'healthy');
+      let stats = getStats();
+      expect(stats.scanCount).toBe(1);
+      expect(stats.degradedAttempts).toBe(0);
+      expect(stats.failedAttempts).toBe(0);
+
+      // 2. Degraded scan does NOT increment scanCount, but increments degradedAttempts
+      processScanResults(mockJobs, 'degraded');
+      stats = getStats();
+      expect(stats.scanCount).toBe(1);
+      expect(stats.degradedAttempts).toBe(1);
+
+      // 3. Failed scan increments failedAttempts
+      processScanResults([], 'failed');
+      stats = getStats();
+      expect(stats.scanCount).toBe(1);
+      expect(stats.failedAttempts).toBe(1);
     });
   });
 });

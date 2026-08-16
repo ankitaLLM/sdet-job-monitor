@@ -1,7 +1,7 @@
 /* ══════════════════════════════════════════════════════════════
    Ankita Agrawal — Senior SDET & QA Job Monitor Frontend App
    Resilient Dual-Mode (Node API + GitHub Pages Static Hosting)
-   Hardened with Offline Outbox, Accurate Scoring, and Strict URL Guards
+   Hardened with Offline Outbox, Dynamic Polling, and Strict URL Guards
    ══════════════════════════════════════════════════════════════ */
 
 let allJobs = [];
@@ -10,6 +10,7 @@ let isStaticMode = false;
 let isServerOnline = true;
 let currentRequestGen = 0;
 let activeAbortController = null;
+let isFlushingOutbox = false;
 
 // Filter state
 let currentCategory = 'all';
@@ -61,6 +62,7 @@ function getPendingMutations() {
 }
 
 function queueMutation(mutation) {
+  if (isStaticMode) return; // Static GitHub Pages mode does not use an API outbox
   try {
     const queue = getPendingMutations();
     queue.push({ ...mutation, timestamp: Date.now() });
@@ -69,27 +71,36 @@ function queueMutation(mutation) {
 }
 
 async function flushPendingMutations() {
-  if (isStaticMode) return;
+  if (isStaticMode || isFlushingOutbox) return;
   const queue = getPendingMutations();
   if (!queue.length) return;
 
+  isFlushingOutbox = true;
   const remaining = [];
+
   for (const item of queue) {
     try {
+      let res = null;
       if (item.action === 'status') {
-        await fetch('/api/jobs/status', {
+        res = await fetch('/api/jobs/status', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ id: item.id, status: item.status, notes: item.notes })
         });
       } else if (item.action === 'notes') {
-        await fetch(`/api/jobs/${encodeURIComponent(item.id)}/notes`, {
+        res = await fetch(`/api/jobs/${encodeURIComponent(item.id)}/notes`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ notes: item.notes })
         });
       } else if (item.action === 'read') {
-        await fetch(`/api/jobs/${encodeURIComponent(item.id)}/read`, { method: 'POST' });
+        res = await fetch(`/api/jobs/${encodeURIComponent(item.id)}/read`, { method: 'POST' });
+      } else if (item.action === 'read-all') {
+        res = await fetch('/api/jobs/read-all', { method: 'POST' });
+      }
+
+      if (!res || !res.ok) {
+        remaining.push(item);
       }
     } catch (err) {
       remaining.push(item);
@@ -99,6 +110,7 @@ async function flushPendingMutations() {
   try {
     localStorage.setItem(PENDING_MUTATIONS_KEY, JSON.stringify(remaining));
   } catch (e) {}
+  isFlushingOutbox = false;
 }
 
 // ─── Multi-Tab Realtime Synchronization ──────────────────────
@@ -156,7 +168,6 @@ async function loadJobsFromIDB() {
 // ─── Initialization ──────────────────────────────────────────
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Explicit deployment mode check: GitHub Pages vs Local backend
   isStaticMode = window.location.hostname.endsWith('github.io') || window.location.protocol === 'file:';
 
   loadData();
@@ -185,7 +196,6 @@ async function loadData() {
     let scanCountVal = 1;
 
     if (!isStaticMode) {
-      // Dynamic Node API mode
       try {
         const [jobsRes, statsRes] = await Promise.all([
           fetch('/api/jobs', { signal }),
@@ -209,12 +219,10 @@ async function loadData() {
       } catch (e) {
         if (e.name === 'AbortError') return;
         isServerOnline = false;
-        // Temporary server blip: read from static cache without permanently setting isStaticMode
       }
     }
 
     if (isStaticMode || !isServerOnline) {
-      // Static / Offline fallback
       try {
         const cacheBuster = `?_t=${Math.floor(Date.now() / 60000)}`;
         const staticRes = await fetch(`./data/jobs.json${cacheBuster}`, { signal });
@@ -231,10 +239,8 @@ async function loadData() {
       }
     }
 
-    // Ignore if a newer request generation has already started
     if (reqGen !== currentRequestGen) return;
 
-    // Overlay unified user records (status, notes, read state)
     const userRecords = getUserRecords();
     allJobs = rawJobs.map(j => {
       const rec = userRecords[j.id] || {};
@@ -456,7 +462,6 @@ function resetAllFilters(reapply = true) {
 
 function applyAllFilters() {
   filteredJobs = allJobs.filter(job => {
-    // 1. Category filter
     if (currentCategory !== 'all') {
       const q = (job.searchQuery || '').toLowerCase();
       const t = (job.title || '').toLowerCase();
@@ -469,7 +474,6 @@ function applyAllFilters() {
       if (currentCategory === 'API' && !q.includes('api') && !t.includes('api')) return false;
     }
 
-    // 2. Location filter
     if (locationFilter === 'remote') {
       const isRemote = job.workplaceType === 'Remote' || (job.location && job.location.toLowerCase().includes('remote'));
       if (!isRemote) return false;
@@ -477,18 +481,13 @@ function applyAllFilters() {
       if (!job.isPittsburgh) return false;
     }
 
-    // 3. Top 100 filter
     if (top100Only && !job.isTop100) return false;
-
-    // 4. Unread filter
     if (unreadOnly && job.isRead) return false;
 
-    // 5. Status filter
     if (statusFilter !== 'all') {
       if ((job.applicationStatus || 'New') !== statusFilter) return false;
     }
 
-    // 6. Search query
     if (searchQuery) {
       const q = searchQuery;
       const titleMatch = (job.title || '').toLowerCase().includes(q);
@@ -505,7 +504,6 @@ function applyAllFilters() {
     return true;
   });
 
-  // Sort
   if (currentSort === 'match') {
     filteredJobs.sort((a, b) => (b.matchScore || 0) - (a.matchScore || 0));
   } else if (currentSort === 'company') {
@@ -718,7 +716,6 @@ async function triggerManualScan() {
     if (data.success) {
       showToast('LinkedIn scan initiated across Remote US & Pittsburgh tracks!', 'info');
 
-      // Poll stats every 3s until scan finishes rather than fixed arbitrary timeouts
       if (scanPollingInterval) clearInterval(scanPollingInterval);
       scanPollingInterval = setInterval(async () => {
         try {
@@ -765,10 +762,15 @@ async function markJobAsRead(jobId) {
 
   saveUserRecord(jobId, { isRead: true });
 
-  if (!isStaticMode && isServerOnline) {
-    try {
-      await fetch(`/api/jobs/${encodeURIComponent(jobId)}/read`, { method: 'POST' });
-    } catch (e) {
+  if (!isStaticMode) {
+    if (isServerOnline) {
+      try {
+        const res = await fetch(`/api/jobs/${encodeURIComponent(jobId)}/read`, { method: 'POST' });
+        if (!res.ok) queueMutation({ action: 'read', id: jobId });
+      } catch (e) {
+        queueMutation({ action: 'read', id: jobId });
+      }
+    } else {
       queueMutation({ action: 'read', id: jobId });
     }
   }
@@ -782,11 +784,18 @@ async function markAllAsRead() {
   });
   applyAllFilters();
 
-  if (!isStaticMode && isServerOnline) {
-    try {
-      await fetch('/api/jobs/read-all', { method: 'POST' });
-      loadData();
-    } catch (e) {}
+  if (!isStaticMode) {
+    if (isServerOnline) {
+      try {
+        const res = await fetch('/api/jobs/read-all', { method: 'POST' });
+        if (!res.ok) queueMutation({ action: 'read-all' });
+        loadData();
+      } catch (e) {
+        queueMutation({ action: 'read-all' });
+      }
+    } else {
+      queueMutation({ action: 'read-all' });
+    }
   }
   showToast('All job postings marked as read', 'success');
 }
@@ -801,11 +810,16 @@ async function changeJobStatus(jobId, status) {
 
   saveUserRecord(jobId, { status, isRead: true });
 
-  if (isStaticMode || !isServerOnline) {
-    queueMutation({ action: 'status', id: jobId, status });
+  if (isStaticMode) {
     computeAndSetStaticStats();
     applyAllFilters();
     showToast(`Updated status to "${status}"`, 'success');
+    return;
+  }
+
+  if (!isServerOnline) {
+    queueMutation({ action: 'status', id: jobId, status });
+    showToast(`Status saved locally: "${status}"`, 'info');
     return;
   }
 
@@ -815,10 +829,12 @@ async function changeJobStatus(jobId, status) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ id: jobId, status })
     });
-    const data = await res.json();
-    if (data.success) {
+    if (res.ok) {
       applyAllFilters();
       showToast(`Updated status to "${status}"`, 'success');
+    } else {
+      queueMutation({ action: 'status', id: jobId, status });
+      showToast(`Status queued locally: "${status}"`, 'info');
     }
   } catch (e) {
     queueMutation({ action: 'status', id: jobId, status });
@@ -882,11 +898,18 @@ async function saveJobNotes() {
 
   saveUserRecord(activeEditingJobId, { notes });
 
-  if (isStaticMode || !isServerOnline) {
+  if (isStaticMode) {
+    closeNotesModal();
+    applyAllFilters();
+    showToast('Notes saved successfully!', 'success');
+    return;
+  }
+
+  if (!isServerOnline) {
     queueMutation({ action: 'notes', id: activeEditingJobId, notes });
     closeNotesModal();
     applyAllFilters();
-    showToast('Notes saved locally!', 'success');
+    showToast('Notes saved locally (will sync when online)', 'info');
     return;
   }
 
@@ -896,11 +919,15 @@ async function saveJobNotes() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ notes })
     });
-    const data = await res.json();
-    if (data.success) {
+    if (res.ok) {
       closeNotesModal();
       applyAllFilters();
       showToast('Notes saved successfully!', 'success');
+    } else {
+      queueMutation({ action: 'notes', id: activeEditingJobId, notes });
+      closeNotesModal();
+      applyAllFilters();
+      showToast('Notes saved locally (will sync when online)', 'info');
     }
   } catch (e) {
     queueMutation({ action: 'notes', id: activeEditingJobId, notes });

@@ -37,7 +37,7 @@ Unlike standard H1B monitors, this version searches **all US-authorized openings
 ## Quick Start
 
 ### 1. Requirements
-- Node.js 18+ and npm
+- Node.js 20+ and npm
 
 ### 2. Installation & Launch
 ```bash
