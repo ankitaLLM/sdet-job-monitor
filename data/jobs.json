@@ -1,6 +1,103 @@
 {
   "jobs": [
     {
+      "id": "4454860753",
+      "title": "Project Quality Manager",
+      "company": "Stellantis",
+      "location": "Auburn Hills, MI",
+      "datePosted": "2026-08-15",
+      "listDate": "18 hours ago",
+      "url": "https://www.linkedin.com/jobs/view/project-quality-manager-at-stellantis-4454860753",
+      "searchQuery": "QA Lead",
+      "locationQuery": "🌐 Remote (US)",
+      "firstSeen": "2026-08-16T00:36:49.551Z",
+      "isNew": true,
+      "isRead": false,
+      "isTop100": false,
+      "isPittsburgh": false,
+      "workplaceType": "Remote",
+      "matchScore": 75,
+      "matchedSkills": [
+        "Senior / Lead"
+      ],
+      "companyApplyUrl": "https://www.google.com/search?q=Stellantis%20careers%20Project%20Quality%20Manager%20apply",
+      "applicationStatus": "New",
+      "notes": ""
+    },
+    {
+      "id": "4413648298",
+      "title": "Quality Assurance Manager",
+      "company": "Green Thumb Industries (GTI)",
+      "location": "Holyoke, MA",
+      "datePosted": "2026-08-15",
+      "listDate": "13 hours ago",
+      "url": "https://www.linkedin.com/jobs/view/quality-assurance-manager-at-green-thumb-industries-gti-4413648298",
+      "searchQuery": "QA Lead",
+      "locationQuery": "🌐 Remote (US)",
+      "firstSeen": "2026-08-16T00:36:49.551Z",
+      "isNew": true,
+      "isRead": false,
+      "isTop100": false,
+      "isPittsburgh": false,
+      "workplaceType": "Remote",
+      "matchScore": 75,
+      "matchedSkills": [
+        "Senior / Lead"
+      ],
+      "companyApplyUrl": "https://www.google.com/search?q=Green%20Thumb%20Industries%20(GTI)%20careers%20Quality%20Assurance%20Manager%20apply",
+      "applicationStatus": "New",
+      "notes": ""
+    },
+    {
+      "id": "4379684346",
+      "title": "Manager -IPQA /QA Validation",
+      "company": "Glenmark Pharmaceuticals",
+      "location": "Monroe, NC",
+      "datePosted": "2026-08-15",
+      "listDate": "10 hours ago",
+      "url": "https://www.linkedin.com/jobs/view/manager-ipqa-qa-validation-at-glenmark-pharmaceuticals-4379684346",
+      "searchQuery": "QA Lead",
+      "locationQuery": "🌐 Remote (US)",
+      "firstSeen": "2026-08-16T00:36:49.551Z",
+      "isNew": true,
+      "isRead": false,
+      "isTop100": false,
+      "isPittsburgh": false,
+      "workplaceType": "Remote",
+      "matchScore": 75,
+      "matchedSkills": [
+        "Validation",
+        "Senior / Lead"
+      ],
+      "companyApplyUrl": "https://www.google.com/search?q=Glenmark%20Pharmaceuticals%20careers%20Manager%20-IPQA%20%2FQA%20Validation%20apply",
+      "applicationStatus": "New",
+      "notes": ""
+    },
+    {
+      "id": "4445216490",
+      "title": "Quality Assurance Lead *2nd shift",
+      "company": "POM Wonderful",
+      "location": "Buttonwillow, CA",
+      "datePosted": "2026-08-15",
+      "listDate": "8 hours ago",
+      "url": "https://www.linkedin.com/jobs/view/quality-assurance-lead-2nd-shift-at-pom-wonderful-4445216490",
+      "searchQuery": "QA Lead",
+      "locationQuery": "🌐 Remote (US)",
+      "firstSeen": "2026-08-16T00:36:49.551Z",
+      "isNew": true,
+      "isRead": false,
+      "isTop100": false,
+      "isPittsburgh": false,
+      "workplaceType": "Remote",
+      "matchScore": 85,
+      "matchedSkills": [
+        "Senior / Lead"
+      ],
+      "companyApplyUrl": "https://www.google.com/search?q=POM%20Wonderful%20careers%20Quality%20Assurance%20Lead%20*2nd%20shift%20apply",
+      "applicationStatus": "New",
+      "notes": ""
+    },
+    {
       "id": "4453030568",
       "title": "Quality Engineer Principal - MLOps",
       "company": "PNC",
@@ -2027,6 +2124,6 @@
       "notes": ""
     }
   ],
-  "lastScan": "2026-08-15T23:57:43.157Z",
-  "scanCount": 1
+  "lastScan": "2026-08-16T00:36:49.552Z",
+  "scanCount": 2
 }
