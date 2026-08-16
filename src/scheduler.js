@@ -26,11 +26,10 @@ async function executeScan() {
     // 2. Process, enrich, and store results
     const { newJobs, totalJobs, scanCount } = processScanResults(scrapedJobs);
 
-    // 3. Send email notification if there are new jobs
-    let emailResult = { sent: false, reason: 'No new jobs' };
-    if (newJobs.length > 0) {
-      emailResult = await sendNotification(newJobs);
-    }
+    // 3. Send email summary notification
+    let emailResult = { sent: false, reason: 'Email transporter not configured' };
+    const stats = { totalJobs, scanCount, remoteJobs: 0, pittsburghJobs: 0, top100Jobs: 0 };
+    emailResult = await sendNotification(newJobs, stats);
 
     const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
 

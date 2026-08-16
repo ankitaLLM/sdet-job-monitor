@@ -31,15 +31,11 @@ async function runCliScrape() {
     console.log(`📋 Copied jobs database to public/data/jobs.json for GitHub Pages`);
   }
 
-  // 4. Send notification email if new jobs were found
-  if (newJobs.length > 0) {
-    console.log(`📧 Sending email alert for ${newJobs.length} new jobs to ${config.gmail.notifyEmail}...`);
-    await sendNotification(newJobs);
-  } else {
-    console.log('ℹ️ No new jobs to notify in this cycle.');
-  }
-
   const stats = getStats();
+
+  // 4. Send notification email with stats summary
+  console.log(`📧 Sending refresh summary & stats to ${config.gmail.notifyEmail}...`);
+  await sendNotification(newJobs, stats);
   console.log('📊 Scan completed successfully:', stats);
 }
 

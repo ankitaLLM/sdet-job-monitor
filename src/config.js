@@ -5,7 +5,7 @@ const config = {
   gmail: {
     user: process.env.GMAIL_USER || '',
     appPassword: process.env.GMAIL_APP_PASSWORD || '',
-    notifyEmail: process.env.NOTIFY_EMAIL || 'ankita.vinculum@gmail.com',
+    notifyEmail: process.env.NOTIFY_EMAIL || 'ankita.vinculum@gmail.com, vijayvargiya.shubham@gmail.com',
   },
 
   // Server settings (Port 3001)
