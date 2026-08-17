@@ -1,6 +1,7 @@
 /**
  * Curated Database, Employer Directory, and Transparent 100-Point Resume Fit Scoring Model
  * Specifically calibrated for Ankita Agrawal (11+ yrs Senior SDET / QA Lead)
+ * Includes dedicated intelligence for Clario & Nutrien peer employers across Life Sciences, HealthTech, AgTech & Industrial Tech.
  */
 
 const { resolveApplicationPortal } = require('./atsResolver');
@@ -28,10 +29,39 @@ const PITTSBURGH_COMPANIES = [
   'philips', 'philips healthcare', 'philips respironics', 'carnegie mellon', 'cmu', 'software engineering institute',
   'sei', 'aurora', 'aurora innovation', 'stack av', 'shield ai', 'gecko robotics', 'seegrid', 'abridge',
   'locomation', 'astrobotic', 'motional', 'near earth autonomy', 'hitachi energy', 'omnicell', 'ingersoll rand',
-  'nutrien', 'nutrien ag solutions', 'ltk', 'westinghouse', 'ppg', 'ppg industries',
+  'nutrien', 'nutrien ag solutions', 'clario', 'ltk', 'westinghouse', 'ppg', 'ppg industries',
   'alcoa', 'fedex ground', 'giant eagle', 'matthews international', 'bayer', 'thermo fisher', 'thermo fisher scientific',
   'wabtec', 'koppers', 'msa safety', 'eaton', 'american eagle outfitters', 'aeo', 'bosch', 'siemens', 'pitt ohio',
   'argo ai', 'carnegie robotics', 're2 robotics', 'hefren tillotson', 'baird'
+];
+
+// Clario Peers: Clinical Trial Tech, Life Sciences, HealthTech, Diagnostic Software & MedTech
+const CLARIO_PEERS = [
+  'clario', 'medidata', 'medidata solutions', 'veeva', 'veeva systems', 'iqvia',
+  'signant health', 'parexel', 'castor', 'suvoda', 'yprime', 'wcg clinical', 'wcg',
+  'advarra', 'science 37', 'medable', 'epic', 'epic systems', 'cerner', 'oracle health',
+  'tempus', 'tempus labs', 'flatiron health', 'flatiron', 'doximity', 'teladoc', 'teladoc health',
+  'verily', 'verily life sciences', 'goodrx', 'definitive healthcare', 'komodo health',
+  'change healthcare', 'optum', 'unitedhealth', 'philips', 'philips healthcare',
+  'thermo fisher', 'thermo fisher scientific', 'illumina', 'ge healthcare', 'omnicell',
+  'highmark', 'highmark health', 'upmc', 'upmc enterprises', 'bio-rad', 'bio rad', 'roche',
+  'roche diagnostics', 'abbott', 'abbott laboratories', 'becton dickinson', 'bd',
+  'medtronic', 'boston scientific', 'stryker', 'baxter', 'siemens healthineers',
+  'charles river', 'charles river laboratories', 'labcorp', 'quest diagnostics',
+  'pfizer', 'moderna', 'regeneron', 'vertex', 'gilead', 'biogen', 'amgen', 'novartis', 'astrazeneca', 'bristol myers squibb'
+];
+
+// Nutrien Peers: AgTech, Digital Agronomy, Precision Agriculture, Supply Chain & Heavy Enterprise Tech
+const NUTRIEN_PEERS = [
+  'nutrien', 'nutrien ag solutions', 'corteva', 'corteva agriscience', 'bayer', 'bayer crop science',
+  'climate llc', 'climate fieldview', 'the climate corporation', 'john deere', 'deere & company', 'deere',
+  'syngenta', 'syngenta group', 'cargill', 'trimble', 'trimble agriculture', 'indigo ag',
+  'farmers business network', 'fbn', 'land o\'lakes', 'land olakes', 'winfield united', 'cnh industrial', 'cnh',
+  'fmc', 'fmc corporation', 'mosaic', 'mosaic company', 'the mosaic company', 'yara', 'yara international',
+  'agco', 'agco corporation', 'caterpillar', 'cat', 'rockwell automation', 'honeywell', 'honeywell connected enterprise',
+  'siemens digital industries', 'siemens', 'emerson', 'emerson electric', 'schneider electric', 'abb',
+  'hitachi energy', 'ingersoll rand', 'eaton', 'eaton corporation', 'westinghouse', 'westinghouse electric',
+  'ppg', 'ppg industries', 'alcoa', 'wabtec', 'wabtec corporation', 'msa safety'
 ];
 
 /**
@@ -47,41 +77,64 @@ function cleanCompanyName(name) {
     .trim();
 }
 
-/**
- * Checks if a company belongs to Top 100 Tech/Enterprise
- */
-function isTop100Company(companyName) {
+function matchesCompanyList(companyName, list) {
   if (!companyName) return false;
   const cleaned = cleanCompanyName(companyName);
   if (cleaned.length <= 1) return false;
 
-  return TOP_100_TECH_ENTERPRISE.some(sponsor => {
-    const cleanSponsor = cleanCompanyName(sponsor);
-    if (cleanSponsor.length === 0) return false;
-    if (cleanSponsor.length <= 3) {
+  return list.some(item => {
+    const cleanItem = cleanCompanyName(item);
+    if (cleanItem.length === 0) return false;
+    if (cleanItem.length <= 3) {
       const words = cleaned.split(' ');
-      return words.includes(cleanSponsor);
+      return words.includes(cleanItem);
     }
-    return cleaned.includes(cleanSponsor) || cleanSponsor.includes(cleaned);
+    return cleaned.includes(cleanItem) || cleanItem.includes(cleaned);
   });
+}
+
+/**
+ * Checks if a company belongs to Top 100 Tech/Enterprise
+ */
+function isTop100Company(companyName) {
+  return matchesCompanyList(companyName, TOP_100_TECH_ENTERPRISE);
 }
 
 /**
  * Checks if a company is a recognized Pittsburgh regional employer
  */
 function isPittsburghCompany(companyName) {
-  if (!companyName) return false;
-  const cleaned = cleanCompanyName(companyName);
-  if (cleaned.length <= 1) return false;
+  return matchesCompanyList(companyName, PITTSBURGH_COMPANIES);
+}
 
-  return PITTSBURGH_COMPANIES.some(co => {
-    const cleanCo = cleanCompanyName(co);
-    if (cleanCo.length <= 3) {
-      const words = cleaned.split(' ');
-      return words.includes(cleanCo);
-    }
-    return cleaned.includes(cleanCo) || cleanCo.includes(cleaned);
-  });
+/**
+ * Checks if a company is a peer of Clario (Life Sciences / HealthTech)
+ */
+function isClarioPeer(companyName) {
+  return matchesCompanyList(companyName, CLARIO_PEERS);
+}
+
+/**
+ * Checks if a company is a peer of Nutrien (AgTech / Industrial Tech)
+ */
+function isNutrienPeer(companyName) {
+  return matchesCompanyList(companyName, NUTRIEN_PEERS);
+}
+
+/**
+ * Checks if a company is either a Clario or Nutrien peer
+ */
+function isPeerCompany(companyName) {
+  return isClarioPeer(companyName) || isNutrienPeer(companyName);
+}
+
+/**
+ * Returns specific industry category for Clario & Nutrien peers
+ */
+function getPeerCategory(companyName) {
+  if (isClarioPeer(companyName)) return 'Life Sciences & HealthTech';
+  if (isNutrienPeer(companyName)) return 'AgTech & Industrial Tech';
+  return null;
 }
 
 /**
@@ -98,7 +151,7 @@ const SKILL_DEFINITIONS = [
   { name: 'Selenium / Java', weight: 4, category: 'tech', regex: /\b(selenium|java|testng|junit)\b/i },
   { name: 'TypeScript / JS', weight: 4, category: 'tech', regex: /\b(typescript|javascript|node\.js)\b/i },
   { name: 'Cucumber / BDD', weight: 4, category: 'domain', regex: /\b(cucumber|bdd|gherkin)\b/i },
-  { name: 'Validation / CSV', weight: 3, category: 'domain', regex: /\b(software\s*validation|csv\s*engineer|gamp|system\s*validation)\b/i },
+  { name: 'Validation / CSV', weight: 3, category: 'domain', regex: /\b(software\s*validation|csv\s*engineer|gamp|system\s*validation|21\s*cfr)\b/i },
   { name: 'SQL / Database', weight: 3, category: 'domain', regex: /\b(sql|database|mongodb)\b/i },
   { name: 'Performance / JMeter', weight: 2, category: 'domain', regex: /\b(jmeter|loadrunner|performance\s*testing)\b/i }
 ];
@@ -126,8 +179,8 @@ function analyzeJobFit(title, company, description = '') {
     roleScore = 25;
   } else if (/\b(qa\s*automation|quality\s*engineering\s*lead|lead\s*qa|automation\s*engineer)/i.test(titleText)) {
     roleScore = 22;
-  } else if (/\b(software\s*validation|validation\s*engineer|validation\s*lead)/i.test(titleText)) {
-    roleScore = 20;
+  } else if (/\b(software\s*validation|validation\s*engineer|validation\s*lead|csv\s*engineer)/i.test(titleText)) {
+    roleScore = 22;
   } else if (/\b(api\s*test|ai\s*test|test\s*automation)/i.test(titleText)) {
     roleScore = 20;
   } else if (/\b(quality\s*engineer|quality\s*assurance|qa\s*analyst|test\s*engineer)/i.test(titleText)) {
@@ -180,9 +233,9 @@ function analyzeJobFit(title, company, description = '') {
     techPoints += 4;
   }
 
-  // Domain bonus for domain/validation depth
+  // Domain bonus for domain/validation depth (especially relevant for Clario/Nutrien CSV validation)
   if (matchedDomainSkills.length >= 2) {
-    domainPoints += 3;
+    domainPoints += 4;
   }
 
   techScore = Math.min(techPoints, 45);
@@ -216,8 +269,14 @@ function analyzeJobFit(title, company, description = '') {
 module.exports = {
   isTop100Company,
   isPittsburghCompany,
+  isClarioPeer,
+  isNutrienPeer,
+  isPeerCompany,
+  getPeerCategory,
   analyzeJobFit,
   cleanCompanyName,
   TOP_100_TECH_ENTERPRISE,
-  PITTSBURGH_COMPANIES
+  PITTSBURGH_COMPANIES,
+  CLARIO_PEERS,
+  NUTRIEN_PEERS
 };

@@ -16,6 +16,7 @@ let isFlushingOutbox = false;
 let currentCategory = 'all';
 let locationFilter = 'all'; // 'all', 'remote', 'pittsburgh'
 let top100Only = false;
+let peerFilter = false;
 let unreadOnly = false;
 let statusFilter = 'all';
 let searchQuery = '';
@@ -270,6 +271,7 @@ function computeAndSetStaticStats(lastScan, scanCount) {
   const remoteJobs = allJobs.filter(j => j.workplaceType === 'Remote' || (j.location && j.location.toLowerCase().includes('remote'))).length;
   const pittsburghJobs = allJobs.filter(j => j.isPittsburgh).length;
   const top100Jobs = allJobs.filter(j => j.isTop100).length;
+  const peerJobs = allJobs.filter(j => j.isPeerCompany).length;
   const appliedJobs = allJobs.filter(j => ['Applied', 'Interviewing', 'Offer'].includes(j.applicationStatus)).length;
 
   updateKPIs({
@@ -278,6 +280,7 @@ function computeAndSetStaticStats(lastScan, scanCount) {
     remoteJobs,
     pittsburghJobs,
     top100Jobs,
+    peerJobs,
     appliedJobs,
     scanCount: scanCount || 1
   });
@@ -300,6 +303,7 @@ function updateKPIs(stats) {
   setAnimatedNumber('kpiRemote', stats.remoteJobs || 0);
   setAnimatedNumber('kpiPittsburgh', stats.pittsburghJobs || 0);
   setAnimatedNumber('kpiTop100', stats.top100Jobs || 0);
+  setAnimatedNumber('kpiPeer', stats.peerJobs || 0);
   setAnimatedNumber('kpiApplied', stats.appliedJobs || 0);
 
   const scansEl = document.getElementById('kpiScansCount');
@@ -375,6 +379,12 @@ function toggleTop100Filter() {
   applyAllFilters();
 }
 
+function togglePeerFilter() {
+  peerFilter = !peerFilter;
+  updateToggleButtons();
+  applyAllFilters();
+}
+
 function toggleUnreadFilter() {
   unreadOnly = !unreadOnly;
   updateToggleButtons();
@@ -385,11 +395,13 @@ function updateToggleButtons() {
   const btnRemote = document.getElementById('toggleRemote');
   const btnPgh = document.getElementById('togglePittsburgh');
   const btnTop100 = document.getElementById('toggleTop100');
+  const btnPeer = document.getElementById('togglePeer');
   const btnUnread = document.getElementById('toggleUnreadOnly');
 
   if (btnRemote) btnRemote.classList.toggle('active', locationFilter === 'remote');
   if (btnPgh) btnPgh.classList.toggle('active', locationFilter === 'pittsburgh');
   if (btnTop100) btnTop100.classList.toggle('active', top100Only);
+  if (btnPeer) btnPeer.classList.toggle('active', peerFilter);
   if (btnUnread) btnUnread.classList.toggle('active', unreadOnly);
 }
 
@@ -429,6 +441,8 @@ function quickFilter(type) {
     locationFilter = 'pittsburgh';
   } else if (type === 'top100') {
     top100Only = true;
+  } else if (type === 'peer') {
+    peerFilter = true;
   } else if (type === 'applied') {
     statusFilter = 'Applied';
   }
@@ -440,6 +454,7 @@ function resetAllFilters(reapply = true) {
   currentCategory = 'all';
   locationFilter = 'all';
   top100Only = false;
+  peerFilter = false;
   unreadOnly = false;
   statusFilter = 'all';
   searchQuery = '';
@@ -465,6 +480,8 @@ function applyAllFilters() {
     if (currentCategory !== 'all') {
       const q = (job.searchQuery || '').toLowerCase();
       const t = (job.title || '').toLowerCase();
+      const c = (job.company || '').toLowerCase();
+
       if (currentCategory === 'SDET' && !q.includes('sdet') && !t.includes('sdet')) return false;
       if (currentCategory === 'Automation' && !q.includes('automation') && !t.includes('automation')) return false;
       if (currentCategory === 'Quality Assurance' && !q.includes('quality assurance') && !t.includes('quality assurance') && !t.includes('qa') && !t.includes('quality analyst')) return false;
@@ -472,6 +489,8 @@ function applyAllFilters() {
       if (currentCategory === 'AI' && !q.includes('ai') && !t.includes('ai') && !t.includes('genai')) return false;
       if (currentCategory === 'Validation' && !q.includes('validation') && !t.includes('validation')) return false;
       if (currentCategory === 'API' && !q.includes('api') && !t.includes('api')) return false;
+      if (currentCategory === 'Life Sciences' && !job.isClarioPeer && !q.includes('sciences') && !q.includes('health') && !t.includes('validation') && !c.includes('clario')) return false;
+      if (currentCategory === 'AgTech' && !job.isNutrienPeer && !q.includes('agtech') && !t.includes('agtech') && !c.includes('nutrien')) return false;
     }
 
     if (locationFilter === 'remote') {
@@ -482,6 +501,7 @@ function applyAllFilters() {
     }
 
     if (top100Only && !job.isTop100) return false;
+    if (peerFilter && !job.isPeerCompany) return false;
     if (unreadOnly && job.isRead) return false;
 
     if (statusFilter !== 'all') {
@@ -603,6 +623,7 @@ function renderJobsFeed() {
               <div class="job-badges">
                 ${job.isTop100 ? `<span class="badge-top100">⭐ Top 100 Tech</span>` : ''}
                 ${job.isPittsburgh ? `<span class="badge-pittsburgh">📍 Pittsburgh Local</span>` : ''}
+                ${job.isClarioPeer ? `<span class="badge-clario" title="Peer of Clario (Life Sciences / Clinical Trials / HealthTech)">🏥 Clario Peer (Life Sciences)</span>` : (job.isNutrienPeer ? `<span class="badge-nutrien" title="Peer of Nutrien (AgTech / Industrial Enterprise)">🌱 Nutrien Peer (AgTech / Industrial)</span>` : (job.isPeerCompany ? `<span class="badge-peer">🌿 Industry Peer</span>` : ''))}
               </div>
             </div>
           </div>

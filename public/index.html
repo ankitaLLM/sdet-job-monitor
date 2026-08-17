@@ -97,6 +97,15 @@
         <div class="kpi-sub">FAANG & Enterprise</div>
       </div>
 
+      <div class="kpi-card kpi-highlight-teal" onclick="quickFilter('peer')">
+        <div class="kpi-header">
+          <span class="kpi-title">🌿 Nutrien & Clario Peers</span>
+          <span class="kpi-icon-pill teal">LifeSci & Ag</span>
+        </div>
+        <div class="kpi-value" id="kpiPeer">0</div>
+        <div class="kpi-sub">Life Sciences & AgTech</div>
+      </div>
+
       <div class="kpi-card" onclick="quickFilter('applied')">
         <div class="kpi-header">
           <span class="kpi-title">🎯 Applied Pipeline</span>
@@ -134,6 +143,12 @@
           <button class="filter-pill" data-cat="API" onclick="selectCategory('API', this)">
             <span class="dot" style="background:#0d9488"></span>API Test Engineer
           </button>
+          <button class="filter-pill" data-cat="Life Sciences" onclick="selectCategory('Life Sciences', this)">
+            <span class="dot" style="background:#06b6d4"></span>🏥 Clario & Life Sciences
+          </button>
+          <button class="filter-pill" data-cat="AgTech" onclick="selectCategory('AgTech', this)">
+            <span class="dot" style="background:#84cc16"></span>🌱 Nutrien & AgTech
+          </button>
         </div>
 
         <!-- Utility Buttons -->
@@ -160,6 +175,9 @@
           </button>
           <button class="toggle-pill" id="toggleTop100" onclick="toggleTop100Filter()">
             ⭐ Top 100 Employers
+          </button>
+          <button class="toggle-pill" id="togglePeer" onclick="togglePeerFilter()">
+            🌿 Nutrien & Clario Peers
           </button>
           <button class="toggle-pill" id="toggleUnreadOnly" onclick="toggleUnreadFilter()">
             📬 Unread Only

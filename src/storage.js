@@ -4,6 +4,10 @@ const config = require('./config');
 const {
   isTop100Company,
   isPittsburghCompany,
+  isPeerCompany,
+  isClarioPeer,
+  isNutrienPeer,
+  getPeerCategory,
   analyzeJobFit
 } = require('./companies');
 const { resolveApplicationPortal } = require('./atsResolver');
@@ -20,6 +24,10 @@ const PUBLIC_ALLOWLIST_FIELDS = [
   'workplaceType',
   'isTop100',
   'isPittsburgh',
+  'isPeerCompany',
+  'isClarioPeer',
+  'isNutrienPeer',
+  'peerCategory',
   'matchScore',
   'scoreConfidence',
   'scoreBreakdown',
@@ -95,6 +103,10 @@ function checkIsPittsburghLocation(loc, company) {
 function enrichJob(job) {
   const isTop100 = isTop100Company(job.company);
   const isPgh = checkIsPittsburghLocation(job.location, job.company);
+  const isPeer = isPeerCompany(job.company);
+  const isClario = isClarioPeer(job.company);
+  const isNutrien = isNutrienPeer(job.company);
+  const peerCat = getPeerCategory(job.company);
   const locLower = (job.location || '').toLowerCase();
 
   // Determine workplace type tag
@@ -121,6 +133,10 @@ function enrichJob(job) {
     ...job,
     isTop100,
     isPittsburgh: isPgh,
+    isPeerCompany: isPeer,
+    isClarioPeer: isClario,
+    isNutrienPeer: isNutrien,
+    peerCategory: peerCat,
     workplaceType,
     matchScore: fit.score,
     scoreConfidence: fit.confidence,
@@ -248,7 +264,6 @@ function mergeJobs(existingJobs, scrapedJobs, pruneStale = true) {
     if (!rawJob.id || !isRelevantQATitle(rawJob.title)) continue;
 
     if (existingMap.has(rawJob.id)) {
-      // Existing job seen again: update lastSeen and mutable fields
       const existing = existingMap.get(rawJob.id);
       existing.lastSeen = now;
       if (rawJob.listDate) existing.listDate = rawJob.listDate;
@@ -264,7 +279,6 @@ function mergeJobs(existingJobs, scrapedJobs, pruneStale = true) {
         existing.matchedSkills = fit.matchedSkills;
       }
     } else {
-      // Brand new job
       const enriched = enrichJob({
         ...rawJob,
         firstSeen: now,
@@ -277,12 +291,10 @@ function mergeJobs(existingJobs, scrapedJobs, pruneStale = true) {
     }
   }
 
-  // Mark old "new" jobs as no longer new after 24 hours
   const oneDayAgo = Date.now() - 24 * 60 * 60 * 1000;
   const thirtyDaysAgo = Date.now() - 30 * 24 * 60 * 60 * 1000;
 
   const allJobs = Array.from(existingMap.values())
-    // Prune stale jobs ONLY during strictly healthy scans
     .filter(job => {
       if (!pruneStale) return true;
       const isTracked = ['Applied', 'Interviewing', 'Offer'].includes(job.applicationStatus);
@@ -297,10 +309,7 @@ function mergeJobs(existingJobs, scrapedJobs, pruneStale = true) {
       return updated;
     });
 
-  // Sort by firstSeen descending (newest first)
   allJobs.sort((a, b) => new Date(b.firstSeen) - new Date(a.firstSeen));
-
-  // Cap at 1000 jobs to maintain lightweight storage
   const trimmed = allJobs.slice(0, 1000);
 
   return { allJobs: trimmed, newJobs };
@@ -308,14 +317,12 @@ function mergeJobs(existingJobs, scrapedJobs, pruneStale = true) {
 
 /**
  * Process scan results
- * Strictly requires scanHealth === 'healthy' to increment successful scan count and prune stale jobs.
  */
 function processScanResults(scrapedJobs, scanHealth = 'healthy') {
   const data = loadJobs();
   const isHealthy = scanHealth === 'healthy';
   const now = new Date().toISOString();
 
-  // Prune only when scan is strictly healthy
   const { allJobs, newJobs } = mergeJobs(data.jobs, scrapedJobs, isHealthy);
 
   const updatedData = {
@@ -363,6 +370,14 @@ function getJobs(filters = {}) {
     jobs = jobs.filter(j => j.isPittsburgh === filters.isPittsburgh);
   }
 
+  if (filters.isPeerCompany !== undefined) {
+    jobs = jobs.filter(j => j.isPeerCompany === filters.isPeerCompany);
+  }
+
+  if (filters.peerCategory && filters.peerCategory !== 'all') {
+    jobs = jobs.filter(j => j.peerCategory === filters.peerCategory);
+  }
+
   if (filters.applicationStatus && filters.applicationStatus !== 'all') {
     jobs = jobs.filter(j => (j.applicationStatus || 'New') === filters.applicationStatus);
   }
@@ -406,6 +421,9 @@ function getStats() {
   const remoteCount = jobs.filter(j => j.workplaceType === 'Remote' || (j.location && j.location.toLowerCase().includes('remote'))).length;
   const pittsburghCount = jobs.filter(j => j.isPittsburgh).length;
   const top100Count = jobs.filter(j => j.isTop100).length;
+  const peerCount = jobs.filter(j => j.isPeerCompany).length;
+  const clarioPeerCount = jobs.filter(j => j.isClarioPeer).length;
+  const nutrienPeerCount = jobs.filter(j => j.isNutrienPeer).length;
 
   return {
     totalJobs: jobs.length,
@@ -415,6 +433,9 @@ function getStats() {
     remoteJobs: remoteCount,
     pittsburghJobs: pittsburghCount,
     top100Jobs: top100Count,
+    peerJobs: peerCount,
+    clarioPeerJobs: clarioPeerCount,
+    nutrienPeerJobs: nutrienPeerCount,
     categories,
     lastScan: data.lastSuccessfulScan || data.lastScan,
     lastAttempt: data.lastAttempt,

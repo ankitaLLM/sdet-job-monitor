@@ -14,7 +14,6 @@ const config = {
   // Targeted Job Titles for Ankita (11+ yrs SDET / QA / Validation / AI Testing)
   jobTitles: (process.env.JOB_TITLES || '').split(',').map(t => t.trim()).filter(Boolean),
 
-  // Default job titles if not provided in env
   defaultJobTitles: [
     'Senior SDET',
     'Lead SDET',
@@ -23,7 +22,9 @@ const config = {
     'QA Lead',
     'Software Validation Engineer',
     'AI Test Automation',
-    'API Test Engineer'
+    'API Test Engineer',
+    'Life Sciences QA Engineer',
+    'AgTech Quality Engineer'
   ],
 
   // Dual Scraping Locations
