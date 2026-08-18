@@ -1,8 +1,800 @@
 {
-  "lastScan": "2026-08-18T00:43:39.008Z",
-  "lastSuccessfulScan": "2026-08-18T00:43:39.008Z",
-  "scanCount": 10,
+  "lastScan": "2026-08-18T03:13:09.198Z",
+  "lastSuccessfulScan": "2026-08-18T03:13:09.198Z",
+  "scanCount": 11,
   "jobs": [
+    {
+      "id": "4454483007",
+      "title": "Senior Quality Assurance Engineer",
+      "company": "FUNDVIEW",
+      "location": "Lubbock, TX",
+      "workplaceType": "Remote",
+      "isTop100": false,
+      "isPittsburgh": false,
+      "isPeerCompany": false,
+      "isClarioPeer": false,
+      "isNutrienPeer": false,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null,
+      "peerCategory": null,
+      "matchScore": 36,
+      "scoreConfidence": "low",
+      "scoreBreakdown": {
+        "role": 18,
+        "seniority": 18,
+        "tech": 0,
+        "domain": 0
+      },
+      "matchedSkills": [],
+      "companyApplyUrl": "https://www.google.com/search?q=FUNDVIEW%20careers%20Senior%20Quality%20Assurance%20Engineer%20apply",
+      "atsProvider": "google-jobs-search",
+      "applySource": "company-search-fallback",
+      "applyConfidence": 0.6,
+      "url": "https://www.linkedin.com/jobs/view/senior-quality-assurance-engineer-at-fundview-4454483007",
+      "datePosted": "2026-08-18",
+      "listDate": "1 hour ago",
+      "firstSeen": "2026-08-18T03:13:09.198Z",
+      "lastSeen": "2026-08-18T03:13:09.198Z"
+    },
+    {
+      "id": "4450827165",
+      "title": "Playwright Automation Engineer",
+      "company": "Synechron",
+      "location": "Charlotte, NC",
+      "workplaceType": "Remote",
+      "isTop100": false,
+      "isPittsburgh": false,
+      "isPeerCompany": false,
+      "isClarioPeer": false,
+      "isNutrienPeer": false,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null,
+      "peerCategory": null,
+      "matchScore": 47,
+      "scoreConfidence": "low",
+      "scoreBreakdown": {
+        "role": 22,
+        "seniority": 14,
+        "tech": 11,
+        "domain": 0
+      },
+      "matchedSkills": [
+        "Playwright"
+      ],
+      "companyApplyUrl": "https://www.google.com/search?q=Synechron%20careers%20Playwright%20Automation%20Engineer%20apply",
+      "atsProvider": "google-jobs-search",
+      "applySource": "company-search-fallback",
+      "applyConfidence": 0.6,
+      "url": "https://www.linkedin.com/jobs/view/playwright-automation-engineer-at-synechron-4450827165",
+      "datePosted": "2026-08-17",
+      "listDate": "17 hours ago",
+      "firstSeen": "2026-08-18T03:13:09.198Z",
+      "lastSeen": "2026-08-18T03:13:09.198Z"
+    },
+    {
+      "id": "4452522102",
+      "title": "Test Automation Consultant",
+      "company": "Infosys",
+      "location": "Irvine, CA",
+      "workplaceType": "Remote",
+      "isTop100": true,
+      "isPittsburgh": false,
+      "isPeerCompany": false,
+      "isClarioPeer": false,
+      "isNutrienPeer": false,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null,
+      "peerCategory": null,
+      "matchScore": 34,
+      "scoreConfidence": "low",
+      "scoreBreakdown": {
+        "role": 20,
+        "seniority": 14,
+        "tech": 0,
+        "domain": 0
+      },
+      "matchedSkills": [],
+      "companyApplyUrl": "https://www.google.com/search?q=Infosys%20careers%20Test%20Automation%20Consultant%20apply",
+      "atsProvider": "google-jobs-search",
+      "applySource": "company-search-fallback",
+      "applyConfidence": 0.6,
+      "url": "https://www.linkedin.com/jobs/view/test-automation-consultant-at-infosys-4452522102",
+      "datePosted": "2026-08-17",
+      "listDate": "4 hours ago",
+      "firstSeen": "2026-08-18T03:13:09.198Z",
+      "lastSeen": "2026-08-18T03:13:09.198Z"
+    },
+    {
+      "id": "4454437649",
+      "title": "QUALITY ANALYST 3",
+      "company": "Newport News Shipbuilding, A Division of HII",
+      "location": "Newport News, VA",
+      "workplaceType": "Remote",
+      "isTop100": false,
+      "isPittsburgh": false,
+      "isPeerCompany": false,
+      "isClarioPeer": false,
+      "isNutrienPeer": false,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null,
+      "peerCategory": null,
+      "matchScore": 26,
+      "scoreConfidence": "low",
+      "scoreBreakdown": {
+        "role": 12,
+        "seniority": 14,
+        "tech": 0,
+        "domain": 0
+      },
+      "matchedSkills": [],
+      "companyApplyUrl": "https://www.google.com/search?q=Newport%20News%20Shipbuilding%2C%20A%20Division%20of%20HII%20careers%20QUALITY%20ANALYST%203%20apply",
+      "atsProvider": "google-jobs-search",
+      "applySource": "company-search-fallback",
+      "applyConfidence": 0.6,
+      "url": "https://www.linkedin.com/jobs/view/quality-analyst-3-at-newport-news-shipbuilding-a-division-of-hii-4454437649",
+      "datePosted": "2026-08-18",
+      "listDate": "2 hours ago",
+      "firstSeen": "2026-08-18T03:13:09.198Z",
+      "lastSeen": "2026-08-18T03:13:09.198Z"
+    },
+    {
+      "id": "4454462002",
+      "title": "Senior Quality Engineer",
+      "company": "Scout HR Services",
+      "location": "Rochester Hills, MI",
+      "workplaceType": "Remote",
+      "isTop100": false,
+      "isPittsburgh": false,
+      "isPeerCompany": false,
+      "isClarioPeer": false,
+      "isNutrienPeer": false,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null,
+      "peerCategory": null,
+      "matchScore": 36,
+      "scoreConfidence": "low",
+      "scoreBreakdown": {
+        "role": 18,
+        "seniority": 18,
+        "tech": 0,
+        "domain": 0
+      },
+      "matchedSkills": [],
+      "companyApplyUrl": "https://www.google.com/search?q=Scout%20HR%20Services%20careers%20Senior%20Quality%20Engineer%20apply",
+      "atsProvider": "google-jobs-search",
+      "applySource": "company-search-fallback",
+      "applyConfidence": 0.6,
+      "url": "https://www.linkedin.com/jobs/view/senior-quality-engineer-at-scout-hr-services-4454462002",
+      "datePosted": "2026-08-18",
+      "listDate": "1 hour ago",
+      "firstSeen": "2026-08-18T03:13:09.198Z",
+      "lastSeen": "2026-08-18T03:13:09.198Z"
+    },
+    {
+      "id": "4455385544",
+      "title": "Lead SQE (Software Quality Engineering Manager)",
+      "company": "Roche",
+      "location": "Carlsbad, CA",
+      "workplaceType": "Remote",
+      "isTop100": false,
+      "isPittsburgh": false,
+      "isPeerCompany": true,
+      "isClarioPeer": true,
+      "isNutrienPeer": false,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null,
+      "peerCategory": "Life Sciences & HealthTech",
+      "matchScore": 38,
+      "scoreConfidence": "low",
+      "scoreBreakdown": {
+        "role": 18,
+        "seniority": 20,
+        "tech": 0,
+        "domain": 0
+      },
+      "matchedSkills": [],
+      "companyApplyUrl": "https://www.google.com/search?q=Roche%20careers%20Lead%20SQE%20(Software%20Quality%20Engineering%20Manager)%20apply",
+      "atsProvider": "google-jobs-search",
+      "applySource": "company-search-fallback",
+      "applyConfidence": 0.6,
+      "url": "https://www.linkedin.com/jobs/view/lead-sqe-software-quality-engineering-manager-at-roche-4455385544",
+      "datePosted": "2026-08-17",
+      "listDate": "5 hours ago",
+      "firstSeen": "2026-08-18T03:13:09.198Z",
+      "lastSeen": "2026-08-18T03:13:09.198Z"
+    },
+    {
+      "id": "4452530706",
+      "title": "Lead SQE (Software Quality Engineering Manager)",
+      "company": "Roche Diagnostics France",
+      "location": "Carlsbad, CA",
+      "workplaceType": "Remote",
+      "isTop100": false,
+      "isPittsburgh": false,
+      "isPeerCompany": true,
+      "isClarioPeer": true,
+      "isNutrienPeer": false,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null,
+      "peerCategory": "Life Sciences & HealthTech",
+      "matchScore": 38,
+      "scoreConfidence": "low",
+      "scoreBreakdown": {
+        "role": 18,
+        "seniority": 20,
+        "tech": 0,
+        "domain": 0
+      },
+      "matchedSkills": [],
+      "companyApplyUrl": "https://www.google.com/search?q=Roche%20Diagnostics%20France%20careers%20Lead%20SQE%20(Software%20Quality%20Engineering%20Manager)%20apply",
+      "atsProvider": "google-jobs-search",
+      "applySource": "company-search-fallback",
+      "applyConfidence": 0.6,
+      "url": "https://www.linkedin.com/jobs/view/lead-sqe-software-quality-engineering-manager-at-roche-diagnostics-france-4452530706",
+      "datePosted": "2026-08-18",
+      "listDate": "1 hour ago",
+      "firstSeen": "2026-08-18T03:13:09.198Z",
+      "lastSeen": "2026-08-18T03:13:09.198Z"
+    },
+    {
+      "id": "4455526669",
+      "title": "Software Validation Engineer, Energy Storage",
+      "company": "Redwood Materials",
+      "location": "San Francisco, CA",
+      "workplaceType": "Remote",
+      "isTop100": false,
+      "isPittsburgh": false,
+      "isPeerCompany": false,
+      "isClarioPeer": false,
+      "isNutrienPeer": false,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null,
+      "peerCategory": null,
+      "matchScore": 38,
+      "scoreConfidence": "high",
+      "scoreBreakdown": {
+        "role": 22,
+        "seniority": 20,
+        "tech": 17,
+        "domain": 4
+      },
+      "matchedSkills": [
+        "Python / Pytest",
+        "CI/CD Jenkins",
+        "Validation / CSV"
+      ],
+      "companyApplyUrl": "https://www.google.com/search?q=Redwood%20Materials%20careers%20Software%20Validation%20Engineer%2C%20Energy%20Storage%20apply",
+      "atsProvider": "google-jobs-search",
+      "applySource": "company-search-fallback",
+      "applyConfidence": 0.6,
+      "url": "https://www.linkedin.com/jobs/view/software-validation-engineer-energy-storage-at-redwood-materials-4455526669",
+      "datePosted": "2026-08-18",
+      "listDate": "2 hours ago",
+      "firstSeen": "2026-08-18T03:13:09.198Z",
+      "lastSeen": "2026-08-18T03:13:09.198Z"
+    },
+    {
+      "id": "4452296463",
+      "title": "System Firmware Test Engineer",
+      "company": "Dexian",
+      "location": "Austin, TX",
+      "workplaceType": "Remote",
+      "isTop100": false,
+      "isPittsburgh": false,
+      "isPeerCompany": false,
+      "isClarioPeer": false,
+      "isNutrienPeer": false,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null,
+      "peerCategory": null,
+      "matchScore": 32,
+      "scoreConfidence": "low",
+      "scoreBreakdown": {
+        "role": 18,
+        "seniority": 14,
+        "tech": 0,
+        "domain": 0
+      },
+      "matchedSkills": [],
+      "companyApplyUrl": "https://www.google.com/search?q=Dexian%20careers%20System%20Firmware%20Test%20Engineer%20apply",
+      "atsProvider": "google-jobs-search",
+      "applySource": "company-search-fallback",
+      "applyConfidence": 0.6,
+      "url": "https://www.linkedin.com/jobs/view/system-firmware-test-engineer-at-dexian-4452296463",
+      "datePosted": "2026-08-17",
+      "listDate": "5 hours ago",
+      "firstSeen": "2026-08-18T03:13:09.198Z",
+      "lastSeen": "2026-08-18T03:13:09.198Z"
+    },
+    {
+      "id": "4454484209",
+      "title": "Senior Software Quality Engineer",
+      "company": "DISH TV",
+      "location": "Englewood, CO",
+      "workplaceType": "Remote",
+      "isTop100": false,
+      "isPittsburgh": false,
+      "isPeerCompany": false,
+      "isClarioPeer": false,
+      "isNutrienPeer": false,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null,
+      "peerCategory": null,
+      "matchScore": 36,
+      "scoreConfidence": "low",
+      "scoreBreakdown": {
+        "role": 18,
+        "seniority": 18,
+        "tech": 0,
+        "domain": 0
+      },
+      "matchedSkills": [],
+      "companyApplyUrl": "https://www.google.com/search?q=DISH%20TV%20careers%20Senior%20Software%20Quality%20Engineer%20apply",
+      "atsProvider": "google-jobs-search",
+      "applySource": "company-search-fallback",
+      "applyConfidence": 0.6,
+      "url": "https://www.linkedin.com/jobs/view/senior-software-quality-engineer-at-dish-tv-4454484209",
+      "datePosted": "2026-08-18",
+      "listDate": "7 minutes ago",
+      "firstSeen": "2026-08-18T03:13:09.198Z",
+      "lastSeen": "2026-08-18T03:13:09.198Z"
+    },
+    {
+      "id": "4455302518",
+      "title": "Software and Integration Test Engineer",
+      "company": "Voyager Technologies",
+      "location": "Pittsburgh, PA",
+      "workplaceType": "Remote",
+      "isTop100": false,
+      "isPittsburgh": true,
+      "isPeerCompany": false,
+      "isClarioPeer": false,
+      "isNutrienPeer": false,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null,
+      "peerCategory": null,
+      "matchScore": 32,
+      "scoreConfidence": "low",
+      "scoreBreakdown": {
+        "role": 18,
+        "seniority": 14,
+        "tech": 0,
+        "domain": 0
+      },
+      "matchedSkills": [],
+      "companyApplyUrl": "https://www.google.com/search?q=Voyager%20Technologies%20careers%20Software%20and%20Integration%20Test%20Engineer%20apply",
+      "atsProvider": "google-jobs-search",
+      "applySource": "company-search-fallback",
+      "applyConfidence": 0.6,
+      "url": "https://www.linkedin.com/jobs/view/software-and-integration-test-engineer-at-voyager-technologies-4455302518",
+      "datePosted": "2026-08-17",
+      "listDate": "13 hours ago",
+      "firstSeen": "2026-08-18T03:13:09.198Z",
+      "lastSeen": "2026-08-18T03:13:09.198Z"
+    },
+    {
+      "id": "4452518061",
+      "title": "Quality Engineer",
+      "company": "VMC Soft Technologies, Inc",
+      "location": "Austin, TX",
+      "workplaceType": "Remote",
+      "isTop100": false,
+      "isPittsburgh": false,
+      "isPeerCompany": false,
+      "isClarioPeer": false,
+      "isNutrienPeer": false,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null,
+      "peerCategory": null,
+      "matchScore": 32,
+      "scoreConfidence": "low",
+      "scoreBreakdown": {
+        "role": 18,
+        "seniority": 14,
+        "tech": 0,
+        "domain": 0
+      },
+      "matchedSkills": [],
+      "companyApplyUrl": "https://www.google.com/search?q=VMC%20Soft%20Technologies%2C%20Inc%20careers%20Quality%20Engineer%20apply",
+      "atsProvider": "google-jobs-search",
+      "applySource": "company-search-fallback",
+      "applyConfidence": 0.6,
+      "url": "https://www.linkedin.com/jobs/view/quality-engineer-at-vmc-soft-technologies-inc-4452518061",
+      "datePosted": "2026-08-17",
+      "listDate": "6 hours ago",
+      "firstSeen": "2026-08-18T03:13:09.198Z",
+      "lastSeen": "2026-08-18T03:13:09.198Z"
+    },
+    {
+      "id": "4442234631",
+      "title": "Senior Quality Engineer, Cybersecurity",
+      "company": "Verily Health",
+      "location": "Boston, MA",
+      "workplaceType": "Remote",
+      "isTop100": false,
+      "isPittsburgh": false,
+      "isPeerCompany": true,
+      "isClarioPeer": true,
+      "isNutrienPeer": false,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null,
+      "peerCategory": "Life Sciences & HealthTech",
+      "matchScore": 36,
+      "scoreConfidence": "low",
+      "scoreBreakdown": {
+        "role": 18,
+        "seniority": 18,
+        "tech": 0,
+        "domain": 0
+      },
+      "matchedSkills": [],
+      "companyApplyUrl": "https://www.google.com/search?q=Verily%20Health%20careers%20Senior%20Quality%20Engineer%2C%20Cybersecurity%20apply",
+      "atsProvider": "google-jobs-search",
+      "applySource": "company-search-fallback",
+      "applyConfidence": 0.6,
+      "url": "https://www.linkedin.com/jobs/view/senior-quality-engineer-cybersecurity-at-verily-health-4442234631",
+      "datePosted": "2026-08-17",
+      "listDate": "10 hours ago",
+      "firstSeen": "2026-08-18T03:13:09.198Z",
+      "lastSeen": "2026-08-18T03:13:09.198Z"
+    },
+    {
+      "id": "4455326322",
+      "title": "Quality Engineer",
+      "company": "Heartstream",
+      "location": "Bothell, WA",
+      "workplaceType": "Remote",
+      "isTop100": false,
+      "isPittsburgh": false,
+      "isPeerCompany": false,
+      "isClarioPeer": false,
+      "isNutrienPeer": false,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null,
+      "peerCategory": null,
+      "matchScore": 32,
+      "scoreConfidence": "low",
+      "scoreBreakdown": {
+        "role": 18,
+        "seniority": 14,
+        "tech": 0,
+        "domain": 0
+      },
+      "matchedSkills": [],
+      "companyApplyUrl": "https://www.google.com/search?q=Heartstream%20careers%20Quality%20Engineer%20apply",
+      "atsProvider": "google-jobs-search",
+      "applySource": "company-search-fallback",
+      "applyConfidence": 0.6,
+      "url": "https://www.linkedin.com/jobs/view/quality-engineer-at-heartstream-4455326322",
+      "datePosted": "2026-08-17",
+      "listDate": "11 hours ago",
+      "firstSeen": "2026-08-18T03:13:09.198Z",
+      "lastSeen": "2026-08-18T03:13:09.198Z"
+    },
+    {
+      "id": "4455529987",
+      "title": "Test Engineer",
+      "company": "CNH",
+      "location": "Sioux Falls, SD",
+      "workplaceType": "Remote",
+      "isTop100": false,
+      "isPittsburgh": false,
+      "isPeerCompany": true,
+      "isClarioPeer": false,
+      "isNutrienPeer": true,
+      "isAgTech": true,
+      "isAgriFinance": false,
+      "agriCategory": "Precision AgTech",
+      "peerCategory": "Precision AgTech",
+      "matchScore": 25,
+      "scoreConfidence": "high",
+      "scoreBreakdown": {
+        "role": 18,
+        "seniority": 20,
+        "tech": 0,
+        "domain": 0
+      },
+      "matchedSkills": [],
+      "companyApplyUrl": "https://www.google.com/search?q=CNH%20careers%20Test%20Engineer%20apply",
+      "atsProvider": "google-jobs-search",
+      "applySource": "company-search-fallback",
+      "applyConfidence": 0.6,
+      "url": "https://www.linkedin.com/jobs/view/test-engineer-at-cnh-4455529987",
+      "datePosted": "2026-08-18",
+      "listDate": "2 hours ago",
+      "firstSeen": "2026-08-18T03:13:09.198Z",
+      "lastSeen": "2026-08-18T03:13:09.198Z"
+    },
+    {
+      "id": "4452521605",
+      "title": "Quality Engineer II",
+      "company": "Regal Rexnord",
+      "location": "Downers Grove, IL",
+      "workplaceType": "Remote",
+      "isTop100": false,
+      "isPittsburgh": false,
+      "isPeerCompany": false,
+      "isClarioPeer": false,
+      "isNutrienPeer": false,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null,
+      "peerCategory": null,
+      "matchScore": 30,
+      "scoreConfidence": "low",
+      "scoreBreakdown": {
+        "role": 18,
+        "seniority": 12,
+        "tech": 0,
+        "domain": 0
+      },
+      "matchedSkills": [],
+      "companyApplyUrl": "https://www.google.com/search?q=Regal%20Rexnord%20careers%20Quality%20Engineer%20II%20apply",
+      "atsProvider": "google-jobs-search",
+      "applySource": "company-search-fallback",
+      "applyConfidence": 0.6,
+      "url": "https://www.linkedin.com/jobs/view/quality-engineer-ii-at-regal-rexnord-4452521605",
+      "datePosted": "2026-08-18",
+      "listDate": "1 hour ago",
+      "firstSeen": "2026-08-18T03:13:09.198Z",
+      "lastSeen": "2026-08-18T03:13:09.198Z"
+    },
+    {
+      "id": "4454292892",
+      "title": "Quality Engineer II",
+      "company": "HGC Industries",
+      "location": "Indianapolis, IN",
+      "workplaceType": "Remote",
+      "isTop100": false,
+      "isPittsburgh": false,
+      "isPeerCompany": false,
+      "isClarioPeer": false,
+      "isNutrienPeer": false,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null,
+      "peerCategory": null,
+      "matchScore": 30,
+      "scoreConfidence": "low",
+      "scoreBreakdown": {
+        "role": 18,
+        "seniority": 12,
+        "tech": 0,
+        "domain": 0
+      },
+      "matchedSkills": [],
+      "companyApplyUrl": "https://www.google.com/search?q=HGC%20Industries%20careers%20Quality%20Engineer%20II%20apply",
+      "atsProvider": "google-jobs-search",
+      "applySource": "company-search-fallback",
+      "applyConfidence": 0.6,
+      "url": "https://www.linkedin.com/jobs/view/quality-engineer-ii-at-hgc-industries-4454292892",
+      "datePosted": "2026-08-17",
+      "listDate": "8 hours ago",
+      "firstSeen": "2026-08-18T03:13:09.198Z",
+      "lastSeen": "2026-08-18T03:13:09.198Z"
+    },
+    {
+      "id": "4454307545",
+      "title": "Quality Engineer",
+      "company": "Venteon",
+      "location": "Adrian, MI",
+      "workplaceType": "Remote",
+      "isTop100": false,
+      "isPittsburgh": false,
+      "isPeerCompany": false,
+      "isClarioPeer": false,
+      "isNutrienPeer": false,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null,
+      "peerCategory": null,
+      "matchScore": 32,
+      "scoreConfidence": "low",
+      "scoreBreakdown": {
+        "role": 18,
+        "seniority": 14,
+        "tech": 0,
+        "domain": 0
+      },
+      "matchedSkills": [],
+      "companyApplyUrl": "https://www.google.com/search?q=Venteon%20careers%20Quality%20Engineer%20apply",
+      "atsProvider": "google-jobs-search",
+      "applySource": "company-search-fallback",
+      "applyConfidence": 0.6,
+      "url": "https://www.linkedin.com/jobs/view/quality-engineer-at-venteon-4454307545",
+      "datePosted": "2026-08-17",
+      "listDate": "9 hours ago",
+      "firstSeen": "2026-08-18T03:13:09.198Z",
+      "lastSeen": "2026-08-18T03:13:09.198Z"
+    },
+    {
+      "id": "4454263073",
+      "title": "Customer Quality Engineer",
+      "company": "Talentmatics",
+      "location": "Holly, MI",
+      "workplaceType": "Remote",
+      "isTop100": false,
+      "isPittsburgh": false,
+      "isPeerCompany": false,
+      "isClarioPeer": false,
+      "isNutrienPeer": false,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null,
+      "peerCategory": null,
+      "matchScore": 32,
+      "scoreConfidence": "low",
+      "scoreBreakdown": {
+        "role": 18,
+        "seniority": 14,
+        "tech": 0,
+        "domain": 0
+      },
+      "matchedSkills": [],
+      "companyApplyUrl": "https://www.google.com/search?q=Talentmatics%20careers%20Customer%20Quality%20Engineer%20apply",
+      "atsProvider": "google-jobs-search",
+      "applySource": "company-search-fallback",
+      "applyConfidence": 0.6,
+      "url": "https://www.linkedin.com/jobs/view/customer-quality-engineer-at-talentmatics-4454263073",
+      "datePosted": "2026-08-17",
+      "listDate": "14 hours ago",
+      "firstSeen": "2026-08-18T03:13:09.198Z",
+      "lastSeen": "2026-08-18T03:13:09.198Z"
+    },
+    {
+      "id": "4454312708",
+      "title": "Supplier Quality Engineer",
+      "company": "Sigil Partners",
+      "location": "Tulsa, OK",
+      "workplaceType": "Remote",
+      "isTop100": false,
+      "isPittsburgh": false,
+      "isPeerCompany": false,
+      "isClarioPeer": false,
+      "isNutrienPeer": false,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null,
+      "peerCategory": null,
+      "matchScore": 32,
+      "scoreConfidence": "low",
+      "scoreBreakdown": {
+        "role": 18,
+        "seniority": 14,
+        "tech": 0,
+        "domain": 0
+      },
+      "matchedSkills": [],
+      "companyApplyUrl": "https://www.google.com/search?q=Sigil%20Partners%20careers%20Supplier%20Quality%20Engineer%20apply",
+      "atsProvider": "google-jobs-search",
+      "applySource": "company-search-fallback",
+      "applyConfidence": 0.6,
+      "url": "https://www.linkedin.com/jobs/view/supplier-quality-engineer-at-sigil-partners-4454312708",
+      "datePosted": "2026-08-17",
+      "listDate": "12 hours ago",
+      "firstSeen": "2026-08-18T03:13:09.198Z",
+      "lastSeen": "2026-08-18T03:13:09.198Z"
+    },
+    {
+      "id": "4452287298",
+      "title": "Quality Assurance Engineer",
+      "company": "Signature IT World Inc",
+      "location": "Boston, MA",
+      "workplaceType": "Remote",
+      "isTop100": false,
+      "isPittsburgh": false,
+      "isPeerCompany": false,
+      "isClarioPeer": false,
+      "isNutrienPeer": false,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null,
+      "peerCategory": null,
+      "matchScore": 50,
+      "scoreConfidence": "high",
+      "scoreBreakdown": {
+        "role": 18,
+        "seniority": 14,
+        "tech": 15,
+        "domain": 3
+      },
+      "matchedSkills": [
+        "Python / Pytest",
+        "Selenium / Java",
+        "SQL / Database"
+      ],
+      "companyApplyUrl": "https://www.google.com/search?q=Signature%20IT%20World%20Inc%20careers%20Quality%20Assurance%20Engineer%20apply",
+      "atsProvider": "google-jobs-search",
+      "applySource": "company-search-fallback",
+      "applyConfidence": 0.6,
+      "url": "https://www.linkedin.com/jobs/view/quality-assurance-engineer-at-signature-it-world-inc-4452287298",
+      "datePosted": "2026-08-17",
+      "listDate": "10 hours ago",
+      "firstSeen": "2026-08-18T03:13:09.198Z",
+      "lastSeen": "2026-08-18T03:13:09.198Z"
+    },
+    {
+      "id": "4454401767",
+      "title": "Pos QA Automation Engineer",
+      "company": "Techgene Solutions",
+      "location": "Camp Hill, PA",
+      "workplaceType": "Remote",
+      "isTop100": false,
+      "isPittsburgh": true,
+      "isPeerCompany": false,
+      "isClarioPeer": false,
+      "isNutrienPeer": false,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null,
+      "peerCategory": null,
+      "matchScore": 36,
+      "scoreConfidence": "low",
+      "scoreBreakdown": {
+        "role": 22,
+        "seniority": 14,
+        "tech": 0,
+        "domain": 0
+      },
+      "matchedSkills": [],
+      "companyApplyUrl": "https://www.google.com/search?q=Techgene%20Solutions%20careers%20Pos%20QA%20Automation%20Engineer%20apply",
+      "atsProvider": "google-jobs-search",
+      "applySource": "company-search-fallback",
+      "applyConfidence": 0.6,
+      "url": "https://www.linkedin.com/jobs/view/pos-qa-automation-engineer-at-techgene-solutions-4454401767",
+      "datePosted": "2026-08-17",
+      "listDate": "8 hours ago",
+      "firstSeen": "2026-08-18T03:13:09.198Z",
+      "lastSeen": "2026-08-18T03:13:09.198Z"
+    },
+    {
+      "id": "4452528474",
+      "title": "Quality Specialist",
+      "company": "Regal Rexnord",
+      "location": "Erie, PA",
+      "workplaceType": "Remote",
+      "isTop100": false,
+      "isPittsburgh": true,
+      "isPeerCompany": false,
+      "isClarioPeer": false,
+      "isNutrienPeer": false,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null,
+      "peerCategory": null,
+      "matchScore": 30,
+      "scoreConfidence": "low",
+      "scoreBreakdown": {
+        "role": 12,
+        "seniority": 18,
+        "tech": 0,
+        "domain": 0
+      },
+      "matchedSkills": [],
+      "companyApplyUrl": "https://www.google.com/search?q=Regal%20Rexnord%20careers%20Quality%20Specialist%20apply",
+      "atsProvider": "google-jobs-search",
+      "applySource": "company-search-fallback",
+      "applyConfidence": 0.6,
+      "url": "https://www.linkedin.com/jobs/view/quality-specialist-at-regal-rexnord-4452528474",
+      "datePosted": "2026-08-18",
+      "listDate": "1 hour ago",
+      "firstSeen": "2026-08-18T03:13:09.198Z",
+      "lastSeen": "2026-08-18T03:13:09.198Z"
+    },
     {
       "id": "4452502279",
       "title": "Senior / Lead SDET Test Automation Engineer",
@@ -40,9 +832,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/senior-lead-sdet-test-automation-engineer-at-mythri-consulting-llc-4452502279",
       "datePosted": "2026-08-17",
-      "listDate": "3 hours ago",
+      "listDate": "5 hours ago",
       "firstSeen": "2026-08-18T00:43:39.008Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4454426466",
@@ -74,9 +866,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/ralph-lauren-manager-quality-assurance-and-automation-at-bof-careers-4454426466",
       "datePosted": "2026-08-17",
-      "listDate": "4 hours ago",
+      "listDate": "7 hours ago",
       "firstSeen": "2026-08-18T00:43:39.008Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4452235831",
@@ -108,9 +900,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/senior-test-automation-sdet-team-lead-platform-services-at-ladders-4452235831",
       "datePosted": "2026-08-17",
-      "listDate": "14 hours ago",
+      "listDate": "16 hours ago",
       "firstSeen": "2026-08-18T00:43:39.008Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4454284493",
@@ -142,9 +934,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/automation-engineer-at-harvey-nash-4454284493",
       "datePosted": "2026-08-17",
-      "listDate": "10 hours ago",
+      "listDate": "13 hours ago",
       "firstSeen": "2026-08-18T00:43:39.008Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4454455013",
@@ -178,9 +970,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/selenium-test-automation-lead-6453623-at-accenture-4454455013",
       "datePosted": "2026-08-17",
-      "listDate": "1 hour ago",
+      "listDate": "4 hours ago",
       "firstSeen": "2026-08-18T00:43:39.008Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4453031508",
@@ -450,9 +1242,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/bms-validation-engineer-at-global-connect-technologies-4455336392",
       "datePosted": "2026-08-17",
-      "listDate": "7 hours ago",
+      "listDate": "9 hours ago",
       "firstSeen": "2026-08-18T00:43:39.008Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4455547305",
@@ -487,9 +1279,9 @@
       "applyConfidence": 0.85,
       "url": "https://www.linkedin.com/jobs/view/test-automation-engineer-at-syngenta-4455547305",
       "datePosted": "2026-08-18",
-      "listDate": "38 minutes ago",
+      "listDate": "3 hours ago",
       "firstSeen": "2026-08-18T00:43:39.008Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4455332935",
@@ -693,9 +1485,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/agentic-software-test-engineer-at-trane-technologies-4454267501",
       "datePosted": "2026-08-17",
-      "listDate": "10 hours ago",
+      "listDate": "13 hours ago",
       "firstSeen": "2026-08-18T00:43:39.008Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4449764477",
@@ -727,9 +1519,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/it-qa-engineer-remote-at-ardent-mills-4449764477",
       "datePosted": "2026-08-17",
-      "listDate": "1 hour ago",
+      "listDate": "4 hours ago",
       "firstSeen": "2026-08-18T00:43:39.008Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4455541742",
@@ -761,15 +1553,15 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/software-test-engineer-at-humannity-medtec-4455541742",
       "datePosted": "2026-08-18",
-      "listDate": "11 minutes ago",
+      "listDate": "2 hours ago",
       "firstSeen": "2026-08-18T00:43:39.008Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4455383047",
       "title": "Salesforce QA Automation Engineer",
       "company": "QTS Data Centers",
-      "location": "Overland Park, KS",
+      "location": "Dallas, TX",
       "workplaceType": "Remote",
       "isTop100": false,
       "isPittsburgh": false,
@@ -795,9 +1587,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/salesforce-qa-automation-engineer-at-qts-data-centers-4455383047",
       "datePosted": "2026-08-17",
-      "listDate": "3 hours ago",
+      "listDate": "6 hours ago",
       "firstSeen": "2026-08-18T00:43:39.008Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4452537048",
@@ -814,24 +1606,30 @@
       "isAgriFinance": false,
       "agriCategory": null,
       "peerCategory": null,
-      "matchScore": 43,
-      "scoreConfidence": "low",
+      "matchScore": 79,
+      "scoreConfidence": "high",
       "scoreBreakdown": {
         "role": 25,
         "seniority": 18,
-        "tech": 0,
-        "domain": 0
+        "tech": 33,
+        "domain": 3
       },
-      "matchedSkills": [],
+      "matchedSkills": [
+        "Python / Pytest",
+        "CI/CD Jenkins",
+        "Selenium / Java",
+        "TypeScript / JS",
+        "SQL / Database"
+      ],
       "companyApplyUrl": "https://www.google.com/search?q=Vimo%20careers%20Sr.%20QA%20Automation%20Engineer%20(SDET)%20AI-Enhanced%20Testing%20apply",
       "atsProvider": "google-jobs-search",
       "applySource": "company-search-fallback",
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/sr-qa-automation-engineer-sdet-ai-enhanced-testing-at-vimo-4452537048",
       "datePosted": "2026-08-17",
-      "listDate": "2 hours ago",
+      "listDate": "4 hours ago",
       "firstSeen": "2026-08-18T00:43:39.008Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4455294892",
@@ -986,11 +1784,11 @@
       "isAgriFinance": false,
       "agriCategory": null,
       "peerCategory": null,
-      "matchScore": 32,
-      "scoreConfidence": "low",
+      "matchScore": 36,
+      "scoreConfidence": "high",
       "scoreBreakdown": {
         "role": 18,
-        "seniority": 14,
+        "seniority": 18,
         "tech": 0,
         "domain": 0
       },
@@ -1001,9 +1799,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/quality-assurance-analyst-at-lidl-us-4455283592",
       "datePosted": "2026-08-17",
-      "listDate": "11 hours ago",
+      "listDate": "13 hours ago",
       "firstSeen": "2026-08-18T00:43:39.008Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4455530348",
@@ -1035,9 +1833,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/quality-specialist-at-t1-energy-inc-4455530348",
       "datePosted": "2026-08-17",
-      "listDate": "53 minutes ago",
+      "listDate": "3 hours ago",
       "firstSeen": "2026-08-18T00:43:39.008Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4455244140",
@@ -1074,9 +1872,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/senior-qa-engineer-at-tandem-ventures-4455244140",
       "datePosted": "2026-08-17",
-      "listDate": "21 hours ago",
+      "listDate": "23 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4455345002",
@@ -1111,9 +1909,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/senior-sdet-%E2%80%94-automation-quality-test-engineering-at-kind-lending-nmls-%233925-4455345002",
       "datePosted": "2026-08-17",
-      "listDate": "7 hours ago",
+      "listDate": "10 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4437712850",
@@ -1153,9 +1951,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/sr-automation-sdet-at-ust-4437712850",
       "datePosted": "2026-08-17",
-      "listDate": "14 hours ago",
+      "listDate": "17 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4424890901",
@@ -1189,9 +1987,9 @@
       "applyConfidence": 0.85,
       "url": "https://www.linkedin.com/jobs/view/sdet-iii-hybrid-nyc-at-crowdstrike-4424890901",
       "datePosted": "2026-08-17",
-      "listDate": "14 hours ago",
+      "listDate": "17 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4455519227",
@@ -1226,9 +2024,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/senior-ai-test-automation-engineer-at-carparts-com-4455519227",
       "datePosted": "2026-08-17",
-      "listDate": "1 hour ago",
+      "listDate": "4 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4455395482",
@@ -1260,9 +2058,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/sr-automation-engineer-at-wissen-technology-4455395482",
       "datePosted": "2026-08-17",
-      "listDate": "2 hours ago",
+      "listDate": "5 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4454288774",
@@ -1299,9 +2097,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/lead-automation-engineer-at-happen-bank-4454288774",
       "datePosted": "2026-08-17",
-      "listDate": "6 hours ago",
+      "listDate": "9 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4455395257",
@@ -1336,9 +2134,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/sdet-ii-at-champ-4455395257",
       "datePosted": "2026-08-17",
-      "listDate": "3 hours ago",
+      "listDate": "5 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4454423964",
@@ -1374,9 +2172,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/sdet-at-aigiri-software-solutions-4454423964",
       "datePosted": "2026-08-17",
-      "listDate": "2 hours ago",
+      "listDate": "5 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4452284777",
@@ -1408,9 +2206,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/full-time-only-qa-automation-sr-lead-13%2B-years-at-visionary-innovative-technology-solutions-llc-4452284777",
       "datePosted": "2026-08-17",
-      "listDate": "3 hours ago",
+      "listDate": "5 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4454405693",
@@ -1442,9 +2240,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/lead-sdet-at-hunter-recruiting-4454405693",
       "datePosted": "2026-08-17",
-      "listDate": "6 hours ago",
+      "listDate": "8 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4454266226",
@@ -1476,9 +2274,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/quality-assurance-automation-engineer-at-tekstripes-llc-4454266226",
       "datePosted": "2026-08-17",
-      "listDate": "11 hours ago",
+      "listDate": "13 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4455280893",
@@ -1510,9 +2308,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/staff-software-test-engineer-at-barrington-james-4455280893",
       "datePosted": "2026-08-17",
-      "listDate": "10 hours ago",
+      "listDate": "13 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4354190969",
@@ -1544,9 +2342,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/quality-assurance-automation-engineer-at-genpact-4354190969",
       "datePosted": "2026-08-17",
-      "listDate": "10 hours ago",
+      "listDate": "12 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4454429357",
@@ -1578,9 +2376,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/software-quality-and-testing-analyst-ii-at-ctis-inc-4454429357",
       "datePosted": "2026-08-17",
-      "listDate": "4 hours ago",
+      "listDate": "7 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4455527119",
@@ -1612,9 +2410,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/software-development-engineer-in-test-sdet-at-jecona-4455527119",
       "datePosted": "2026-08-17",
-      "listDate": "1 hour ago",
+      "listDate": "4 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4442059999",
@@ -1685,9 +2483,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/quality-assurance-engineer-at-visionary-innovative-technology-solutions-llc-4452501377",
       "datePosted": "2026-08-17",
-      "listDate": "3 hours ago",
+      "listDate": "5 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4452255427",
@@ -1727,9 +2525,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/principal-quality-assurance-engineer-at-x4-technology-4452255427",
       "datePosted": "2026-08-17",
-      "listDate": "11 hours ago",
+      "listDate": "14 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4453034567",
@@ -1746,24 +2544,27 @@
       "isAgriFinance": false,
       "agriCategory": null,
       "peerCategory": null,
-      "matchScore": 38,
-      "scoreConfidence": "low",
+      "matchScore": 48,
+      "scoreConfidence": "high",
       "scoreBreakdown": {
         "role": 18,
         "seniority": 20,
-        "tech": 0,
-        "domain": 0
+        "tech": 7,
+        "domain": 3
       },
-      "matchedSkills": [],
+      "matchedSkills": [
+        "Python / Pytest",
+        "SQL / Database"
+      ],
       "companyApplyUrl": "https://careers.pnc.com/",
       "atsProvider": "workday",
       "applySource": "company-careers-portal",
       "applyConfidence": 0.85,
       "url": "https://www.linkedin.com/jobs/view/quality-engineer-principal-big-data-hadoop-data-warehousing-at-pnc-4453034567",
       "datePosted": "2026-08-17",
-      "listDate": "4 hours ago",
+      "listDate": "6 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4455291146",
@@ -2040,9 +2841,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/sdet-testing-automation-engineer-at-ora-apps-inc-4454266734",
       "datePosted": "2026-08-17",
-      "listDate": "10 hours ago",
+      "listDate": "12 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4452299060",
@@ -2080,9 +2881,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/software-engineer-in-test-at-gala-solutions-4452299060",
       "datePosted": "2026-08-17",
-      "listDate": "4 hours ago",
+      "listDate": "7 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4450180626",
@@ -2114,9 +2915,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/quality-assurance-automation-engineer-test-automation-engineer-at-pdssoft-inc-4450180626",
       "datePosted": "2026-08-17",
-      "listDate": "2 hours ago",
+      "listDate": "5 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4453346028",
@@ -2148,9 +2949,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/junior-test-engineer-at-haystack-4453346028",
       "datePosted": "2026-08-17",
-      "listDate": "11 hours ago",
+      "listDate": "14 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4454420735",
@@ -2182,9 +2983,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/quality-assurance-tester-at-ntech-workforce-4454420735",
       "datePosted": "2026-08-17",
-      "listDate": "3 hours ago",
+      "listDate": "6 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4455306222",
@@ -2216,9 +3017,9 @@
       "applyConfidence": 0.6,
       "url": "",
       "datePosted": "2026-08-17",
-      "listDate": "9 hours ago",
+      "listDate": "12 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4453733073",
@@ -2250,9 +3051,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/automation-engineer-new-jersey-only-at-harvey-nash-4453733073",
       "datePosted": "2026-08-17",
-      "listDate": "10 hours ago",
+      "listDate": "13 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4455307800",
@@ -2284,9 +3085,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/software-qa-specialist-at-marsh-4455307800",
       "datePosted": "2026-08-17",
-      "listDate": "8 hours ago",
+      "listDate": "10 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4454422443",
@@ -2352,9 +3153,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/software-qa-specialist-at-marsh-4455308765",
       "datePosted": "2026-08-17",
-      "listDate": "8 hours ago",
+      "listDate": "10 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4455343873",
@@ -2386,9 +3187,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/senior-quality-assurance-specialist-at-talently-4455343873",
       "datePosted": "2026-08-17",
-      "listDate": "5 hours ago",
+      "listDate": "8 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4455327238",
@@ -2420,9 +3221,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/senior-quality-engineer-at-johnson-johnson-medtech-4455327238",
       "datePosted": "2026-08-17",
-      "listDate": "8 hours ago",
+      "listDate": "11 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4427260222",
@@ -2454,9 +3255,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/senior-product-quality-engineer-at-siemens-4427260222",
       "datePosted": "2026-08-17",
-      "listDate": "10 hours ago",
+      "listDate": "12 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4455270160",
@@ -2490,9 +3291,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/senior-quality-assurance-specialist-at-hartmann-young-4455270160",
       "datePosted": "2026-08-17",
-      "listDate": "15 hours ago",
+      "listDate": "18 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4455270327",
@@ -2526,9 +3327,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/customer-quality-lead-qa-at-hartmann-young-4455270327",
       "datePosted": "2026-08-17",
-      "listDate": "15 hours ago",
+      "listDate": "17 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4451043419",
@@ -2560,9 +3361,9 @@
       "applyConfidence": 0.85,
       "url": "https://www.linkedin.com/jobs/view/senior-quality-specialist-at-abbott-4451043419",
       "datePosted": "2026-08-17",
-      "listDate": "2 hours ago",
+      "listDate": "4 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4454413882",
@@ -2594,9 +3395,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/principal-quality-assurance-reviewer-at-regeneron-4454413882",
       "datePosted": "2026-08-17",
-      "listDate": "3 hours ago",
+      "listDate": "5 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4455297603",
@@ -2628,9 +3429,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/senior-quality-engineer-at-relativity-space-4455297603",
       "datePosted": "2026-08-17",
-      "listDate": "10 hours ago",
+      "listDate": "13 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4447588470",
@@ -2696,9 +3497,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/lead-supplier-quality-engineer-at-ge-vernova-4455537146",
       "datePosted": "2026-08-17",
-      "listDate": "1 hour ago",
+      "listDate": "3 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4455216974",
@@ -2764,9 +3565,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/quality-engineer-iii-at-parker-hannifin-4455354626",
       "datePosted": "2026-08-17",
-      "listDate": "4 hours ago",
+      "listDate": "7 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4455350393",
@@ -2798,9 +3599,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/senior-quality-engineer-at-vernay-4455350393",
       "datePosted": "2026-08-17",
-      "listDate": "6 hours ago",
+      "listDate": "8 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4442247218",
@@ -2832,9 +3633,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/senior-quality-engineer-cybersecurity-at-verily-health-4442247218",
       "datePosted": "2026-08-17",
-      "listDate": "7 hours ago",
+      "listDate": "10 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4452509084",
@@ -2866,9 +3667,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/quality-assurance-specialist-ii-at-thorne-4452509084",
       "datePosted": "2026-08-17",
-      "listDate": "4 hours ago",
+      "listDate": "6 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4454417128",
@@ -2934,9 +3735,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/qa-team-lead-at-morgan-morgan-p-a-4452277583",
       "datePosted": "2026-08-17",
-      "listDate": "6 hours ago",
+      "listDate": "8 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4452285520",
@@ -2968,9 +3769,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/qa-team-lead-at-morgan-morgan-p-a-4452285520",
       "datePosted": "2026-08-17",
-      "listDate": "6 hours ago",
+      "listDate": "8 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4431988831",
@@ -3010,9 +3811,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/lead-quality-engineer-at-ust-4431988831",
       "datePosted": "2026-08-17",
-      "listDate": "13 hours ago",
+      "listDate": "17 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-17T23:47:02.441Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4388185887",
@@ -3044,9 +3845,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/lead-quality-engineer-at-ontic-4388185887",
       "datePosted": "2026-08-17",
-      "listDate": "13 hours ago",
+      "listDate": "16 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-17T23:47:02.441Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4452277905",
@@ -3078,9 +3879,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/test-lead-at-mphasis-4452277905",
       "datePosted": "2026-08-17",
-      "listDate": "4 hours ago",
+      "listDate": "7 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-17T23:47:02.441Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4452253983",
@@ -3146,9 +3947,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/testing-lead-at-techdoquest-4452275499",
       "datePosted": "2026-08-17",
-      "listDate": "6 hours ago",
+      "listDate": "9 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-17T23:47:02.441Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4454275579",
@@ -3165,24 +3966,26 @@
       "isAgriFinance": false,
       "agriCategory": null,
       "peerCategory": null,
-      "matchScore": 32,
-      "scoreConfidence": "low",
+      "matchScore": 34,
+      "scoreConfidence": "high",
       "scoreBreakdown": {
         "role": 12,
         "seniority": 20,
         "tech": 0,
-        "domain": 0
+        "domain": 2
       },
-      "matchedSkills": [],
+      "matchedSkills": [
+        "Performance / JMeter"
+      ],
       "companyApplyUrl": "https://www.google.com/search?q=Colaberry%20careers%20ADMS%20Program%20Test%20Lead%20(Testing%20Enablement)%20apply",
       "atsProvider": "google-jobs-search",
       "applySource": "company-search-fallback",
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/adms-program-test-lead-testing-enablement-at-colaberry-4454275579",
       "datePosted": "2026-08-17",
-      "listDate": "10 hours ago",
+      "listDate": "13 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4406090901",
@@ -3214,9 +4017,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/lead-quality-engineer-at-st-engineering-mras-4406090901",
       "datePosted": "2026-08-17",
-      "listDate": "11 hours ago",
+      "listDate": "13 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4407641755",
@@ -3248,9 +4051,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/quality-control-and-testing-manager-at-siemens-4407641755",
       "datePosted": "2026-08-17",
-      "listDate": "10 hours ago",
+      "listDate": "13 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4452295140",
@@ -3319,9 +4122,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/software-validation-engineer-asic-at-metantz-4454424857",
       "datePosted": "2026-08-17",
-      "listDate": "3 hours ago",
+      "listDate": "5 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4455345578",
@@ -3356,9 +4159,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/silicon-validation-engineer-at-matx-4455345578",
       "datePosted": "2026-08-17",
-      "listDate": "6 hours ago",
+      "listDate": "8 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4430263272",
@@ -3393,9 +4196,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/system-validation-engineer-at-ust-4430263272",
       "datePosted": "2026-08-17",
-      "listDate": "15 hours ago",
+      "listDate": "17 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4454251542",
@@ -3429,9 +4232,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/staff-validation-engineer-at-dr%C3%A4ger-4454251542",
       "datePosted": "2026-08-17",
-      "listDate": "14 hours ago",
+      "listDate": "17 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4449800789",
@@ -3465,9 +4268,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/system-validation-engineer-at-tata-elxsi-4449800789",
       "datePosted": "2026-08-17",
-      "listDate": "4 hours ago",
+      "listDate": "7 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4454404693",
@@ -3567,9 +4370,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/autonomous-vehicle-test-engineer-at-isee-4455526383",
       "datePosted": "2026-08-17",
-      "listDate": "1 hour ago",
+      "listDate": "3 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4454284036",
@@ -3601,9 +4404,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/senior-validation-engineer-at-psc-biotech%C2%AE-corporation-4454284036",
       "datePosted": "2026-08-17",
-      "listDate": "11 hours ago",
+      "listDate": "14 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4455363484",
@@ -3635,9 +4438,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/sr-engineer-computer-systems-validation-at-bristol-myers-squibb-4455363484",
       "datePosted": "2026-08-17",
-      "listDate": "4 hours ago",
+      "listDate": "7 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4455312885",
@@ -3669,9 +4472,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/robotics-test-engineer-at-symbotic-4455312885",
       "datePosted": "2026-08-17",
-      "listDate": "8 hours ago",
+      "listDate": "10 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4328736317",
@@ -3779,9 +4582,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/ai-qe-sdet-engineer-at-capgemini-4442859669",
       "datePosted": "2026-08-17",
-      "listDate": "14 hours ago",
+      "listDate": "16 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4455317684",
@@ -3816,9 +4619,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/software-qa-specialist-at-marsh-4455317684",
       "datePosted": "2026-08-17",
-      "listDate": "8 hours ago",
+      "listDate": "10 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4455321665",
@@ -3853,9 +4656,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/software-qa-specialist-at-marsh-4455321665",
       "datePosted": "2026-08-17",
-      "listDate": "8 hours ago",
+      "listDate": "10 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4454280545",
@@ -3893,9 +4696,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/ai-automation-engineer-at-lorven-technologies-inc-4454280545",
       "datePosted": "2026-08-17",
-      "listDate": "10 hours ago",
+      "listDate": "13 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4452276883",
@@ -3929,9 +4732,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/sdet-python-sdet%2Bai-at-united-software-group-inc-4452276883",
       "datePosted": "2026-08-17",
-      "listDate": "5 hours ago",
+      "listDate": "7 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4432301133",
@@ -3963,9 +4766,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/test-architect-at-ust-4432301133",
       "datePosted": "2026-08-17",
-      "listDate": "15 hours ago",
+      "listDate": "17 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4413372586",
@@ -4036,9 +4839,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/senior-quality-assurance-engineer-r-19772-at-dun-bradstreet-4455305061",
       "datePosted": "2026-08-17",
-      "listDate": "10 hours ago",
+      "listDate": "12 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4454273490",
@@ -4070,9 +4873,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/software-test-engineer-at-trane-technologies-4454273490",
       "datePosted": "2026-08-17",
-      "listDate": "10 hours ago",
+      "listDate": "13 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4455320497",
@@ -4138,9 +4941,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/qa-automation-engineer-at-tata-consultancy-services-4454445144",
       "datePosted": "2026-08-17",
-      "listDate": "1 hour ago",
+      "listDate": "4 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4454273853",
@@ -4172,9 +4975,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/qa-automation-sdet-return-to-work-program-at-precision-technologies-4454273853",
       "datePosted": "2026-08-17",
-      "listDate": "9 hours ago",
+      "listDate": "12 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4450832921",
@@ -4240,9 +5043,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/senior-quality-assurance-engineer-at-remotehunter-4454253354",
       "datePosted": "2026-08-17",
-      "listDate": "15 hours ago",
+      "listDate": "18 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4455329948",
@@ -4310,9 +5113,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/quality-engineer-at-mindlance-4455393182",
       "datePosted": "2026-08-17",
-      "listDate": "3 hours ago",
+      "listDate": "5 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4454212702",
@@ -4346,9 +5149,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/engineer-i-quality-engineering-at-arrowhead-pharmaceuticals-4454212702",
       "datePosted": "2026-08-17",
-      "listDate": "20 hours ago",
+      "listDate": "23 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4454436066",
@@ -4382,9 +5185,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/quality-engineer-at-shoolin-inc-4454436066",
       "datePosted": "2026-08-17",
-      "listDate": "2 hours ago",
+      "listDate": "5 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4455316476",
@@ -4418,9 +5221,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/quality-engineer-iso-13484-at-commonwealth-sciences-inc-4455316476",
       "datePosted": "2026-08-17",
-      "listDate": "8 hours ago",
+      "listDate": "11 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4455344637",
@@ -4454,9 +5257,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/qa-engineer-at-lupin-pharmaceuticals-4455344637",
       "datePosted": "2026-08-17",
-      "listDate": "6 hours ago",
+      "listDate": "8 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4454425903",
@@ -4488,9 +5291,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/quality-engineer-at-intellectt-inc-4454425903",
       "datePosted": "2026-08-17",
-      "listDate": "2 hours ago",
+      "listDate": "5 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4442091262",
@@ -4522,9 +5325,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/staff-quality-engineer-at-nuclein-4442091262",
       "datePosted": "2026-08-17",
-      "listDate": "11 hours ago",
+      "listDate": "13 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4454219657",
@@ -4556,9 +5359,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/senior-engineer-quality-engineering-at-arrowhead-pharmaceuticals-4454219657",
       "datePosted": "2026-08-17",
-      "listDate": "20 hours ago",
+      "listDate": "22 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4455339862",
@@ -4590,9 +5393,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/principal-quality-engineer-at-united-pharma-4455339862",
       "datePosted": "2026-08-17",
-      "listDate": "6 hours ago",
+      "listDate": "8 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4418474270",
@@ -4624,9 +5427,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/global-supplier-quality-engineer-ii-at-integra-lifesciences-4418474270",
       "datePosted": "2026-08-17",
-      "listDate": "13 hours ago",
+      "listDate": "17 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-17T23:47:02.441Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4453372521",
@@ -4658,9 +5461,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/quality-engineer-at-firstpro-inc-4453372521",
       "datePosted": "2026-08-17",
-      "listDate": "9 hours ago",
+      "listDate": "13 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-17T23:47:02.441Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4418425839",
@@ -4692,9 +5495,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/software-quality-engineer-ii-at-masimo-4418425839",
       "datePosted": "2026-08-17",
-      "listDate": "5 hours ago",
+      "listDate": "8 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-17T23:47:02.441Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4454427679",
@@ -4726,9 +5529,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/senior-quality-engineer-at-10x-genomics-4454427679",
       "datePosted": "2026-08-17",
-      "listDate": "3 hours ago",
+      "listDate": "6 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-17T23:47:02.441Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4400564604",
@@ -4760,9 +5563,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/quality-engineer-on-site-at-livanova-4400564604",
       "datePosted": "2026-08-17",
-      "listDate": "15 hours ago",
+      "listDate": "17 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4455363680",
@@ -4794,9 +5597,9 @@
       "applyConfidence": 0.85,
       "url": "https://www.linkedin.com/jobs/view/quality-engineer-at-caterpillar-inc-4455363680",
       "datePosted": "2026-08-17",
-      "listDate": "4 hours ago",
+      "listDate": "6 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4454266523",
@@ -4828,9 +5631,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/quality-engineer-at-trane-technologies-4454266523",
       "datePosted": "2026-08-17",
-      "listDate": "10 hours ago",
+      "listDate": "13 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4455363678",
@@ -4862,9 +5665,9 @@
       "applyConfidence": 0.85,
       "url": "https://www.linkedin.com/jobs/view/quality-engineer-at-caterpillar-inc-4455363678",
       "datePosted": "2026-08-17",
-      "listDate": "4 hours ago",
+      "listDate": "6 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4454269584",
@@ -4896,9 +5699,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/quality-engineer-at-trane-technologies-4454269584",
       "datePosted": "2026-08-17",
-      "listDate": "10 hours ago",
+      "listDate": "13 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4454284475",
@@ -4930,9 +5733,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/quality-engineer-ii-sign-on-bonus-at-jabil-4454284475",
       "datePosted": "2026-08-17",
-      "listDate": "8 hours ago",
+      "listDate": "10 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4407231425",
@@ -4964,9 +5767,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/quality-engineer-at-saronic-technologies-4407231425",
       "datePosted": "2026-08-17",
-      "listDate": "13 hours ago",
+      "listDate": "16 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4452251860",
@@ -4998,9 +5801,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/customer-quality-engineer-at-antolin-4452251860",
       "datePosted": "2026-08-17",
-      "listDate": "10 hours ago",
+      "listDate": "12 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4452247134",
@@ -5032,9 +5835,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/quality-engineer-at-jobot-4452247134",
       "datePosted": "2026-08-17",
-      "listDate": "15 hours ago",
+      "listDate": "17 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4454283907",
@@ -5100,9 +5903,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/quality-engineer-at-kratos-defense-and-security-solutions-4409503377",
       "datePosted": "2026-08-17",
-      "listDate": "8 hours ago",
+      "listDate": "10 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4455324538",
@@ -5134,9 +5937,9 @@
       "applyConfidence": 0.85,
       "url": "https://www.linkedin.com/jobs/view/quality-engineer-ii-at-abbott-4455324538",
       "datePosted": "2026-08-17",
-      "listDate": "8 hours ago",
+      "listDate": "10 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4454407153",
@@ -5168,9 +5971,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/quality-engineer-at-one-stop-systems-4454407153",
       "datePosted": "2026-08-17",
-      "listDate": "8 hours ago",
+      "listDate": "10 hours ago",
       "firstSeen": "2026-08-17T23:47:02.441Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4455357785",
@@ -8111,9 +8914,9 @@
       "applyConfidence": 0.6,
       "url": "https://www.linkedin.com/jobs/view/api-test-engineer-at-engine-4454853410",
       "datePosted": "2026-08-17",
-      "listDate": "12 hours ago",
+      "listDate": "14 hours ago",
       "firstSeen": "2026-08-15T23:57:43.149Z",
-      "lastSeen": "2026-08-18T00:43:39.008Z"
+      "lastSeen": "2026-08-18T03:13:09.198Z"
     },
     {
       "id": "4453947196",
