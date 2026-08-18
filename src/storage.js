@@ -7,6 +7,9 @@ const {
   isPeerCompany,
   isClarioPeer,
   isNutrienPeer,
+  isAgTechCompany,
+  isAgriFinanceCompany,
+  checkAgriClassification,
   getPeerCategory,
   analyzeJobFit
 } = require('./companies');
@@ -27,6 +30,9 @@ const PUBLIC_ALLOWLIST_FIELDS = [
   'isPeerCompany',
   'isClarioPeer',
   'isNutrienPeer',
+  'isAgTech',
+  'isAgriFinance',
+  'agriCategory',
   'peerCategory',
   'matchScore',
   'scoreConfidence',
@@ -106,7 +112,10 @@ function enrichJob(job) {
   const isPeer = isPeerCompany(job.company);
   const isClario = isClarioPeer(job.company);
   const isNutrien = isNutrienPeer(job.company);
-  const peerCat = getPeerCategory(job.company);
+
+  const agri = checkAgriClassification(job.title, job.company, job.description || '');
+  const peerCat = getPeerCategory(job.company, job.title, job.description || '');
+
   const locLower = (job.location || '').toLowerCase();
 
   // Determine workplace type tag
@@ -133,9 +142,12 @@ function enrichJob(job) {
     ...job,
     isTop100,
     isPittsburgh: isPgh,
-    isPeerCompany: isPeer,
+    isPeerCompany: isPeer || agri.isAgTech || agri.isAgriFinance,
     isClarioPeer: isClario,
-    isNutrienPeer: isNutrien,
+    isNutrienPeer: isNutrien || agri.isAgTech || agri.isAgriFinance,
+    isAgTech: agri.isAgTech,
+    isAgriFinance: agri.isAgriFinance,
+    agriCategory: agri.agriCategory,
     peerCategory: peerCat,
     workplaceType,
     matchScore: fit.score,
@@ -230,7 +242,6 @@ function saveJobs(data) {
       jobs: (data.jobs || []).map(sanitizeJobForPublic)
     };
 
-    // Fatal write check in production mode
     writeJsonAtomic(publicJobsPath, sanitizedData);
   }
 }
@@ -246,7 +257,6 @@ function initDatabase() {
 
 /**
  * Merge newly scraped jobs with existing stored jobs.
- * Only prunes stale jobs if isHealthy is strictly true.
  */
 function mergeJobs(existingJobs, scrapedJobs, pruneStale = true) {
   const existingMap = new Map();
@@ -374,8 +384,16 @@ function getJobs(filters = {}) {
     jobs = jobs.filter(j => j.isPeerCompany === filters.isPeerCompany);
   }
 
+  if (filters.isAgTech !== undefined) {
+    jobs = jobs.filter(j => j.isAgTech === filters.isAgTech);
+  }
+
+  if (filters.isAgriFinance !== undefined) {
+    jobs = jobs.filter(j => j.isAgriFinance === filters.isAgriFinance);
+  }
+
   if (filters.peerCategory && filters.peerCategory !== 'all') {
-    jobs = jobs.filter(j => j.peerCategory === filters.peerCategory);
+    jobs = jobs.filter(j => j.peerCategory === filters.peerCategory || j.agriCategory === filters.peerCategory);
   }
 
   if (filters.applicationStatus && filters.applicationStatus !== 'all') {
@@ -424,6 +442,8 @@ function getStats() {
   const peerCount = jobs.filter(j => j.isPeerCompany).length;
   const clarioPeerCount = jobs.filter(j => j.isClarioPeer).length;
   const nutrienPeerCount = jobs.filter(j => j.isNutrienPeer).length;
+  const agTechCount = jobs.filter(j => j.isAgTech).length;
+  const agriFinanceCount = jobs.filter(j => j.isAgriFinance).length;
 
   return {
     totalJobs: jobs.length,
@@ -436,6 +456,8 @@ function getStats() {
     peerJobs: peerCount,
     clarioPeerJobs: clarioPeerCount,
     nutrienPeerJobs: nutrienPeerCount,
+    agTechJobs: agTechCount,
+    agriFinanceJobs: agriFinanceCount,
     categories,
     lastScan: data.lastSuccessfulScan || data.lastScan,
     lastAttempt: data.lastAttempt,

@@ -24,7 +24,9 @@ const config = {
     'AI Test Automation',
     'API Test Engineer',
     'Life Sciences QA Engineer',
-    'AgTech Quality Engineer'
+    'AgTech Quality Engineer',
+    'Agri Finance QA Engineer',
+    'Commodity Trading QA'
   ],
 
   // Dual Scraping Locations

@@ -1,7 +1,11 @@
 /**
  * Curated Database, Employer Directory, and Transparent 100-Point Resume Fit Scoring Model
  * Specifically calibrated for Ankita Agrawal (11+ yrs Senior SDET / QA Lead)
- * Includes dedicated intelligence for Clario & Nutrien peer employers across Life Sciences, HealthTech, AgTech & Industrial Tech.
+ * Includes dedicated intelligence for:
+ * 1. Clario peers (Life Sciences, Clinical Trials, HealthTech, Diagnostic Software & MedTech)
+ * 2. Nutrien peers:
+ *    - 🌱 Precision Agricultural Tech (AgTech / Digital Agronomy / Smart Farm Machinery)
+ *    - 🌾 Agri-Finance (Commodity Trading, Farm Credit, Crop Insurance, Grain Settlement & Ag FinTech)
  */
 
 const { resolveApplicationPortal } = require('./atsResolver');
@@ -51,14 +55,31 @@ const CLARIO_PEERS = [
   'pfizer', 'moderna', 'regeneron', 'vertex', 'gilead', 'biogen', 'amgen', 'novartis', 'astrazeneca', 'bristol myers squibb'
 ];
 
-// Nutrien Peers: AgTech, Digital Agronomy, Precision Agriculture, Supply Chain & Heavy Enterprise Tech
+// Precision Agricultural Technology (AgTech / Digital Agronomy / Farm Robotics)
+const AGTECH_COMPANIES = [
+  'nutrien', 'nutrien ag solutions', 'corteva', 'corteva agriscience', 'granular',
+  'bayer', 'bayer crop science', 'climate llc', 'climate fieldview', 'the climate corporation',
+  'john deere', 'deere & company', 'deere', 'syngenta', 'syngenta group', 'syngenta digital', 'cropwise',
+  'trimble', 'trimble agriculture', 'indigo ag', 'farmers business network', 'fbn',
+  'winfield united', 'land o\'lakes', 'land olakes', 'cnh industrial', 'cnh', 'raven industries',
+  'fmc', 'fmc corporation', 'mosaic', 'mosaic company', 'the mosaic company',
+  'yara', 'yara international', 'agco', 'agco corporation', 'precision planting', 'fuse technologies',
+  'kubota', 'semios', 'taranis', 'bushel', 'agvend'
+];
+
+// Agri-Finance, Farm Credit, Commodity Trading & Crop FinTech
+const AGRI_FINANCE_COMPANIES = [
+  'cargill', 'adm', 'archer daniels midland', 'bunge', 'louis dreyfus', 'louis dreyfus company', 'ldc',
+  'chs', 'chs inc', 'scoular', 'nutrien financial', 'john deere financial', 'deere financial',
+  'cobank', 'farm credit', 'farm credit services of america', 'agfirst', 'agfirst farm credit',
+  'agcountry', 'rabobank', 'fbn finance', 'producepay', 'acretrader', 'farmland lp', 'agvend', 'bushel'
+];
+
+// All Nutrien Peers (AgTech + Agri-Finance + Heavy Enterprise Operations)
 const NUTRIEN_PEERS = [
-  'nutrien', 'nutrien ag solutions', 'corteva', 'corteva agriscience', 'bayer', 'bayer crop science',
-  'climate llc', 'climate fieldview', 'the climate corporation', 'john deere', 'deere & company', 'deere',
-  'syngenta', 'syngenta group', 'cargill', 'trimble', 'trimble agriculture', 'indigo ag',
-  'farmers business network', 'fbn', 'land o\'lakes', 'land olakes', 'winfield united', 'cnh industrial', 'cnh',
-  'fmc', 'fmc corporation', 'mosaic', 'mosaic company', 'the mosaic company', 'yara', 'yara international',
-  'agco', 'agco corporation', 'caterpillar', 'cat', 'rockwell automation', 'honeywell', 'honeywell connected enterprise',
+  ...AGTECH_COMPANIES,
+  ...AGRI_FINANCE_COMPANIES,
+  'caterpillar', 'cat', 'rockwell automation', 'honeywell', 'honeywell connected enterprise',
   'siemens digital industries', 'siemens', 'emerson', 'emerson electric', 'schneider electric', 'abb',
   'hitachi energy', 'ingersoll rand', 'eaton', 'eaton corporation', 'westinghouse', 'westinghouse electric',
   'ppg', 'ppg industries', 'alcoa', 'wabtec', 'wabtec corporation', 'msa safety'
@@ -115,7 +136,21 @@ function isClarioPeer(companyName) {
 }
 
 /**
- * Checks if a company is a peer of Nutrien (AgTech / Industrial Tech)
+ * Checks if a company is an AgTech company
+ */
+function isAgTechCompany(companyName) {
+  return matchesCompanyList(companyName, AGTECH_COMPANIES);
+}
+
+/**
+ * Checks if a company is an Agri-Finance company
+ */
+function isAgriFinanceCompany(companyName) {
+  return matchesCompanyList(companyName, AGRI_FINANCE_COMPANIES);
+}
+
+/**
+ * Checks if a company is a general peer of Nutrien
  */
 function isNutrienPeer(companyName) {
   return matchesCompanyList(companyName, NUTRIEN_PEERS);
@@ -129,10 +164,44 @@ function isPeerCompany(companyName) {
 }
 
 /**
+ * Classifies a job into AgTech or Agri-Finance based on company, title, and description
+ */
+function checkAgriClassification(title = '', company = '', description = '') {
+  const isAgTechComp = isAgTechCompany(company);
+  const isAgriFinComp = isAgriFinanceCompany(company);
+
+  const fullText = `${title} ${company} ${description}`.toLowerCase();
+
+  const agTechRegex = /\b(agtech|precision\s*ag|agronomy|agronomic|digital\s*farming|crop\s*planning|crop\s*protection|smart\s*farming|farm\s*machinery|tractor|telematics|seed|fertilizer|harvest|fieldview|cropwise)\b/i;
+  const agriFinanceRegex = /\b(agri\s*finance|agricultural\s*finance|commodity\s*trading|grain\s*trading|farm\s*credit|crop\s*insurance|ag\s*lending|grain\s*settlement|ctrm|etrm|agricultural\s*commodity|crop\s*financing|origination|scale\s*ticket)\b/i;
+
+  const textMatchesAgTech = agTechRegex.test(fullText);
+  const textMatchesAgriFin = agriFinanceRegex.test(fullText);
+
+  const isAgTech = isAgTechComp || textMatchesAgTech;
+  const isAgriFinance = isAgriFinComp || textMatchesAgriFin;
+
+  let agriCategory = null;
+  if (isAgriFinance) {
+    agriCategory = 'Agri-Finance & Commodities';
+  } else if (isAgTech) {
+    agriCategory = 'Precision AgTech';
+  }
+
+  return {
+    isAgTech,
+    isAgriFinance,
+    agriCategory
+  };
+}
+
+/**
  * Returns specific industry category for Clario & Nutrien peers
  */
-function getPeerCategory(companyName) {
+function getPeerCategory(companyName, title = '', description = '') {
   if (isClarioPeer(companyName)) return 'Life Sciences & HealthTech';
+  const agri = checkAgriClassification(title, companyName, description);
+  if (agri.agriCategory) return agri.agriCategory;
   if (isNutrienPeer(companyName)) return 'AgTech & Industrial Tech';
   return null;
 }
@@ -197,7 +266,7 @@ function analyzeJobFit(title, company, description = '') {
   } else if (/\b(intermediate|mid|ii|iii)\b/i.test(fullEvidence)) {
     seniorityScore = 12;
   } else if (/\b(junior|jr\.?|associate|entry|intern|graduate)\b/i.test(fullEvidence)) {
-    seniorityScore = 0; // Entry roles penalized
+    seniorityScore = 0;
   } else {
     seniorityScore = 14;
   }
@@ -271,12 +340,17 @@ module.exports = {
   isPittsburghCompany,
   isClarioPeer,
   isNutrienPeer,
+  isAgTechCompany,
+  isAgriFinanceCompany,
   isPeerCompany,
+  checkAgriClassification,
   getPeerCategory,
   analyzeJobFit,
   cleanCompanyName,
   TOP_100_TECH_ENTERPRISE,
   PITTSBURGH_COMPANIES,
   CLARIO_PEERS,
-  NUTRIEN_PEERS
+  NUTRIEN_PEERS,
+  AGTECH_COMPANIES,
+  AGRI_FINANCE_COMPANIES
 };

@@ -4,10 +4,15 @@ const {
   isPittsburghCompany,
   isClarioPeer,
   isNutrienPeer,
+  isAgTechCompany,
+  isAgriFinanceCompany,
   isPeerCompany,
+  checkAgriClassification,
   getPeerCategory,
   CLARIO_PEERS,
-  NUTRIEN_PEERS
+  NUTRIEN_PEERS,
+  AGTECH_COMPANIES,
+  AGRI_FINANCE_COMPANIES
 } = require('../src/companies');
 
 describe('Company Directory & Industry Peer Matching (Clario & Nutrien)', () => {
@@ -35,33 +40,63 @@ describe('Company Directory & Industry Peer Matching (Clario & Nutrien)', () => 
     });
   });
 
-  describe('Nutrien Peers (AgTech, Precision Agronomy, Industrial IoT, Heavy Enterprise)', () => {
-    it('accurately identifies Nutrien and direct AgTech / Industrial peers', () => {
-      expect(isNutrienPeer('Nutrien')).toBe(true);
-      expect(isNutrienPeer('Nutrien Ag Solutions')).toBe(true);
-      expect(isNutrienPeer('Corteva Agriscience')).toBe(true);
-      expect(isNutrienPeer('Bayer Crop Science')).toBe(true);
-      expect(isNutrienPeer('John Deere')).toBe(true);
-      expect(isNutrienPeer('Syngenta')).toBe(true);
-      expect(isNutrienPeer('Cargill')).toBe(true);
-      expect(isNutrienPeer('Trimble Agriculture')).toBe(true);
-      expect(isNutrienPeer('Rockwell Automation')).toBe(true);
-      expect(isNutrienPeer('Honeywell')).toBe(true);
-      expect(isNutrienPeer('Caterpillar')).toBe(true);
-      expect(isNutrienPeer('Hitachi Energy')).toBe(true);
+  describe('Agricultural Technology (AgTech) Peers', () => {
+    it('identifies precision ag, digital agronomy, and farm robotics companies', () => {
+      expect(isAgTechCompany('Nutrien Ag Solutions')).toBe(true);
+      expect(isAgTechCompany('Corteva Agriscience')).toBe(true);
+      expect(isAgTechCompany('Granular')).toBe(true);
+      expect(isAgTechCompany('Bayer Crop Science')).toBe(true);
+      expect(isAgTechCompany('Climate FieldView')).toBe(true);
+      expect(isAgTechCompany('John Deere')).toBe(true);
+      expect(isAgTechCompany('Syngenta Digital')).toBe(true);
+      expect(isAgTechCompany('Trimble Agriculture')).toBe(true);
+      expect(isAgTechCompany('Indigo Ag')).toBe(true);
+      expect(isAgTechCompany('AGCO Corporation')).toBe(true);
     });
+  });
 
-    it('returns AgTech & Industrial Tech category label', () => {
-      expect(getPeerCategory('Nutrien')).toBe('AgTech & Industrial Tech');
-      expect(getPeerCategory('Corteva Agriscience')).toBe('AgTech & Industrial Tech');
-      expect(getPeerCategory('John Deere')).toBe('AgTech & Industrial Tech');
+  describe('Agri-Finance, Commodity Trading & Crop FinTech Peers', () => {
+    it('identifies commodity risk, farm credit, crop insurance, and agri-fintech companies', () => {
+      expect(isAgriFinanceCompany('Cargill')).toBe(true);
+      expect(isAgriFinanceCompany('ADM')).toBe(true);
+      expect(isAgriFinanceCompany('Archer Daniels Midland')).toBe(true);
+      expect(isAgriFinanceCompany('Bunge')).toBe(true);
+      expect(isAgriFinanceCompany('Louis Dreyfus Company')).toBe(true);
+      expect(isAgriFinanceCompany('CHS Inc')).toBe(true);
+      expect(isAgriFinanceCompany('Farm Credit Services of America')).toBe(true);
+      expect(isAgriFinanceCompany('CoBank')).toBe(true);
+      expect(isAgriFinanceCompany('Bushel')).toBe(true);
+      expect(isAgriFinanceCompany('AgVend')).toBe(true);
+      expect(isAgriFinanceCompany('ProducePay')).toBe(true);
+    });
+  });
+
+  describe('checkAgriClassification domain intelligence', () => {
+    it('classifies job by title/description keywords even if company is a generic staffing/tech agency', () => {
+      const agTechJob = checkAgriClassification(
+        'Senior QA Automation Engineer - Precision Ag & Telematics',
+        'Apex Systems',
+        'Automated testing for tractor telematics, crop yield maps, and digital agronomy software.'
+      );
+      expect(agTechJob.isAgTech).toBe(true);
+      expect(agTechJob.agriCategory).toBe('Precision AgTech');
+
+      const agriFinJob = checkAgriClassification(
+        'SDET Lead - Commodity Trading & Risk Management',
+        'Global Tech Corp',
+        'Building Playwright automation for agricultural commodity trading, grain contracts, and crop financing.'
+      );
+      expect(agriFinJob.isAgriFinance).toBe(true);
+      expect(agriFinJob.agriCategory).toBe('Agri-Finance & Commodities');
     });
   });
 
   describe('Combined isPeerCompany check', () => {
-    it('returns true for both Clario and Nutrien peers and false for unrelated companies', () => {
+    it('returns true for Clario, Nutrien, AgTech, and AgriFinance peers and false for unrelated companies', () => {
       expect(isPeerCompany('Clario')).toBe(true);
       expect(isPeerCompany('Nutrien')).toBe(true);
+      expect(isPeerCompany('Cargill')).toBe(true);
+      expect(isPeerCompany('ADM')).toBe(true);
       expect(isPeerCompany('Veeva Systems')).toBe(true);
       expect(isPeerCompany('Corteva')).toBe(true);
       expect(isPeerCompany('Random Startup Inc')).toBe(false);

@@ -4770,7 +4770,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4444345454",
@@ -4810,7 +4813,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4441885963",
@@ -4848,7 +4854,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4340386901",
@@ -4888,7 +4897,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4441876202",
@@ -4926,7 +4938,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4407302204",
@@ -4965,7 +4980,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4441891064",
@@ -5002,7 +5020,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4435280573",
@@ -5039,7 +5060,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4413773571",
@@ -5076,7 +5100,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4444614202",
@@ -5113,7 +5140,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4413370298",
@@ -5150,7 +5180,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4417401708",
@@ -5188,7 +5221,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4441833345",
@@ -5225,7 +5261,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4427068816",
@@ -5262,7 +5301,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4444342427",
@@ -5299,7 +5341,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4454853549",
@@ -5336,7 +5381,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4436446098",
@@ -5373,7 +5421,10 @@
       "isPeerCompany": true,
       "isClarioPeer": true,
       "isNutrienPeer": false,
-      "peerCategory": "Life Sciences & HealthTech"
+      "peerCategory": "Life Sciences & HealthTech",
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4436409441",
@@ -5410,7 +5461,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4444660375",
@@ -5447,7 +5501,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4454867212",
@@ -5484,7 +5541,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4455154028",
@@ -5521,7 +5581,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4416733152",
@@ -5558,7 +5621,10 @@
       "isPeerCompany": true,
       "isClarioPeer": true,
       "isNutrienPeer": false,
-      "peerCategory": "Life Sciences & HealthTech"
+      "peerCategory": "Life Sciences & HealthTech",
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4454850926",
@@ -5595,7 +5661,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4441845648",
@@ -5632,7 +5701,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4451296480",
@@ -5669,7 +5741,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4435298026",
@@ -5706,7 +5781,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4453799279",
@@ -5743,7 +5821,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4444612713",
@@ -5780,7 +5861,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4445247481",
@@ -5817,7 +5901,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4454860753",
@@ -5854,7 +5941,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4413648298",
@@ -5891,7 +5981,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4379684346",
@@ -5928,7 +6021,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4445216490",
@@ -5965,7 +6061,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4453030568",
@@ -6008,7 +6107,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4454838818",
@@ -6047,7 +6149,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4427920180",
@@ -6084,7 +6189,10 @@
       "isPeerCompany": true,
       "isClarioPeer": false,
       "isNutrienPeer": true,
-      "peerCategory": "AgTech & Industrial Tech"
+      "peerCategory": "AgTech & Industrial Tech",
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4453919333",
@@ -6121,7 +6229,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4454807737",
@@ -6158,7 +6269,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4423670320",
@@ -6195,7 +6309,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4445250377",
@@ -6232,7 +6349,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4431981443",
@@ -6269,7 +6389,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4454896483",
@@ -6306,7 +6429,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4451712301",
@@ -6343,7 +6469,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4433134351",
@@ -6380,7 +6509,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4435293155",
@@ -6417,7 +6549,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4407047258",
@@ -6454,7 +6589,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4415943544",
@@ -6491,7 +6629,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4454881034",
@@ -6528,7 +6669,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4445258191",
@@ -6565,7 +6709,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4407640775",
@@ -6602,7 +6749,10 @@
       "isPeerCompany": true,
       "isClarioPeer": true,
       "isNutrienPeer": true,
-      "peerCategory": "Life Sciences & HealthTech"
+      "peerCategory": "Life Sciences & HealthTech",
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4398958028",
@@ -6639,7 +6789,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4454898469",
@@ -6676,7 +6829,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4427581589",
@@ -6713,7 +6869,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4444663763",
@@ -6750,7 +6909,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4445317585",
@@ -6787,7 +6949,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4444377100",
@@ -6824,7 +6989,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4435255737",
@@ -6861,7 +7029,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4448474708",
@@ -6898,7 +7069,10 @@
       "isPeerCompany": true,
       "isClarioPeer": true,
       "isNutrienPeer": false,
-      "peerCategory": "Life Sciences & HealthTech"
+      "peerCategory": "Life Sciences & HealthTech",
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4424830272",
@@ -6935,7 +7109,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4445307984",
@@ -6972,7 +7149,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4451271891",
@@ -7009,7 +7189,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4454865437",
@@ -7047,7 +7230,10 @@
       "isPeerCompany": true,
       "isClarioPeer": true,
       "isNutrienPeer": false,
-      "peerCategory": "Life Sciences & HealthTech"
+      "peerCategory": "Life Sciences & HealthTech",
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4451746434",
@@ -7084,7 +7270,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4454835628",
@@ -7122,7 +7311,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4453936185",
@@ -7160,7 +7352,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4442902140",
@@ -7198,7 +7393,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4453949213",
@@ -7235,7 +7433,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4435277359",
@@ -7272,7 +7473,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4398635226",
@@ -7309,7 +7513,10 @@
       "isPeerCompany": true,
       "isClarioPeer": true,
       "isNutrienPeer": false,
-      "peerCategory": "Life Sciences & HealthTech"
+      "peerCategory": "Life Sciences & HealthTech",
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4436714727",
@@ -7347,7 +7554,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4427921108",
@@ -7384,7 +7594,10 @@
       "isPeerCompany": true,
       "isClarioPeer": false,
       "isNutrienPeer": true,
-      "peerCategory": "AgTech & Industrial Tech"
+      "peerCategory": "AgTech & Industrial Tech",
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4451287407",
@@ -7421,7 +7634,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4453799993",
@@ -7458,7 +7674,10 @@
       "isPeerCompany": true,
       "isClarioPeer": true,
       "isNutrienPeer": false,
-      "peerCategory": "Life Sciences & HealthTech"
+      "peerCategory": "Life Sciences & HealthTech",
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4423137894",
@@ -7495,7 +7714,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4406005354",
@@ -7532,7 +7754,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4448476706",
@@ -7569,7 +7794,10 @@
       "isPeerCompany": true,
       "isClarioPeer": true,
       "isNutrienPeer": false,
-      "peerCategory": "Life Sciences & HealthTech"
+      "peerCategory": "Life Sciences & HealthTech",
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4454879741",
@@ -7606,7 +7834,10 @@
       "isPeerCompany": true,
       "isClarioPeer": true,
       "isNutrienPeer": false,
-      "peerCategory": "Life Sciences & HealthTech"
+      "peerCategory": "Life Sciences & HealthTech",
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4454843586",
@@ -7643,7 +7874,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4444967375",
@@ -7680,7 +7914,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4454873089",
@@ -7717,7 +7954,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4454853410",
@@ -7759,7 +7999,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4453947196",
@@ -7796,7 +8039,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4455121016",
@@ -7834,7 +8080,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4453751093",
@@ -7871,7 +8120,10 @@
       "isPeerCompany": true,
       "isClarioPeer": false,
       "isNutrienPeer": true,
-      "peerCategory": "AgTech & Industrial Tech"
+      "peerCategory": "AgTech & Industrial Tech",
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4445262523",
@@ -7911,7 +8163,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4451276484",
@@ -7948,7 +8203,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4395486172",
@@ -7989,7 +8247,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4445290268",
@@ -8031,7 +8292,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4453907262",
@@ -8068,7 +8332,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4451287377",
@@ -8105,7 +8372,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4453746730",
@@ -8142,7 +8412,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4445254850",
@@ -8180,7 +8453,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4444603420",
@@ -8220,7 +8496,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4454839859",
@@ -8257,7 +8536,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4455146083",
@@ -8296,7 +8578,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4451284377",
@@ -8333,7 +8618,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4454872214",
@@ -8375,10 +8663,13 @@
       "applyConfidence": 0.6,
       "lastSeen": "2026-08-16T02:08:08.952Z",
       "description": "Role: Senior Test Engineer supporting complex software systems within an Agile Scrum environment.Responsibilities: Lead test planning, design, execution, and documentation of functional, integration, system, regression, and end-to-end tests. Develop and maintain automated test frameworks and scripts, collaborate with cross-functional teams to define acceptance criteria, analyze requirements to create detailed test plans, identify and track defects, support Agile ceremonies, validate system performance, generate quality metrics, mentor junior engineers, and integrate automated testing into CI/CD pipelines.Qualifications & Skills: US citizenship with active Top Secret/SCI clearance, 8+ years of software testing or quality engineering experience, expertise in automated testing frameworks (e.g., Cypress, Playwright), API testing (Postman, REST Assured), CI/CD tools (Jenkins, GitLab), defect management (Jira), and scripting languages (JavaScript, Python). Strong communication skills for technical and non-technical stakeholders.Preferred Skills: Experience with DoD/Intelligence programs, containerization (Docker, Kubernetes), performance testing (JMeter), cloud platforms (AWS, Azure), DevSecOps, geospatial applications, and relevant certifications (ISTQB, Security+).",
-      "isPeerCompany": false,
+      "isPeerCompany": true,
       "isClarioPeer": false,
-      "isNutrienPeer": false,
-      "peerCategory": null
+      "isNutrienPeer": true,
+      "peerCategory": "Agri-Finance & Commodities",
+      "isAgTech": false,
+      "isAgriFinance": true,
+      "agriCategory": "Agri-Finance & Commodities"
     },
     {
       "id": "4448494667",
@@ -8418,7 +8709,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4448706250",
@@ -8458,7 +8752,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4427926313",
@@ -8503,7 +8800,10 @@
       "isPeerCompany": true,
       "isClarioPeer": true,
       "isNutrienPeer": false,
-      "peerCategory": "Life Sciences & HealthTech"
+      "peerCategory": "Life Sciences & HealthTech",
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4444634488",
@@ -8545,7 +8845,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4454832877",
@@ -8585,7 +8888,10 @@
       "isPeerCompany": true,
       "isClarioPeer": false,
       "isNutrienPeer": true,
-      "peerCategory": "AgTech & Industrial Tech"
+      "peerCategory": "AgTech & Industrial Tech",
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4444398963",
@@ -8624,7 +8930,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4445247499",
@@ -8661,7 +8970,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4445229944",
@@ -8698,7 +9010,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4416721663",
@@ -8735,7 +9050,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4451224891",
@@ -8778,7 +9096,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4441836834",
@@ -8815,7 +9136,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4413668216",
@@ -8852,7 +9176,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4451294565",
@@ -8890,7 +9217,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4455120173",
@@ -8927,7 +9257,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4433133478",
@@ -8967,7 +9300,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4435291127",
@@ -9007,7 +9343,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4454572869",
@@ -9044,7 +9383,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4451297494",
@@ -9082,7 +9424,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4444606426",
@@ -9122,7 +9467,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4426694243",
@@ -9163,7 +9511,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     },
     {
       "id": "4386576548",
@@ -9201,7 +9552,10 @@
       "isPeerCompany": false,
       "isClarioPeer": false,
       "isNutrienPeer": false,
-      "peerCategory": null
+      "peerCategory": null,
+      "isAgTech": false,
+      "isAgriFinance": false,
+      "agriCategory": null
     }
   ],
   "lastAttempt": "2026-08-17T23:47:02.441Z",
